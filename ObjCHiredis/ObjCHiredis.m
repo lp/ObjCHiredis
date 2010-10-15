@@ -7,7 +7,7 @@
 //
 
 #import "ObjCHiredis.h"
-
+#import "hiredis.h"
 
 @implementation ObjCHiredis
 
