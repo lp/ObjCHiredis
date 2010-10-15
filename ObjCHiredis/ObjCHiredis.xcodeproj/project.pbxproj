@@ -17,6 +17,15 @@
 		0CC05751126902E1001B140E /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CC0574F126902E1001B140E /* ObjCHiredis.h */; };
 		0CC05752126902E1001B140E /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC05750126902E1001B140E /* ObjCHiredis.m */; };
 		0CC0575312690314001B140E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
+		0CC0579D12691174001B140E /* anet.c in Sources */ = {isa = PBXBuildFile; fileRef = 0CC05747126902BC001B140E /* anet.c */; };
+		0CC0579E12691176001B140E /* anet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CC05746126902BC001B140E /* anet.h */; };
+		0CC0579F1269117A001B140E /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CC05745126902BC001B140E /* fmacros.h */; };
+		0CC057A012691180001B140E /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0CC05744126902BC001B140E /* hiredis.c */; };
+		0CC057A112691181001B140E /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CC05743126902BC001B140E /* hiredis.h */; };
+		0CC057A21269118D001B140E /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CC0574F126902E1001B140E /* ObjCHiredis.h */; };
+		0CC057A31269118F001B140E /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC05750126902E1001B140E /* ObjCHiredis.m */; };
+		0CC057A412691192001B140E /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0CC05742126902BC001B140E /* sds.c */; };
+		0CC057A512691194001B140E /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CC05741126902BB001B140E /* sds.h */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +42,7 @@
 		0CC05747126902BC001B140E /* anet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = anet.c; sourceTree = "<group>"; };
 		0CC0574F126902E1001B140E /* ObjCHiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis.h; sourceTree = "<group>"; };
 		0CC05750126902E1001B140E /* ObjCHiredis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis.m; sourceTree = "<group>"; };
+		0CC0579912691156001B140E /* libObjCHiredis_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjCHiredis_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* ObjCHiredis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +51,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0CC0579712691156001B140E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF560486A6940098B216 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */,
+				0CC0579912691156001B140E /* libObjCHiredis_iOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +161,18 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0CC0579512691156001B140E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CC0579E12691176001B140E /* anet.h in Headers */,
+				0CC0579F1269117A001B140E /* fmacros.h in Headers */,
+				0CC057A112691181001B140E /* hiredis.h in Headers */,
+				0CC057A21269118D001B140E /* ObjCHiredis.h in Headers */,
+				0CC057A512691194001B140E /* sds.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF500486A6940098B216 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,6 +188,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0CC0579812691156001B140E /* ObjCHiredis_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0CC057A9126911AB001B140E /* Build configuration list for PBXNativeTarget "ObjCHiredis_iOS" */;
+			buildPhases = (
+				0CC0579512691156001B140E /* Headers */,
+				0CC0579612691156001B140E /* Sources */,
+				0CC0579712691156001B140E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCHiredis_iOS;
+			productName = ObjCHiredis_iOS;
+			productReference = 0CC0579912691156001B140E /* libObjCHiredis_iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		8DC2EF4F0486A6940098B216 /* ObjCHiredis */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "ObjCHiredis" */;
@@ -191,6 +238,7 @@
 			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* ObjCHiredis */,
+				0CC0579812691156001B140E /* ObjCHiredis_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +255,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0CC0579612691156001B140E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CC0579D12691174001B140E /* anet.c in Sources */,
+				0CC057A012691180001B140E /* hiredis.c in Sources */,
+				0CC057A31269118F001B140E /* ObjCHiredis.m in Sources */,
+				0CC057A412691192001B140E /* sds.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +291,33 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0CC0579A12691156001B140E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = ObjCHiredis_iOS;
+				SDKROOT = iphoneos4.0;
+			};
+			name = Debug;
+		};
+		0CC0579B12691156001B140E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = ObjCHiredis_iOS;
+				SDKROOT = iphoneos4.0;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1DEB91AE08733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -300,6 +386,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0CC057A9126911AB001B140E /* Build configuration list for PBXNativeTarget "ObjCHiredis_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CC0579A12691156001B140E /* Debug */,
+				0CC0579B12691156001B140E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "ObjCHiredis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
