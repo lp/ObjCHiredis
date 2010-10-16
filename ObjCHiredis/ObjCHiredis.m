@@ -11,7 +11,7 @@
 
 @interface ObjCHiredis ()
 
-- (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(int)size;
+- (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(size_t)size;
 - (id)parseReply:(redisReply*)reply;
 
 @end
@@ -52,20 +52,23 @@
 - (id)parseReply:(redisReply*)reply {
 	id retVal;
 	if (reply->type == REDIS_REPLY_ERROR) {
-		retVal = nil;
+		retVal = [NSString stringWithUTF8String:reply->reply];
 	} else if (reply->type == REDIS_REPLY_STRING) {
 		retVal = [NSString stringWithUTF8String:reply->reply];
 	} else if (reply->type == REDIS_REPLY_ARRAY) {
 		retVal = [self arrayFromVector:reply->element ofSize:reply->elements];
 	} else if (reply->type == REDIS_REPLY_INTEGER) {
 		retVal = [NSNumber numberWithLongLong:reply->integer];
-	} else {
+	} else if (reply->type == REDIS_REPLY_NIL) {
 		retVal = nil;
+	}
+	else {
+		retVal = [NSString stringWithFormat:@"'%@'", [NSString stringWithUTF8String:reply->reply]];
 	}
 	return retVal;
 }
 
-- (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(int)size {
+- (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(size_t)size {
 	NSMutableArray * buildArray = [NSMutableArray array];
 	for (int i; i < size; i++) {
 		if (vec[i] != NULL) {

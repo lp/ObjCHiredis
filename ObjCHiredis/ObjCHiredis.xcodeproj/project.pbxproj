@@ -18,8 +18,8 @@
 		0C920CF912696723004A624F /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CF712696723004A624F /* ObjCHiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C920D11126967B0004A624F /* ObjCHiredis_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CFC12696735004A624F /* ObjCHiredis_TestCase.m */; };
 		0C920D16126967C6004A624F /* ObjCHiredis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */; };
+		0C920DE712696D70004A624F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
-		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				0C920DE712696D70004A624F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

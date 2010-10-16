@@ -32,6 +32,7 @@
 }
 
 - (void)tearDown {
+	[redis command:@"FLUSHALL"];
 	[redis release];
 }
 
@@ -45,7 +46,18 @@
 
 - (void)test_03_String {
 	STAssertTrue([[redis command:@"SET FOO BAR"] isEqualToString:@"OK"] , @"Couldn't SET, got %@", [redis command:@"SET FOO BAR"]);
-	STAssertTrue([[redis command:@"GET BAR"] isEqualToString:@"BAR"] , @"Couldn't GET, got %@", [redis command:@"GET BAR"]);
+	STAssertTrue([[redis command:@"GET FOO"] isEqualToString:@"BAR"] , @"Couldn't GET, got %@", [redis command:@"GET BAR"]);
+}
+
+- (void)test_11_List {
+	STAssertTrue([[redis command:@"RPUSH BASKET APPLE"] isKindOfClass:[NSNumber class]], @"Couldn't RPUSH, got %@", [redis command:@"RPUSH BASKET APPLE"]);
+	STAssertTrue([[redis command:@"RPOP BASKET"] isKindOfClass:[NSString class]], @"Couldn't RPOP, got %@", [redis command:@"RPOP BASKET"]);
+	[redis command:@"RPUSH BASKET BANANA"];
+	STAssertTrue([[redis command:@"RPOP BASKET"] isEqualToString:@"BANANA"], @"Couldn't RPOP, got %@", [redis command:@"RPOP BASKET"]);
+	[redis command:@"RPUSH BASKET PRUNE"];
+	[redis command:@"RPUSH BASKET TOMATO"];
+	[redis command:@"RPUSH BASKET ZUCHINI"];
+	STAssertTrue([[redis command:@"LRANGE BASKET 0 2"] isKindOfClass:[NSArray class]], @"Couldn't LRANGE, got %@", [redis command:@"LRANGE BASKET 0 2"]);
 }
 
 @end
