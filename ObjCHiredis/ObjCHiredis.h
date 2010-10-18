@@ -13,8 +13,8 @@
 }
 
 + (id)redis;
-
-- (BOOL)connect;
++ (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber;
+- (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;
 - (id)command:(NSString*)command;
 
 @end

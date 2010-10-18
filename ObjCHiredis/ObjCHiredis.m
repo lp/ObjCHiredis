@@ -19,20 +19,24 @@
 @implementation ObjCHiredis
 
 + (id)redis {
-	ObjCHiredis * hiredis = [[ObjCHiredis alloc] init];
-	[hiredis autorelease];
+	return [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379]];
+}
+
++ (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber {
+	ObjCHiredis * redis = [[ObjCHiredis alloc] init];
+	[redis autorelease];
 	
-	if ([hiredis connect]) {
-		return hiredis;
+	if ([redis connect:ipaddress on:portnumber]) {
+		return redis;
 	} else {
 		return nil;
 	}
 }
 
-- (BOOL)connect {
+- (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber {
 	redisReply *reply;
 	
-    reply = redisConnect(&fd, "127.0.0.1", 6379);
+    reply = redisConnect(&fd, [ipaddress UTF8String], [portnumber intValue]);
     if (reply != NULL) {
         NSLog(@"Connection error: %s", reply->reply);
         return NO;
