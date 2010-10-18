@@ -57,7 +57,8 @@
 	[redis command:@"RPUSH BASKET PRUNE"];
 	[redis command:@"RPUSH BASKET TOMATO"];
 	[redis command:@"RPUSH BASKET ZUCHINI"];
-	STAssertTrue([[redis command:@"LRANGE BASKET 0 2"] isKindOfClass:[NSArray class]], @"Couldn't LRANGE, got %@", [redis command:@"LRANGE BASKET 0 2"]);
+	STAssertTrue([[redis command:@"LRANGE BASKET 0 1"] isKindOfClass:[NSArray class]], @"Couldn't LRANGE, got %@", [redis command:@"LRANGE BASKET 0 1"]);
+	STAssertTrue([[redis command:@"LRANGE BASKET 0 1"] count] == 2 , @"Couldn't LRANGE length, got %d", [[redis command:@"LRANGE BASKET 0 1"] count]);
 }
 
 @end

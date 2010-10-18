@@ -70,7 +70,8 @@
 
 - (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(size_t)size {
 	NSMutableArray * buildArray = [NSMutableArray array];
-	for (int i; i < size; i++) {
+	NSInteger size_i = (NSInteger)size;
+	for (int i; i < size_i; i++) {
 		if (vec[i] != NULL) {
 			[buildArray addObject:[self parseReply:vec[i]]];
 		} else {
