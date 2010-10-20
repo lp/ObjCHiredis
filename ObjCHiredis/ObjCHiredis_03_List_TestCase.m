@@ -47,6 +47,14 @@
 	STAssertTrue([retVal integerValue] == 1, @"LPUSH return value is wrong, got %d", [retVal integerValue]);
 }
 
+- (void)test_03_LLEN {
+	[redis command:@"RPUSH BASKET PRUNE"];
+	[redis command:@"RPUSH BASKET TOMATO"];
+	[redis command:@"RPUSH BASKET ZUCHINI"];
+	STAssertTrue([[redis command:@"LLEN BASKET"] isKindOfClass:[NSNumber class]], @"LLEN didn't return an NSNumber, got: %@", [[redis command:@"LLEN BASKET"] class]);
+	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:3]], @"LLEN returned wrong count, should be 3, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
+}
+
 - (void)test_04_LRANGE {
 	[redis command:@"RPUSH BASKET PRUNE"];
 	[redis command:@"RPUSH BASKET TOMATO"];
