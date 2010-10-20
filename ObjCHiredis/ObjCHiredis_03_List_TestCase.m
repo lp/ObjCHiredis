@@ -41,6 +41,12 @@
 	STAssertTrue([retVal integerValue] == 1, @"RPUSH return value is wrong, got %d", [retVal integerValue]);
 }
 
+- (void)test_02_LPUSH {
+	id retVal = [redis command:@"LPUSH BASKET APPLE"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"LPUSH returned class is not NSNumber, got %d", [retVal class]);
+	STAssertTrue([retVal integerValue] == 1, @"LPUSH return value is wrong, got %d", [retVal integerValue]);
+}
+
 - (void)test_04_LRANGE {
 	[redis command:@"RPUSH BASKET PRUNE"];
 	[redis command:@"RPUSH BASKET TOMATO"];
