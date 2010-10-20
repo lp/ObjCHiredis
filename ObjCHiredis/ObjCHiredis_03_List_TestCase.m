@@ -64,7 +64,9 @@
 }
 
 - (void)test_05_LTRIM {
-	
+	STAssertTrue([[redis command:@"LTRIM BASKET 0 1"] isKindOfClass:[NSString class]], @"LTRIM didn't return NSString status code, got: %@", [[redis command:@"LTRIM BASKET 0 1"] class]);
+	STAssertTrue([[redis command:@"LTRIM BASKET 1 2"] isEqualToString:@"OK"], @"LTRIM didn't return proper status code value, got: %@", [redis command:@"LTRIM BASKET 0 1"]);
+	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:1]], @"LTRIM didn't trim right number of members, sould be left with 1, got: %d", [[redis command:@"LLEN BASKET"] integerValue]); 
 }
 
 - (void)test_09_RPOP {
