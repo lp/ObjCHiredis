@@ -16,7 +16,7 @@
 		0C920CF51269670C004A624F /* anet.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEE1269670C004A624F /* anet.c */; };
 		0C920CF812696723004A624F /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
 		0C920CF912696723004A624F /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CF712696723004A624F /* ObjCHiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0C920D11126967B0004A624F /* ObjCHiredis_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CFC12696735004A624F /* ObjCHiredis_TestCase.m */; };
+		0C920D11126967B0004A624F /* ObjCHiredis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */; };
 		0C920D16126967C6004A624F /* ObjCHiredis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */; };
 		0C920DE712696D70004A624F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
@@ -45,7 +45,7 @@
 		0C920CEE1269670C004A624F /* anet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = anet.c; sourceTree = "<group>"; };
 		0C920CF612696722004A624F /* ObjCHiredis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis.m; sourceTree = "<group>"; };
 		0C920CF712696723004A624F /* ObjCHiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis.h; sourceTree = "<group>"; };
-		0C920CFC12696735004A624F /* ObjCHiredis_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_TestCase.m; sourceTree = "<group>"; };
+		0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_01_Basic_TestCase.m; sourceTree = "<group>"; };
 		0C920D0A12696788004A624F /* Test_ObjCHiredis_OSX.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_ObjCHiredis_OSX.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C920D0B12696788004A624F /* Test_ObjCHiredis_OSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test_ObjCHiredis_OSX-Info.plist"; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -143,7 +143,7 @@
 		0C920CFB12696729004A624F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0C920CFC12696735004A624F /* ObjCHiredis_TestCase.m */,
+				0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C920D11126967B0004A624F /* ObjCHiredis_TestCase.m in Sources */,
+				0C920D11126967B0004A624F /* ObjCHiredis_01_Basic_TestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

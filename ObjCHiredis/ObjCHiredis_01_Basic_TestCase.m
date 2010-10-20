@@ -18,13 +18,13 @@
 #endif
 
 
-@interface ObjCHiredis_TestCase : SenTestCase {
+@interface ObjCHiredis_01_Basic_TestCase : SenTestCase {
 	ObjCHiredis * redis;
 }
 
 @end
 
-@implementation ObjCHiredis_TestCase
+@implementation ObjCHiredis_01_Basic_TestCase
 
 - (void)setUp {
 	redis = [ObjCHiredis redis];
