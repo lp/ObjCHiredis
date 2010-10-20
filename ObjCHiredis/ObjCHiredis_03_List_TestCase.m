@@ -35,11 +35,19 @@
 	[redis release];
 }
 
-- (void)test_11_List {
-	STAssertTrue([[redis command:@"RPUSH BASKET APPLE"] isKindOfClass:[NSNumber class]], @"Couldn't RPUSH, got %@", [redis command:@"RPUSH BASKET APPLE"]);
-	STAssertTrue([[redis command:@"RPOP BASKET"] isKindOfClass:[NSString class]], @"Couldn't RPOP, got %@", [redis command:@"RPOP BASKET"]);
+- (void)test_01_RPUSH {
+	id retVal = [redis command:@"RPUSH BASKET APPLE"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"RPUSH returned class is not NSNumber, got %d", [retVal class]);
+	STAssertTrue([retVal integerValue] == 1, @"RPUSH return value is wrong, got %d", [retVal integerValue]);
+}
+
+- (void)test_09_RPOP {
 	[redis command:@"RPUSH BASKET BANANA"];
 	STAssertTrue([[redis command:@"RPOP BASKET"] isEqualToString:@"BANANA"], @"Couldn't RPOP, got %@", [redis command:@"RPOP BASKET"]);
+
+}
+
+- (void)test_11_List {
 	[redis command:@"RPUSH BASKET PRUNE"];
 	[redis command:@"RPUSH BASKET TOMATO"];
 	[redis command:@"RPUSH BASKET ZUCHINI"];
