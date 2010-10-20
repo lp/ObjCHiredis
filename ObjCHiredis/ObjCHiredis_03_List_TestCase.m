@@ -41,18 +41,21 @@
 	STAssertTrue([retVal integerValue] == 1, @"RPUSH return value is wrong, got %d", [retVal integerValue]);
 }
 
+- (void)test_04_LRANGE {
+	[redis command:@"RPUSH BASKET PRUNE"];
+	[redis command:@"RPUSH BASKET TOMATO"];
+	[redis command:@"RPUSH BASKET ZUCHINI"];
+	STAssertTrue([[redis command:@"LRANGE BASKET 0 2"] isKindOfClass:[NSArray class]], @"LRANGE didn't return an Array, got %@", [[redis command:@"LRANGE BASKET 0 2"] class]);
+	STAssertTrue([[redis command:@"LRANGE BASKET 0 2"] count] == 3 , @"LRANGE returned bad length, should be 3, got %d", [[redis command:@"LRANGE BASKET 0 2"] count]);
+	STAssertTrue([[[redis command:@"LRANGE BASKET 0 2"] objectAtIndex:0] isEqualToString:@"PRUNE"], @"LRANGE returned wrong objects, should be PRUNE, got: %@", [[redis command:@"LRANGE BASKET 0 2"] objectAtIndex:0]);
+	STAssertTrue([[[redis command:@"LRANGE BASKET 0 2"] objectAtIndex:1] isEqualToString:@"TOMATO"], @"LRANGE returned wrong objects, should be TOMATO, got: %@", [[redis command:@"LRANGE BASKET 0 2"] objectAtIndex:1]);
+	STAssertTrue([[[redis command:@"LRANGE BASKET 0 2"] objectAtIndex:2] isEqualToString:@"ZUCHINI"], @"LRANGE returned wrong objects, should be ZUCHINI, got: %@", [[redis command:@"LRANGE BASKET 0 2"] objectAtIndex:2]);
+}
+
 - (void)test_09_RPOP {
 	[redis command:@"RPUSH BASKET BANANA"];
 	STAssertTrue([[redis command:@"RPOP BASKET"] isEqualToString:@"BANANA"], @"Couldn't RPOP, got %@", [redis command:@"RPOP BASKET"]);
 
-}
-
-- (void)test_11_List {
-	[redis command:@"RPUSH BASKET PRUNE"];
-	[redis command:@"RPUSH BASKET TOMATO"];
-	[redis command:@"RPUSH BASKET ZUCHINI"];
-	STAssertTrue([[redis command:@"LRANGE BASKET 0 1"] isKindOfClass:[NSArray class]], @"Couldn't LRANGE, got %@", [redis command:@"LRANGE BASKET 0 1"]);
-	STAssertTrue([[redis command:@"LRANGE BASKET 0 1"] count] == 2 , @"Couldn't LRANGE length, got %d", [[redis command:@"LRANGE BASKET 0 1"] count]);
 }
 
 @end
