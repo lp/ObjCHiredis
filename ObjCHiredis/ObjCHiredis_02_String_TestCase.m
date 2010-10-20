@@ -36,8 +36,12 @@
 	[redis release];
 }
 
-- (void)test_03_Get {
+- (void)test_01_Set {
 	STAssertTrue([[redis command:@"SET FOO BAR"] isEqualToString:@"OK"] , @"Couldn't SET, got %@", [redis command:@"SET FOO BAR"]);
+}
+
+- (void)test_02_Get {
+	[redis command:@"SET FOO BAR"];
 	STAssertTrue([[redis command:@"GET FOO"] isEqualToString:@"BAR"] , @"Couldn't GET, got %@", [redis command:@"GET BAR"]);
 }
 
