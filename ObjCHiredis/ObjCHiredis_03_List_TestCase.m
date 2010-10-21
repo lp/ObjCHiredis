@@ -110,6 +110,9 @@
 	STAssertTrue([[retVal objectAtIndex:0] isEqualToString:@"BASKET"], @"BLPOP returned array doesn't have poped key, BASKET, as first member, got: %@", [retVal objectAtIndex:0]);
 	STAssertTrue([[retVal objectAtIndex:1] isEqualToString:@"PRUNE"], @"BLPOP returned array doesn't have poped member, PRUNE, as second member, got: %@", [retVal objectAtIndex:1]);
 	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:2]], @"BLPOP didn't reduce the list length, should be 2, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
+	
+	retVal = [redis command:@"BLPOP BAG PURSE 1"];
+	STAssertTrue(retVal == nil, @"BLPOP didn't return nil, got: %@", [retVal class]);
 }
 
 @end
