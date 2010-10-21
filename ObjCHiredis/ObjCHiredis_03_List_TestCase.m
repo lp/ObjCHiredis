@@ -83,6 +83,13 @@
 	STAssertTrue([[redis command:@"LINDEX BASKET 2"] isEqualToString:@"CHERRY"], @"LSET failed, member 2 should now be CHERRY, got: %@", [redis command:@"LINDEX BASKET 2"]);
 }
 
+- (void)test_08_LREM {
+	STAssertTrue([[redis command:@"LREM BASKET 1 PRUNE"] isKindOfClass:[NSNumber class]], @"LREM didn't return an NSNumber, got: %@", [[redis command:@"LREM BASKET 1 TOMATO"] class]);
+	STAssertTrue([[redis command:@"LREM BASKET 1 TOMATO"] isEqualToNumber:[NSNumber numberWithInt:1]], @"LREM didn't return the number of members removed, should be 1, got: %d", [[redis command:@"LREM BASKET 1 TOMATO"] integerValue]);
+	STAssertTrue([[redis command:@"LREM BASKET 1 TOMATO"] isEqualToNumber:[NSNumber numberWithInt:0]], @"LREM didn't return the number of members removed, should be 1, got: %d", [[redis command:@"LREM BASKET 1 TOMATO"] integerValue]);
+	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:1]], @"LREM didn't reduce the list length, should be 1, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
+}
+
 - (void)test_09_RPOP {
 	[redis command:@"RPUSH BASKET BANANA"];
 	STAssertTrue([[redis command:@"RPOP BASKET"] isEqualToString:@"BANANA"], @"Couldn't RPOP, got %@", [redis command:@"RPOP BASKET"]);
