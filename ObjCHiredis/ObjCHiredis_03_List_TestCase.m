@@ -69,11 +69,18 @@
 	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:1]], @"LTRIM didn't trim right number of members, sould be left with 1, got: %d", [[redis command:@"LLEN BASKET"] integerValue]); 
 }
 
-- (void)test_04_LINDEX {
+- (void)test_06_LINDEX {
 	STAssertTrue([[redis command:@"LINDEX BASKET 0"] isKindOfClass:[NSString class]], @"LINDEX didn't return an NSString, got: %@", [[redis command:@"LINDEX BASKET 0"] class]);
 	STAssertTrue([[redis command:@"LINDEX BASKET 0"] isEqualToString:@"PRUNE"], @"LINDEX didn't return right member, should be PRUNE, got: %@", [redis command:@"LINDEX BASKET 0"]); 
 	STAssertTrue([[redis command:@"LINDEX BASKET 1"] isEqualToString:@"TOMATO"], @"LINDEX didn't return right member, should be TOMATO, got: %@", [redis command:@"LINDEX BASKET 0"]); 
 	STAssertTrue([[redis command:@"LINDEX BASKET 2"] isEqualToString:@"ZUCHINI"], @"LINDEX didn't return right member, should be ZUCHINI, got: %@", [redis command:@"LINDEX BASKET 0"]); 
+}
+
+- (void)test_07_LSET {
+	STAssertTrue([[redis command:@"LSET BASKET 3 GRAPES"] isKindOfClass:[NSString class]], @"LSET didn't return an NSString, got: %@", [[redis command:@"LSET BASKET 3 GRAPES"] class]);
+	STAssertTrue([[redis command:@"LSET BASKET 2 CHERRY"] isEqualToString:@"OK"], @"LSET didn't respond properly, should have returned OK, got: %@", [redis command:@"LSET BASKET 2 CHERRY"]);
+	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:3]], @"LSET didn't set properly, list has wrong length, should be 3, got %d", [[redis command:@"LLEN BASKET"] integerValue]);
+	STAssertTrue([[redis command:@"LINDEX BASKET 2"] isEqualToString:@"CHERRY"], @"LSET failed, member 2 should now be CHERRY, got: %@", [redis command:@"LINDEX BASKET 2"]);
 }
 
 - (void)test_09_RPOP {
