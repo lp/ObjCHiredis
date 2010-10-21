@@ -115,4 +115,15 @@
 	STAssertTrue(retVal == nil, @"BLPOP didn't return nil, got: %@", [retVal class]);
 }
 
+- (void)test_12_BRPOP {
+	id retVal = [redis command:@"BRPOP BAG BASKET 0"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"BRPOP didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([[retVal objectAtIndex:0] isEqualToString:@"BASKET"], @"BRPOP returned array doesn't have poped key, BASKET, as first member, got: %@", [retVal objectAtIndex:0]);
+	STAssertTrue([[retVal objectAtIndex:1] isEqualToString:@"ZUCHINI"], @"BRPOP returned array doesn't have poped member, PRUNE, as second member, got: %@", [retVal objectAtIndex:1]);
+	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:2]], @"BRPOP didn't reduce the list length, should be 2, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
+	
+	retVal = [redis command:@"BRPOP BAG PURSE 1"];
+	STAssertTrue(retVal == nil, @"BRPOP didn't return nil, got: %@", [retVal class]);
+}
+
 @end
