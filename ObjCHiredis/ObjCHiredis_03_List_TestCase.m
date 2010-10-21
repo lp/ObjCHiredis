@@ -90,10 +90,18 @@
 	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:1]], @"LREM didn't reduce the list length, should be 1, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
 }
 
-- (void)test_09_RPOP {
-	[redis command:@"RPUSH BASKET BANANA"];
-	STAssertTrue([[redis command:@"RPOP BASKET"] isEqualToString:@"BANANA"], @"Couldn't RPOP, got %@", [redis command:@"RPOP BASKET"]);
+- (void)test_09_LPOP {
+	id retVal = [redis command:@"LPOP BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"LPOP didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"PRUNE"], @"LPOP didn't return the proper object, got: %@", retVal);
+	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:2]], @"LPOP didn't reduce the list length, should be 2, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
+}
 
+- (void)test_10_RPOP {
+	id retVal = [redis command:@"RPOP BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"RPOP didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"ZUCHINI"], @"Couldn't RPOP, got %@", retVal);
+	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:2]], @"RPOP didn't reduce the list length, should be 2, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
 }
 
 @end
