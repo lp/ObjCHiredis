@@ -58,5 +58,14 @@
 	STAssertTrue([possibles containsObject:retVal], @"SPOP didn't return the popped member, got: %@", retVal);
 }
 
+- (void)test_04_SMOVE {
+	id retVal = [redis command:@"SMOVE BASKET BAG PRUNE"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SMOVE didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SMOVE didn't return 1 on success, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"SMOVE BASKET BAG ORANGE"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SMOVE didn't return 0 on failure, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"SPOP BAG"];
+	STAssertTrue([retVal isEqualToString:@"PRUNE"], @"SMOVE didn't move PRUNE to BAG, got: %@", retVal);
+}
+
 
 @end
