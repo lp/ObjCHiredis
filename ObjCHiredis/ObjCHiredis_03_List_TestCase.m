@@ -136,4 +136,14 @@
 	STAssertTrue([redis command:@"RPOPLPUSH ROCKS TRUCK"] == nil, @"RPOPLPUSH didn't return nil on an empty source list, got: %@", [redis command:@"RPOPLPUSH ROCKS TRUCK"]);
 }
 
+- (void)test_14_SORT {
+	[redis command:@"RPUSH BASKET BANANA"];
+	id retVal = [redis command:@"SORT BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"SORT on list didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([[retVal objectAtIndex:0] isEqualToString:@"PRUNE"], @"SORT on list, did sort alpha even if not specified, first item shoud be PRUNE, got: %@", [retVal objectAtIndex:0]);
+
+	retVal = [redis command:@"SORT BASKET ALPHA"];
+	STAssertTrue([[retVal objectAtIndex:0] isEqualToString:@"BANANA"], @"SORT on list, didn't sort alpha, first item shoud be BANANA, got: %@", [retVal objectAtIndex:0]);
+}
+
 @end
