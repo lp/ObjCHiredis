@@ -51,5 +51,12 @@
 	STAssertTrue([[redis command:@"SREM BASKET ORANGE"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SREM didn't return 0 on failure, got: %d", [[redis command:@"SREM BASKET ORANGE"] integerValue]);
 }
 
+- (void)test_03_SPOP {
+	id retVal = [redis command:@"SPOP BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"SPOP didn't return an NSString, got: %@", [retVal class]);
+	NSArray * possibles = [NSArray arrayWithObjects:@"PRUNE",@"TOMATO",@"ZUCHINI",nil];
+	STAssertTrue([possibles containsObject:retVal], @"SPOP didn't return the popped member, got: %@", retVal);
+}
+
 
 @end
