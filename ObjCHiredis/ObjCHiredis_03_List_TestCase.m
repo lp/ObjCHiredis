@@ -126,4 +126,14 @@
 	STAssertTrue(retVal == nil, @"BRPOP didn't return nil, got: %@", [retVal class]);
 }
 
+- (void)test_13_RPOPLPUSH {
+	id retVal = [redis command:@"RPOPLPUSH BASKET BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"RPOPLPUSH didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"ZUCHINI"], @"RPOPLPUSH didn't return the moved member, got: %@", retVal);
+	STAssertTrue([[redis command:@"LLEN BASKET"] isEqualToNumber:[NSNumber numberWithInt:2]], @"RPOPLPUSH didn't reduce the list length, should be 2, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
+	STAssertTrue([[redis command:@"LLEN BAG"] isEqualToNumber:[NSNumber numberWithInt:1]], @"RPOPLPUSH didn't pushed the list length, should be 1, got: %d", [[redis command:@"LLEN BASKET"] integerValue]);
+	STAssertTrue([[redis command:@"LINDEX BAG 0"] isEqualToString:@"ZUCHINI"], @"RPOPLPUSH didn't move ZUCHINI to the new list, got: %@", [redis command:@"LINDEX BAG 0"]);
+	STAssertTrue([redis command:@"RPOPLPUSH ROCKS TRUCK"] == nil, @"RPOPLPUSH didn't return nil on an empty source list, got: %@", [redis command:@"RPOPLPUSH ROCKS TRUCK"]);
+}
+
 @end
