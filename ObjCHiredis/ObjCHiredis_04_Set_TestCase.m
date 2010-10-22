@@ -73,7 +73,16 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:3]], @"SCARD didn't return the cardinality, should be 3, got: %d", [retVal integerValue]);
 	retVal = [redis command:@"SCARD BAG"];
 	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SCARD didn't return an NSNumber, got: %@", [retVal class]);
-	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"SCARD didn't return the cardinality, should be 3, got: %d", [retVal integerValue]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"SCARD didn't return the cardinality, should be 0, got: %d", [retVal integerValue]);
+}
+
+- (void)test_06_SISMEMBER {
+	id retVal = [redis command:@"SISMEMBER BASKET TOMATO"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SISMEMBER didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SISMEMBER didn't return 1 on success, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"SISMEMBER BASKET POTATO"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SISMEMBER didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"SISMEMBER didn't return 0 on failure, got: %d", [retVal integerValue]);
 }
 
 
