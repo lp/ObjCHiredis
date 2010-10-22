@@ -17,7 +17,7 @@
 #import "ObjCHiredis/ObjCHiredis.h"
 #endif
 
-@interface ObjCHiredis_03_List_TestCase : SenTestCase {
+@interface ObjCHiredis_04_Set_TestCase : SenTestCase {
 	ObjCHiredis * redis;
 }
 
@@ -27,6 +27,9 @@
 
 - (void)setUp {
 	redis = [ObjCHiredis redis];
+	[redis command:@"SADD BASKET PRUNE"];
+	[redis command:@"SADD BASKET TOMATO"];
+	[redis command:@"SADD BASKET ZUCHINI"];
 	[redis retain];
 }
 
@@ -34,5 +37,12 @@
 	[redis command:@"FLUSHALL"];
 	[redis release];
 }
+
+- (void)test_01_SADD {
+	id retVal = [redis command:@"SADD BASKET BANANA"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SADD didn't return an NSNumber, got: %@", [[redis command:@"SADD BASKET BANANA"] class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SADD didn't return success of adding member in Set, chould be 1, got: %d", [retVal integerValue]); 
+}
+
 
 @end
