@@ -67,5 +67,14 @@
 	STAssertTrue([retVal isEqualToString:@"PRUNE"], @"SMOVE didn't move PRUNE to BAG, got: %@", retVal);
 }
 
+- (void)test_05_SCARD {
+	id retVal = [redis command:@"SCARD BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SCARD didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:3]], @"SCARD didn't return the cardinality, should be 3, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"SCARD BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SCARD didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"SCARD didn't return the cardinality, should be 3, got: %d", [retVal integerValue]);
+}
+
 
 @end
