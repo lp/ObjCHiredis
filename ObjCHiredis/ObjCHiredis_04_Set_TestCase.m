@@ -85,5 +85,15 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"SISMEMBER didn't return 0 on failure, got: %d", [retVal integerValue]);
 }
 
+- (void)test_07_SINTER {
+	[redis command:@"SADD BAG TOMATO"];
+	[redis command:@"SADD BAG POTATO"];
+	[redis command:@"SADD BAG ONION"];
+	id retVal = [redis command:@"SINTER BASKET BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"SINTER didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 1, @"SINTER didn't return the right number of members, should be 1, got: %d", [retVal count]);
+	STAssertTrue([[retVal objectAtIndex:0] isEqualToString:@"TOMATO"], @"SINTER didn't return the right intersecting member, should be TOMATO, got: %@", [retVal objectAtIndex:0]);
+}
+
 
 @end
