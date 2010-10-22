@@ -40,8 +40,15 @@
 
 - (void)test_01_SADD {
 	id retVal = [redis command:@"SADD BASKET BANANA"];
-	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SADD didn't return an NSNumber, got: %@", [[redis command:@"SADD BASKET BANANA"] class]);
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SADD didn't return an NSNumber, got: %@", [retVal class]);
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SADD didn't return success of adding member in Set, chould be 1, got: %d", [retVal integerValue]); 
+}
+
+- (void)test_02_SREM {
+	id retVal = [redis command:@"SREM BASKET PRUNE"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SREM didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SREM didn't return 1 on success, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"SREM BASKET ORANGE"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SREM didn't return 0 on failure, got: %d", [[redis command:@"SREM BASKET ORANGE"] integerValue]);
 }
 
 
