@@ -124,5 +124,12 @@
 	STAssertTrue([[redis command:@"SCARD PURSE"] isEqualToNumber:[NSNumber numberWithInt:5]], @"SUNIONSTORE didn't store all unioned, should be 5, got %d", [[redis command:@"SCARD PURSE"] integerValue]);
 }
 
+- (void)test_11_SDIFF {
+	id retVal = [redis command:@"SDIFF BASKET BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"SDIFF didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 2, @"SDIFF didn't return an array of right size, should be 2, got: %d", [retVal count]);
+	STAssertTrue(([retVal containsObject:@"PRUNE"] && [retVal containsObject:@"ZUCHINI"]), @"SDIFF didn't return proper object in its return array...");
+}
+
 
 @end
