@@ -95,5 +95,18 @@
 	STAssertTrue([[retVal objectAtIndex:0] isEqualToString:@"TOMATO"], @"SINTER didn't return the right intersecting member, should be TOMATO, got: %@", [retVal objectAtIndex:0]);
 }
 
+- (void)test_08_SINTERSTORE {
+	[redis command:@"SADD BAG TOMATO"];
+	[redis command:@"SADD BAG POTATO"];
+	[redis command:@"SADD BAG ONION"];
+	id retVal = [redis command:@"SINTERSTORE PURSE BASKET BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SINTERSTORE didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SINTERSTORE didn't return 1 on success, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"SINTERSTORE DUMMY TRUCK VAN"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SINTERSTORE didn't return 0 on failure, got: %d", [[redis command:@"SINTERSTORE DUMMY TRUCK VAN"] integerValue]);
+
+	STAssertTrue([[redis command:@"SISMEMBER PURSE TOMATO"] isEqualToNumber:[NSNumber numberWithInt:1]], @"SINTERSTORE didn't store the result properly, destination key comtains %d positives items", [[redis command:@"SISMEMBER PURSE TOMATO"] integerValue]);
+	STAssertTrue([[redis command:@"SCARD PURSE"] isEqualToNumber:[NSNumber numberWithInt:1]], @"SINSTERSTORE didn't store the results properly, destination key contains %d members", [[redis command:@"SCARD PURSE"] integerValue]);
+}
+
 
 @end
