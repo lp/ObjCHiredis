@@ -106,6 +106,11 @@
 }
 
 - (void)test_09_SUNION {
+	id retVal = [redis command:@"SUNION BASKET BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"SUNION didn't return an NSArray, got %@", [retVal class]);
+	STAssertTrue([retVal count] == 5, @"SUNION didn't unite the two sets in one, should have 5 members, got: %d", [retVal count]);
+	STAssertTrue([retVal containsObject:@"ONION"], @"SUNION didn't unite the two sets in one");
+	STAssertTrue([retVal containsObject:@"ZUCHINI"], @"SUNION didn't unite the two sets in one");
 }
 
 
