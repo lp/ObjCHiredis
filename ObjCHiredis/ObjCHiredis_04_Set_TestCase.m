@@ -30,6 +30,9 @@
 	[redis command:@"SADD BASKET PRUNE"];
 	[redis command:@"SADD BASKET TOMATO"];
 	[redis command:@"SADD BASKET ZUCHINI"];
+	[redis command:@"SADD BAG TOMATO"];
+	[redis command:@"SADD BAG POTATO"];
+	[redis command:@"SADD BAG ONION"];
 	[redis retain];
 }
 
@@ -59,11 +62,11 @@
 }
 
 - (void)test_04_SMOVE {
-	id retVal = [redis command:@"SMOVE BASKET BAG PRUNE"];
+	id retVal = [redis command:@"SMOVE BASKET PURSE PRUNE"];
 	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SMOVE didn't return an NSNumber, got: %@", [retVal class]);
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SMOVE didn't return 1 on success, got: %d", [retVal integerValue]);
-	STAssertTrue([[redis command:@"SMOVE BASKET BAG ORANGE"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SMOVE didn't return 0 on failure, got: %d", [retVal integerValue]);
-	retVal = [redis command:@"SPOP BAG"];
+	STAssertTrue([[redis command:@"SMOVE BASKET PURSE ORANGE"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SMOVE didn't return 0 on failure, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"SPOP PURSE"];
 	STAssertTrue([retVal isEqualToString:@"PRUNE"], @"SMOVE didn't move PRUNE to BAG, got: %@", retVal);
 }
 
@@ -71,7 +74,7 @@
 	id retVal = [redis command:@"SCARD BASKET"];
 	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SCARD didn't return an NSNumber, got: %@", [retVal class]);
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:3]], @"SCARD didn't return the cardinality, should be 3, got: %d", [retVal integerValue]);
-	retVal = [redis command:@"SCARD BAG"];
+	retVal = [redis command:@"SCARD PURSE"];
 	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SCARD didn't return an NSNumber, got: %@", [retVal class]);
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"SCARD didn't return the cardinality, should be 0, got: %d", [retVal integerValue]);
 }
@@ -86,9 +89,6 @@
 }
 
 - (void)test_07_SINTER {
-	[redis command:@"SADD BAG TOMATO"];
-	[redis command:@"SADD BAG POTATO"];
-	[redis command:@"SADD BAG ONION"];
 	id retVal = [redis command:@"SINTER BASKET BAG"];
 	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"SINTER didn't return an NSArray, got: %@", [retVal class]);
 	STAssertTrue([retVal count] == 1, @"SINTER didn't return the right number of members, should be 1, got: %d", [retVal count]);
@@ -96,9 +96,6 @@
 }
 
 - (void)test_08_SINTERSTORE {
-	[redis command:@"SADD BAG TOMATO"];
-	[redis command:@"SADD BAG POTATO"];
-	[redis command:@"SADD BAG ONION"];
 	id retVal = [redis command:@"SINTERSTORE PURSE BASKET BAG"];
 	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SINTERSTORE didn't return an NSNumber, got: %@", [retVal class]);
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SINTERSTORE didn't return 1 on success, got: %d", [retVal integerValue]);
@@ -106,6 +103,9 @@
 
 	STAssertTrue([[redis command:@"SISMEMBER PURSE TOMATO"] isEqualToNumber:[NSNumber numberWithInt:1]], @"SINTERSTORE didn't store the result properly, destination key comtains %d positives items", [[redis command:@"SISMEMBER PURSE TOMATO"] integerValue]);
 	STAssertTrue([[redis command:@"SCARD PURSE"] isEqualToNumber:[NSNumber numberWithInt:1]], @"SINSTERSTORE didn't store the results properly, destination key contains %d members", [[redis command:@"SCARD PURSE"] integerValue]);
+}
+
+- (void)test_09_SUNION {
 }
 
 
