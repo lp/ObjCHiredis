@@ -96,13 +96,14 @@
 }
 
 - (void)test_08_SINTERSTORE {
+	[redis command:@"SADD BAG ZUCHINI"];
 	id retVal = [redis command:@"SINTERSTORE PURSE BASKET BAG"];
 	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SINTERSTORE didn't return an NSNumber, got: %@", [retVal class]);
-	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"SINTERSTORE didn't return 1 on success, got: %d", [retVal integerValue]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:2]], @"SINTERSTORE didn't return 2 on success, got: %d", [retVal integerValue]);
 	STAssertTrue([[redis command:@"SINTERSTORE DUMMY TRUCK VAN"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SINTERSTORE didn't return 0 on failure, got: %d", [[redis command:@"SINTERSTORE DUMMY TRUCK VAN"] integerValue]);
 
 	STAssertTrue([[redis command:@"SISMEMBER PURSE TOMATO"] isEqualToNumber:[NSNumber numberWithInt:1]], @"SINTERSTORE didn't store the result properly, destination key comtains %d positives items", [[redis command:@"SISMEMBER PURSE TOMATO"] integerValue]);
-	STAssertTrue([[redis command:@"SCARD PURSE"] isEqualToNumber:[NSNumber numberWithInt:1]], @"SINSTERSTORE didn't store the results properly, destination key contains %d members", [[redis command:@"SCARD PURSE"] integerValue]);
+	STAssertTrue([[redis command:@"SCARD PURSE"] isEqualToNumber:[NSNumber numberWithInt:2]], @"SINSTERSTORE didn't store the results properly, destination key contains %d members", [[redis command:@"SCARD PURSE"] integerValue]);
 }
 
 - (void)test_09_SUNION {
@@ -111,6 +112,16 @@
 	STAssertTrue([retVal count] == 5, @"SUNION didn't unite the two sets in one, should have 5 members, got: %d", [retVal count]);
 	STAssertTrue([retVal containsObject:@"ONION"], @"SUNION didn't unite the two sets in one");
 	STAssertTrue([retVal containsObject:@"ZUCHINI"], @"SUNION didn't unite the two sets in one");
+}
+
+- (void)test_10_SUNIONSTORE {
+	id retVal = [redis command:@"SUNIONSTORE PURSE BASKET BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SUNIONSTORE didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:5]], @"SUNIONSTORE didn't return 5 on success, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"SUNIONSTORE DUMMY TRUCK VAN"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SUNIONSTORE didn't return 0 on failure, got: %d", [[redis command:@"SUNIONSTORE DUMMY TRUCK VAN"] integerValue]);
+	
+	STAssertTrue([[redis command:@"SISMEMBER PURSE ONION"] isEqualToNumber:[NSNumber numberWithInt:1]], @"SUNIONSTORE didn't store the union properly");
+	STAssertTrue([[redis command:@"SCARD PURSE"] isEqualToNumber:[NSNumber numberWithInt:5]], @"SUNIONSTORE didn't store all unioned, should be 5, got %d", [[redis command:@"SCARD PURSE"] integerValue]);
 }
 
 
