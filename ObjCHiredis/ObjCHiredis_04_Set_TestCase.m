@@ -149,5 +149,11 @@
 				 @"SMEMBERS didn't return proper members");
 }
 
+- (void)test_14_SRANDMEMBER {
+	id retVal = [redis command:@"SRANDMEMBER BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"SRANDMEMBER didn't return an NSString, got: %@", [retVal class]);
+	NSArray * possibles = [NSArray arrayWithObjects:@"PRUNE", @"TOMATO", @"ZUCHINI", nil];
+	STAssertTrue([possibles containsObject:retVal], @"SRANDMEMBER didn't return a member of the set at key");
+}
 
 @end
