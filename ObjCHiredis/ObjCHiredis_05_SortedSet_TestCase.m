@@ -70,5 +70,12 @@
 	STAssertNil([redis command:@"ZRANK BAG BACON"], @"ZRANK didn't return nil on undefined member, got: %@", [redis command:@"ZRANK BAG BACON"]);
 }
 
+- (void)test_05_ZREVRANK {
+	id retVal = [redis command:@"ZREVRANK BASKET ZUCHINI"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"ZREVRANK didn't return an NSNumber, got %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"ZREVRANK didn't return the reversed renk number, should be 0, got %d", [retVal integerValue]);
+	STAssertNil([redis command:@"ZREVRANK BAG BACON"], @"ZREVRANK didn't return nil on undefined member, got: %@", [redis command:@"ZREVRANK BAG BACON"]);
+}
+
 
 @end
