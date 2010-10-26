@@ -87,4 +87,14 @@
 	STAssertTrue([retVal count] == 0, @"ZRANGE didn't return an empty NSArray, got: %@", [retVal integerValue]);
 }
 
+- (void)test_07_ZREVRANGE {
+	id retVal = [redis command:@"ZREVRANGE BASKET 0 1"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"ZREVRANGE didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 2, @"ZREVRANGE didn't return an NSArray of proper size, should be 2, got: %d", [retVal count]);
+	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"ZUCHINI"] && [[retVal objectAtIndex:1] isEqualToString:@"TOMATO"]),
+				 @"ZREVRANGE didn't return the proper set members");
+	retVal = [redis command:@"ZREVRANGE PURSE 3 6"];
+	STAssertTrue([retVal count] == 0, @"ZREVRANGE didn't return an empty NSArray, got: %@", [retVal integerValue]);
+}
+
 @end
