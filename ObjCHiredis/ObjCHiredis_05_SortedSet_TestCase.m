@@ -77,5 +77,14 @@
 	STAssertNil([redis command:@"ZREVRANK BAG BACON"], @"ZREVRANK didn't return nil on undefined member, got: %@", [redis command:@"ZREVRANK BAG BACON"]);
 }
 
+- (void)test_06_ZRANGE {
+	id retVal = [redis command:@"ZRANGE BASKET 0 1"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"ZRANGE didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 2, @"ZRANGE didn't return an NSArray of proper size, should be 2, got: %d", [retVal count]);
+	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"PRUNE"] && [[retVal objectAtIndex:1] isEqualToString:@"TOMATO"]),
+				 @"ZRANGE didn't return the proper set members");
+	retVal = [redis command:@"ZRANGE PURSE 3 6"];
+	STAssertTrue([retVal count] == 0, @"ZRANGE didn't return an empty NSArray, got: %@", [retVal integerValue]);
+}
 
 @end
