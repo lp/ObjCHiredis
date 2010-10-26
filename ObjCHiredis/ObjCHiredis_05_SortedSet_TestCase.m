@@ -55,5 +55,13 @@
 	STAssertTrue([[redis command:@"ZREM BAG CHERRY"] isEqualToNumber:[NSNumber numberWithInt:0]], @"ZREM didn't return 0 on failure, got %d", [[redis command:@"ZREM BAG CHERRY"] integerValue]); 
 }
 
+- (void)test_03_ZINCRBY {
+	id retVal = [redis command:@"ZINCRBY BAG 1 ONION"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"ZINCRBY didn't return an NSString, got %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"4"], @"ZINCRBY didn't return the new score, should be 4, got %@", retVal);
+	retVal = [redis command:@"ZINCRBY BAG 5 BACON"];
+	STAssertTrue([retVal isEqualToString:@"5"], @"ZINCRBY didn't return the set score, should be 5, got %@", retVal);
+}
+
 
 @end
