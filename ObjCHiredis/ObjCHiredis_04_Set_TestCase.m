@@ -141,5 +141,13 @@
 	STAssertTrue([[redis command:@"SCARD PURSE"] isEqualToNumber:[NSNumber numberWithInt:2]], @"SDIFFSTORE didn't store all diffed, should be 2, got %d", [[redis command:@"SCARD PURSE"] integerValue]);
 }
 
+- (void)test_13_SMEMBERS {
+	id retVal = [redis command:@"SMEMBERS BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"SMEMBERS didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 3, @"SMEMBERS didn't return all set members, count should be 3, got: %d", [retVal count]);
+	STAssertTrue(([retVal containsObject:@"PRUNE"] && [retVal containsObject:@"TOMATO"] && [retVal containsObject:@"ZUCHINI"]),
+				 @"SMEMBERS didn't return proper members");
+}
+
 
 @end
