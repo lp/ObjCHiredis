@@ -131,5 +131,15 @@
 	STAssertTrue(([retVal containsObject:@"PRUNE"] && [retVal containsObject:@"ZUCHINI"]), @"SDIFF didn't return proper object in its return array...");
 }
 
+- (void)test_12_SDIFFSTORE {
+	id retVal = [redis command:@"SDIFFSTORE PURSE BASKET BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"SDIFFSTORE didn't return an NSNumber, got %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:2]], @"SDIFFSTORE didn't return the quantity of diff members saved, should be 2, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"SDIFFSTORE DUMMY TRUCK VAN"] isEqualToNumber:[NSNumber numberWithInt:0]], @"SDIFFSTORE didn't return 0 on failure, got: %d", [[redis command:@"SDIFFSTORE DUMMY TRUCK VAN"] integerValue]);
+	
+	STAssertTrue([[redis command:@"SISMEMBER PURSE PRUNE"] isEqualToNumber:[NSNumber numberWithInt:1]], @"SDIFFSTORE didn't store the diff properly");
+	STAssertTrue([[redis command:@"SCARD PURSE"] isEqualToNumber:[NSNumber numberWithInt:2]], @"SDIFFSTORE didn't store all diffed, should be 2, got %d", [[redis command:@"SCARD PURSE"] integerValue]);
+}
+
 
 @end
