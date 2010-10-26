@@ -28,9 +28,9 @@
 
 - (void)setUp {
 	redis = [ObjCHiredis redis];
-	[redis command:@"ZADD BASKET 1 PRUNE"];
-	[redis command:@"ZADD BASKET 2 TOMATO"];
-	[redis command:@"ZADD BASKET 3 ZUCHINI"];
+	[redis command:@"ZADD BASKET 2 PRUNE"];
+	[redis command:@"ZADD BASKET 4 TOMATO"];
+	[redis command:@"ZADD BASKET 6 ZUCHINI"];
 	[redis command:@"ZADD BAG 1 TOMATO"];
 	[redis command:@"ZADD BAG 2 POTATO"];
 	[redis command:@"ZADD BAG 3 ONION"];
@@ -61,6 +61,13 @@
 	STAssertTrue([retVal isEqualToString:@"4"], @"ZINCRBY didn't return the new score, should be 4, got %@", retVal);
 	retVal = [redis command:@"ZINCRBY BAG 5 BACON"];
 	STAssertTrue([retVal isEqualToString:@"5"], @"ZINCRBY didn't return the set score, should be 5, got %@", retVal);
+}
+
+- (void)test_04_ZRANK {
+	id retVal = [redis command:@"ZRANK BASKET TOMATO"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"ZRANK didn't return an NSNumber, got %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"ZRANK didn't return the rank number, should be 1, got %d", [retVal integerValue]);
+	STAssertNil([redis command:@"ZRANK BAG BACON"], @"ZRANK didn't return nil on undefined member, got: %@", [redis command:@"ZRANK BAG BACON"]);
 }
 
 
