@@ -36,5 +36,11 @@
 	[redis release];
 }
 
+- (void)test_01_ZADD {
+	id retVal = [redis command:@"ZADD BAG 2 ONION"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"ZADD didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"ZADD didn't return 1 on success, got: %d", [retVal integerValue]);
+}
+
 
 @end
