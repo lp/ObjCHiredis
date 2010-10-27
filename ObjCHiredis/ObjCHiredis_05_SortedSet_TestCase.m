@@ -117,4 +117,12 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"ZCOUNT didn't return 0 on empty key call, got: %d", [retVal integerValue]);
 }
 
+- (void)test_10_ZCARD {
+	id retVal = [redis command:@"ZCARD BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"ZCARD didn't return an NSNumber, got %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:5]], @"ZCARD didn't return right value, should be 5, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"ZCARD PURSE"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"ZCARD didn't return 0 on empty key call, got: %d", [retVal integerValue]);
+}
+
 @end
