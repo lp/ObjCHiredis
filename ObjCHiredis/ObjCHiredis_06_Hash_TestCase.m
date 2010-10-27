@@ -64,8 +64,16 @@
 	id retVal = [redis command:@"HMSET BAG ONION 8 POTATO 20"];
 	STAssertTrue([retVal isKindOfClass:[NSString class]], @"HMSET didn't return an NSString, got: %@", [retVal class]);
 	STAssertTrue([retVal isEqualToString:@"OK"], @"HMSET didn't return a success string, should be OK, got: %@", retVal);
-	retVal = [redis command:@"HGET BAG POTATO"];
-	STAssertTrue([retVal isEqualToString:@"20"], @"HMSET didn't set the values properly");
+	STAssertTrue([[redis command:@"HGET BAG POTATO"] isEqualToString:@"20"], @"HMSET didn't set the values properly");
+}
+
+- (void)test_05_HSETNX {
+	id retVal = [redis command:@"HSETNX BAG ONION 8"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"HSETNX didn't return an NSNumber, got %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"HSETNX didn't return 1 on success, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"HGET BAG ONION"] isEqualToString:@"8"], @"HSETNX didn't set the values properly");
+	retVal = [redis command:@"HSETNX BASKET TOMATO 10"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"HSETNX didn't return 0 on failure, got: %d", [retVal integerValue]);
 }
 
 @end
