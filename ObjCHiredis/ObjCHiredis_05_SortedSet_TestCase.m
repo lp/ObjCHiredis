@@ -141,4 +141,12 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"ZREMRANGEBYRANK didn't return 0 on null set, got: %d", [retVal integerValue]);
 }
 
+- (void)test_13_ZREMRANGEBYSCORE {
+	id retVal = [redis command:@"ZREMRANGEBYSCORE BAG 3 4"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"ZREMRANGEBYSCORE didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:3]], @"ZREMRANGEBYSCORE didn't return the number of removed members, should be 3, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"ZREMRANGEBYSCORE PURSE 0 99"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"ZREMRANGEBYSCORE didn't return 0 on null set, got: %d", [retVal integerValue]);
+}
+
 @end
