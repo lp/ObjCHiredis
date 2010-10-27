@@ -84,7 +84,7 @@
 	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"PRUNE"] && [[retVal objectAtIndex:1] isEqualToString:@"TOMATO"]),
 				 @"ZRANGE didn't return the proper set members");
 	retVal = [redis command:@"ZRANGE PURSE 3 6"];
-	STAssertTrue([retVal count] == 0, @"ZRANGE didn't return an empty NSArray, got: %@", [retVal integerValue]);
+	STAssertTrue([retVal count] == 0, @"ZRANGE didn't return an empty NSArray, got: %@", [retVal count]);
 }
 
 - (void)test_07_ZREVRANGE {
@@ -94,7 +94,17 @@
 	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"ZUCHINI"] && [[retVal objectAtIndex:1] isEqualToString:@"TOMATO"]),
 				 @"ZREVRANGE didn't return the proper set members");
 	retVal = [redis command:@"ZREVRANGE PURSE 3 6"];
-	STAssertTrue([retVal count] == 0, @"ZREVRANGE didn't return an empty NSArray, got: %@", [retVal integerValue]);
+	STAssertTrue([retVal count] == 0, @"ZREVRANGE didn't return an empty NSArray, got: %@", [retVal count]);
+}
+
+- (void)test_08_ZRANGEBYSCORE {
+	id retVal = [redis command:@"ZRANGEBYSCORE BASKET 0 4"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"ZRANGEBYSCORE didn't return an NSArray, got: %@", retVal);
+	STAssertTrue([retVal count] == 2, @"ZRANGEBYSCORE didn't return an NSArray of proper size, should be 2, got: %d", [retVal count]);
+	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"PRUNE"] && [[retVal objectAtIndex:1] isEqualToString:@"TOMATO"]),
+				 @"ZRANGEBYSCORE didn't return the proper set members");
+	retVal = [redis command:@"ZRANGEBYSCORE PURSE 3 6"];
+	STAssertTrue([retVal count] == 0, @"ZVRANGEBYSCORE didn't return an empty NSArray, got: %@", [retVal count]);
 }
 
 @end
