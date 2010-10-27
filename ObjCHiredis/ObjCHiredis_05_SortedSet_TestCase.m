@@ -34,6 +34,8 @@
 	[redis command:@"ZADD BAG 1 TOMATO"];
 	[redis command:@"ZADD BAG 2 POTATO"];
 	[redis command:@"ZADD BAG 3 ONION"];
+	[redis command:@"ZADD BAG 3.6 KNIFE"];
+	[redis command:@"ZADD BAG 3.3 SAUSAGE"];
 	[redis retain];
 }
 
@@ -105,6 +107,14 @@
 				 @"ZRANGEBYSCORE didn't return the proper set members");
 	retVal = [redis command:@"ZRANGEBYSCORE PURSE 3 6"];
 	STAssertTrue([retVal count] == 0, @"ZVRANGEBYSCORE didn't return an empty NSArray, got: %@", [retVal count]);
+}
+
+- (void)test_09_ZCOUNT {
+	id retVal = [redis command:@"ZCOUNT BAG 3 4"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"ZCOUNT didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:3]], @"ZCOUNT didn't return right value, should be 3, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"ZCOUNT PURSE 0 99"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"ZCOUNT didn't return 0 on empty key call, got: %d", [retVal integerValue]);
 }
 
 @end
