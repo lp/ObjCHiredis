@@ -149,4 +149,12 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"ZREMRANGEBYSCORE didn't return 0 on null set, got: %d", [retVal integerValue]);
 }
 
+- (void)test_14_ZINTERSTORE {
+	id retVal = [redis command:@"ZINTERSTORE PURSE 2 BASKET BAG"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"ZINTERSTORE didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"ZINTERSTORE didn't return the number of intersecting members stored, should be 1, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"ZSCORE PURSE TOMATO"];
+	STAssertTrue([retVal isEqualToString:@"5"], @"ZINTERSTORE didn't SUM the score by default, should be 5, got: %@", retVal);
+}
+
 @end
