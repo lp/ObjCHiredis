@@ -52,4 +52,12 @@
 	STAssertNil(retVal,@"HGET didn't return nil on a null key, got %@", retVal);
 }
 
+- (void)test_03_HMGET {
+	id retVal = [redis command:@"HMGET BASKET PRUNE ZUCHINI"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"HMGET didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 2, @"HMGET didn't return an array of right size, should be 2, got: %d", [retVal count]);
+	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"10"] && [[retVal objectAtIndex:1] isEqualToString:@"3"]),
+				  @"HMGET didn't return proper values");
+}
+
 @end
