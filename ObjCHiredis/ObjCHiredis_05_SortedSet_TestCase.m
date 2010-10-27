@@ -125,4 +125,12 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"ZCARD didn't return 0 on empty key call, got: %d", [retVal integerValue]);
 }
 
+- (void)test_11_ZSCORE {
+	id retVal = [redis command:@"ZSCORE BASKET TOMATO"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"ZSCORE didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"4"], @"ZSCORE didn't return the right value, should be 4, got %@", retVal);
+	retVal = [redis command:@"ZSCORE BAG BACON"];
+	STAssertNil(retVal, @"ZSCORE didn't return nil on a null member, got: %@", retVal);
+}
+
 @end
