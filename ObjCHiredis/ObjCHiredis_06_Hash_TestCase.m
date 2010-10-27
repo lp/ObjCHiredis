@@ -30,6 +30,7 @@
 	[redis command:@"HSET BASKET TOMATO 6"];
 	[redis command:@"HSET BASKET PRUNE 10"];
 	[redis command:@"HSET BASKET ZUCHINI 3"];
+	[redis command:@"HSET BAG TOMATO ITALIAN"];
 	[redis retain];
 }
 
@@ -74,6 +75,16 @@
 	STAssertTrue([[redis command:@"HGET BAG ONION"] isEqualToString:@"8"], @"HSETNX didn't set the values properly");
 	retVal = [redis command:@"HSETNX BASKET TOMATO 10"];
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"HSETNX didn't return 0 on failure, got: %d", [retVal integerValue]);
+}
+
+- (void)test_06_HINCRBY {
+	id retVal = [redis command:@"HINCRBY BASKET PRUNE 5"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"HINCRBY didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:15]], @"HINCRBY didn't increment the value, should be 15, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"HGET BASKET PRUNE"] isEqualToString:@"15"], @"HINCRBY didn't increment the value, should be 15, got: %@", [redis command:@"HGET BASKET PRUNE"]);
+	retVal = [redis command:@"HINCRBY BASKET CHERRY 2"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"HINCRBY didn't return an NSNumber, got: %@", retVal);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:2]], @"HINCRBY didn't increment a non numeric string, should be 2, got: %d", [retVal integerValue]);
 }
 
 @end
