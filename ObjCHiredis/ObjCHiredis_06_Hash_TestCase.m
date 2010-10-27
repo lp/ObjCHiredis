@@ -60,4 +60,12 @@
 				  @"HMGET didn't return proper values");
 }
 
+- (void)test_04_HMSET {
+	id retVal = [redis command:@"HMSET BAG ONION 8 POTATO 20"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"HMSET didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"OK"], @"HMSET didn't return a success string, should be OK, got: %@", retVal);
+	retVal = [redis command:@"HGET BAG POTATO"];
+	STAssertTrue([retVal isEqualToString:@"20"], @"HMSET didn't set the values properly");
+}
+
 @end
