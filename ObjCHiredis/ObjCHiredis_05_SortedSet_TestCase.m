@@ -157,4 +157,12 @@
 	STAssertTrue([retVal isEqualToString:@"5"], @"ZINTERSTORE didn't SUM the score by default, should be 5, got: %@", retVal);
 }
 
+- (void)test_15_ZUNIONSTORE {
+	id retVal = [redis command:@"ZUNIONSTORE PURSE 2 BASKET BAG AGGREGATE MAX"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"ZUNIONSTORE didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:7]], @"ZUNIONSTORE didn't return the number of unioned members stored, should be 7, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"ZSCORE PURSE TOMATO"];
+	STAssertTrue([retVal isEqualToString:@"4"], @"ZUNIONSTORE didn't MAX the score at stated, should be 4, got: %@", retVal);
+}
+
 @end
