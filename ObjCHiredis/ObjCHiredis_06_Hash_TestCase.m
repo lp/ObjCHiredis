@@ -35,14 +35,10 @@
 	[redis release];
 }
 
-- (void)test_12_Hash {
-	STAssertTrue([[redis command:@"HSET assets tonka pebbles"] isKindOfClass:[NSNumber class]], @"Couldn't HSET, got: %@", [redis command:@"HSET assets tonka pebbles"]);
-	STAssertTrue([[redis command:@"HGET assets tonka"] isKindOfClass:[NSString class]], @"Couldn't HGET, got: %@", [redis command:@"HGET assets tonka"]);
-	STAssertTrue([[redis command:@"HGET assets tonka"] isEqualToString:@"pebbles"], @"Couldn't HGET, got: %@", [redis command:@"HGET assets tonka"]);
-	STAssertTrue([[redis command:@"HGETALL assets"] isKindOfClass:[NSArray class]], @"Couldn't HGETALL, got: %@", [[redis command:@"HGETALL assets"] componentsJoinedByString:@"_"]);
-	STAssertTrue([[redis command:@"HGETALL assets"] count] == 2, @"Couldn't HGETALL, got: %d", [[redis command:@"HGETALL assets"] count]);
-	STAssertTrue([[[redis command:@"HGETALL assets"] objectAtIndex:0] isEqualToString:@"tonka"], @"Couldn't HGETALL, got: %@", [[redis command:@"HGETALL assets"] objectAtIndex:0]);
-	STAssertTrue([[[redis command:@"HGETALL assets"] objectAtIndex:1] isEqualToString:@"pebbles"], @"Couldn't HGETALL, got: %@", [[redis command:@"HGETALL assets"] objectAtIndex:1]);
+- (void)test_01_HSET {
+	id retVal = [redis command:@"HSET BASKET PEACH 2"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"HSET didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"HSET didn't return 1 on success, got: %d", [retVal integerValue]);
 }
 
 @end
