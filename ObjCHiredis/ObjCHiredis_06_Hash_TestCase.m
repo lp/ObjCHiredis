@@ -87,4 +87,12 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:2]], @"HINCRBY didn't increment a non numeric string, should be 2, got: %d", [retVal integerValue]);
 }
 
+- (void)test_07_HEXISTS {
+	id retVal = [redis command:@"HEXISTS BASKET TOMATO"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"HEXISTS didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"HEXISTS didn't return 1 on success, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"HEXISTS BASKET POTATO"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"HEXISTS didn't return 0 on failure, got: %d", [retVal integerValue]);
+}
+
 @end
