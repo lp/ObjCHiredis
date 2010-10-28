@@ -95,4 +95,11 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"HEXISTS didn't return 0 on failure, got: %d", [retVal integerValue]);
 }
 
+- (void)test_08_HDEL {
+	id retVal = [redis command:@"HDEL BASKET TOMATO"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"HDEL didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"HDEL didn't return 1 on success, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"HEXISTS BASBET TOMATO"] isEqualToNumber:[NSNumber numberWithInt:0]], @"HDEL didn't delete the value, HEXISTS says its present");
+}
+
 @end
