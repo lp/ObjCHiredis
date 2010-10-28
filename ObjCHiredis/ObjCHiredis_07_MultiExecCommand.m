@@ -42,5 +42,15 @@
 	STAssertTrue([retVal isEqualToString:@"OK"], @"MULTI didn't return OK, got: %@", retVal);
 }
 
+- (void)test_02_EXEC {
+	id retVal = [redis command:@"EXEC"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"EXEC didn't return an NSString with error message on failure, got: %@", retVal);
+	
+	[redis command:@"MULTI"];
+	retVal = [redis command:@"EXEC"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"EXEC didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 0, @"EXEC didn't return an empty array when called with no commands, got: %d", [retVal count]);
+}
+
 
 @end
