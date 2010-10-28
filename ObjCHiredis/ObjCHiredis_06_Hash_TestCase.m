@@ -110,4 +110,12 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"HLEN didn't return the right length, should be 0, got: %d", [retVal integerValue]);
 }
 
+- (void)test_10_HKEYS {
+	id retVal = [redis command:@"HKEYS BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"HKEYS didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 3, @"HKEYS didn't return an array of right length, should be 3, got: %d", [retVal count]);
+	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"TOMATO"] && [[retVal objectAtIndex:1] isEqualToString:@"PRUNE"] &&
+				  [[retVal objectAtIndex:2] isEqualToString:@"ZUCHINI"]), @"HKEYS didn't return proper objects");
+}
+
 @end
