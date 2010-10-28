@@ -126,4 +126,14 @@
 				  [[retVal objectAtIndex:2] isEqualToString:@"3"]), @"HVALS didn't return proper objects");
 }
 
+- (void)test_12_HGETALL {
+	id retVal = [redis command:@"HGETALL BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"HGETALL didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 6, @"HGETALL didn't return an array of right length, should be 6, got: %d", [retVal count]);
+	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"TOMATO"] && [[retVal objectAtIndex:1] isEqualToString:@"6"] &&
+				  [[retVal objectAtIndex:2] isEqualToString:@"PRUNE"] && [[retVal objectAtIndex:3] isEqualToString:@"10"] &&
+				  [[retVal objectAtIndex:4] isEqualToString:@"ZUCHINI"] && [[retVal objectAtIndex:5] isEqualToString:@"3"]),
+				 @"HGETALL didn't return proper objects");
+}
+
 @end
