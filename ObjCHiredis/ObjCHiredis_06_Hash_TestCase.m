@@ -118,4 +118,12 @@
 				  [[retVal objectAtIndex:2] isEqualToString:@"ZUCHINI"]), @"HKEYS didn't return proper objects");
 }
 
+- (void)test_11_HVALS {
+	id retVal = [redis command:@"HVALS BASKET"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"HVALS didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 3, @"HVALS didn't return an array of right length, should be 3, got: %d", [retVal count]);
+	STAssertTrue(([[retVal objectAtIndex:0] isEqualToString:@"6"] && [[retVal objectAtIndex:1] isEqualToString:@"10"] &&
+				  [[retVal objectAtIndex:2] isEqualToString:@"3"]), @"HVALS didn't return proper objects");
+}
+
 @end
