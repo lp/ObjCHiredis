@@ -52,5 +52,27 @@
 	STAssertTrue([retVal count] == 0, @"EXEC didn't return an empty array when called with no commands, got: %d", [retVal count]);
 }
 
+- (void)test_03_COMMAND {
+	[redis command:@"MULTI"];
+	id retVal = [redis command:@"RPUSH BASKET POTATO"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"COMMAND in MULTI didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"QUEUED"], @"COMMAND in MULTI didn't return QUEUD, got: %@", retVal);
+	
+	retVal = [redis command:@"LRANGE BASKET 0 1"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"COMMAND in MULTI didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"QUEUED"], @"COMMAND in MULTI didn't return QUEUED, got: %@", retVal);
+	
+	retVal = [redis command:@"EXEC"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"EXEC didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 2, @"EXEC didn't return an array with results of right size, should be 2, got: %d", [retVal count]);
+	
+	STAssertTrue([[retVal objectAtIndex:0] isKindOfClass:[NSNumber class]], @"EXEC didn't return the result properly");
+	STAssertTrue([[retVal objectAtIndex:0] isEqualToNumber:[NSNumber numberWithInt:1]], @"EXEC didn't return the result properly"); 
+	
+	STAssertTrue([[retVal objectAtIndex:1] isKindOfClass:[NSArray class]], @"EXEC didn't return the result properly");
+	STAssertTrue([[retVal objectAtIndex:1] count] == 1, @"EXEC didn't return the result properly, should be 1, got %d", [[retVal objectAtIndex:1] count]);
+	STAssertTrue([[[retVal objectAtIndex:1] objectAtIndex:0] isKindOfClass:[NSString class]], @"EXEC didn't return the result properly");
+	STAssertTrue([[[retVal objectAtIndex:1] objectAtIndex:0] isEqualToString:@"POTATO"], @"EXEC didn't return the result properly");
+}
 
 @end
