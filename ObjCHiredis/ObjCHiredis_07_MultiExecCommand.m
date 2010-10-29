@@ -75,4 +75,20 @@
 	STAssertTrue([[[retVal objectAtIndex:1] objectAtIndex:0] isEqualToString:@"POTATO"], @"EXEC didn't return the result properly");
 }
 
+- (void)test_04_DISCARD {
+	[redis command:@"MULTI"];
+	
+	id retVal = [redis command:@"RPUSH BASKET PEACH"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"COMMAND in MULTI didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"QUEUED"], @"COMMAND in MULTI didn't return QUEUD, got: %@", retVal);
+	
+	retVal = [redis command:@"DISCARD"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"DISCARD didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"OK"], @"DISCARD didn't return OK, got: %@", retVal);
+	
+	retVal = [redis command:@"RPUSH BASKET CUCUMBER"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"COMMAND after DISCARD didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"COMMAND after DISCARD didn't return regular value, should be 1, got: %d", [retVal integerValue]);
+}
+
 @end
