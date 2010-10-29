@@ -91,4 +91,12 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"COMMAND after DISCARD didn't return regular value, should be 1, got: %d", [retVal integerValue]);
 }
 
+//- (void)test_05_WATCH {
+//	[redis command:@"SET MYKEY MYVALUE"];
+//	
+//	id retVal = [redis command:@"WATCH MYKEY"];
+//	STAssertTrue([retVal isKindOfClass:[NSString class]], @"WATCH didn't return an NSString, got: %@", [retVal class]);
+//	STAssertTrue([retVal isEqualToString:@"OK"], @"WATCH didn't return OK, got: %@", retVal);
+//}
+
 @end
