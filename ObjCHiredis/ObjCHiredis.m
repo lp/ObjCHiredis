@@ -53,6 +53,7 @@
 	return retVal;
 }
 
+// Private Methods
 - (id)parseReply:(redisReply*)reply {
 	id retVal;
 	if (reply->type == REDIS_REPLY_ERROR) {
@@ -74,8 +75,7 @@
 
 - (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(size_t)size {
 	NSMutableArray * buildArray = [NSMutableArray array];
-	NSUInteger size_i = (NSUInteger)size;
-	for (int i; i < size_i; i++) {
+	for (size_t i = 0; i < size; i++) {
 		if (vec[i] != NULL) {
 			[buildArray addObject:[self parseReply:vec[i]]];
 		} else {
