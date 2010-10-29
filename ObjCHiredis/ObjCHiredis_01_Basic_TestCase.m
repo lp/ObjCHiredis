@@ -44,4 +44,14 @@
 	STAssertNotNil(redis, @"Couldn't init... ");
 }
 
+- (void)test_03_EXISTS {
+	id retVal = [redis command:@"EXISTS MYKEY"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"EXISTS didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"EXISTS didn't return 0 on failure, got: %d", [retVal integerValue]);
+	
+	[redis command:@"SET MYKEY MYVALUE"];
+	retVal = [redis command:@"EXISTS MYKEY"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"EXISTS didn't return 1 on success, got: %d", [retVal integerValue]);
+}
+
 @end
