@@ -11,7 +11,7 @@
 
 @interface ObjCHiredis ()
 
-- (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(size_t)size;
+- (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(NSUInteger)size;
 - (id)parseReply:(redisReply*)reply;
 
 @end
@@ -73,9 +73,9 @@
 	return retVal;
 }
 
-- (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(size_t)size {
+- (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(NSUInteger)size {
 	NSMutableArray * buildArray = [NSMutableArray array];
-	for (size_t i = 0; i < size; i++) {
+	for (NSUInteger i = 0; i < size; i++) {
 		if (vec[i] != NULL) {
 			[buildArray addObject:[self parseReply:vec[i]]];
 		} else {
