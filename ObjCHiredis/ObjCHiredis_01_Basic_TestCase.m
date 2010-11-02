@@ -54,4 +54,14 @@
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"EXISTS didn't return 1 on success, got: %d", [retVal integerValue]);
 }
 
+- (void)test_04_DEL {
+	[redis command:@"SET MYKEY MYVALUE"];
+	id retVal = [redis command:@"EXISTS MYKEY"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"EXISTS didn't return 1 on success, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"DEL MYKEY"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"");
+	retVal = [redis command:@"EXISTS MYKEY"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"EXISTS didn't return 0 on failure, got: %d", [retVal integerValue]);	
+}
+
 @end
