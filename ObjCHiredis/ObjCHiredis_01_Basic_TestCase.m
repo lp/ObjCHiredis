@@ -59,9 +59,34 @@
 	id retVal = [redis command:@"EXISTS MYKEY"];
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"EXISTS didn't return 1 on success, got: %d", [retVal integerValue]);
 	retVal = [redis command:@"DEL MYKEY"];
-	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"");
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"DEL didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"DEL didn't return 1 on success, got: %d", [retVal integerValue]);
 	retVal = [redis command:@"EXISTS MYKEY"];
 	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"EXISTS didn't return 0 on failure, got: %d", [retVal integerValue]);	
+	retVal = [redis command:@"DEL MYKEY"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"DEL didn't return 0 on failure, got: %d", [retVal integerValue]);
+	
+}
+
+- (void)test_05_TYPE {
+	id retVal = [redis command:@"TYPE MYKEY"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"TYPE didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"none"], @"TYPE didn't return 'none' on an empty key, got: %@", retVal);
+	[redis command:@"SET MYSTRING MYVALUE"];
+	retVal = [redis command:@"TYPE MYSTRING"];
+	STAssertTrue([retVal isEqualToString:@"string"], @"TYPE didn't return 'none' on an empty key, got: %@", retVal);
+	[redis command:@"RPUSH MYLIST MYVALUE"];
+	retVal = [redis command:@"TYPE MYLIST"];
+	STAssertTrue([retVal isEqualToString:@"list"], @"TYPE didn't return 'none' on an empty key, got: %@", retVal);
+	[redis command:@"SADD MYSET MYVALUE"];
+	retVal = [redis command:@"TYPE MYSET"];
+	STAssertTrue([retVal isEqualToString:@"set"], @"TYPE didn't return 'none' on an empty key, got: %@", retVal);
+	[redis command:@"ZADD MYZSET 1 MYVALUE"];
+	retVal = [redis command:@"TYPE MYZSET"];
+	STAssertTrue([retVal isEqualToString:@"zset"], @"TYPE didn't return 'none' on an empty key, got: %@", retVal);
+	[redis command:@"HSET MYHASH MYKEY MYVALUE"];
+	retVal = [redis command:@"TYPE MYHASH"];
+	STAssertTrue([retVal isEqualToString:@"hash"], @"TYPE didn't return 'none' on an empty key, got: %@", retVal);
 }
 
 @end
