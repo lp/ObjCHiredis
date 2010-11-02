@@ -89,4 +89,13 @@
 	STAssertTrue([retVal isEqualToString:@"hash"], @"TYPE didn't return 'none' on an empty key, got: %@", retVal);
 }
 
+- (void)test_06_KEYS {
+	[redis command:@"SET MYSTRING MYVALUE"];
+	[redis command:@"RPUSH MYLIST MYVALUE"];
+	[redis command:@"SADD MYSET MYVALUE"];
+	[redis command:@"ZADD MYZSET 1 MYVALUE"];
+	[redis command:@"HSET MYHASH MYKEY MYVALUE"];
+
+}
+
 @end

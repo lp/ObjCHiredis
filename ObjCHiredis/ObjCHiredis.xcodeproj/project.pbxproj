@@ -60,6 +60,13 @@
 			remoteGlobalIDString = 0C921FA5128038D1004A624F /* ObjCHiredis_iOS */;
 			remoteInfo = ObjCHiredis_iOS;
 		};
+		0C92202312806AFC004A624F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
+			remoteInfo = ObjCHiredis;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +94,11 @@
 		0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjCHiredis_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_ObjCHiredis_iOS.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C921FBF12803934004A624F /* Test_ObjCHiredis_iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test_ObjCHiredis_iOS-Info.plist"; sourceTree = "<group>"; };
+		0C92200F12806A52004A624F /* redis.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = redis.rb; sourceTree = "<group>"; };
+		0C92201812806ADB004A624F /* Test_ObjCHiredis_MacRuby.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_ObjCHiredis_MacRuby.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C92201912806ADB004A624F /* Test_ObjCHiredis_MacRuby-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test_ObjCHiredis_MacRuby-Info.plist"; sourceTree = "<group>"; };
+		0C92202A12806B9E004A624F /* run_suite.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = run_suite.rb; sourceTree = "<group>"; };
+		0C92202B12806B9E004A624F /* Ruby-Redis_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_test.rb"; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* ObjCHiredis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +148,7 @@
 				0C920D0A12696788004A624F /* Test_ObjCHiredis_OSX.octest */,
 				0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */,
 				0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */,
+				0C92201812806ADB004A624F /* Test_ObjCHiredis_MacRuby.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +156,7 @@
 		0867D691FE84028FC02AAC07 /* ObjCHiredis */ = {
 			isa = PBXGroup;
 			children = (
+				0C92200E128069E7004A624F /* Ruby-Redis */,
 				0C920CFB12696729004A624F /* Tests */,
 				0C920CE6126966F1004A624F /* Hiredis */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
@@ -152,6 +166,7 @@
 				034768DFFF38A50411DB9C8B /* Products */,
 				0C920D0B12696788004A624F /* Test_ObjCHiredis_OSX-Info.plist */,
 				0C921FBF12803934004A624F /* Test_ObjCHiredis_iOS-Info.plist */,
+				0C92201912806ADB004A624F /* Test_ObjCHiredis_MacRuby-Info.plist */,
 			);
 			name = ObjCHiredis;
 			sourceTree = "<group>";
@@ -209,6 +224,24 @@
 				0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		0C92200E128069E7004A624F /* Ruby-Redis */ = {
+			isa = PBXGroup;
+			children = (
+				0C92202912806B9E004A624F /* Tests */,
+				0C92200F12806A52004A624F /* redis.rb */,
+			);
+			name = "Ruby-Redis";
+			sourceTree = "<group>";
+		};
+		0C92202912806B9E004A624F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0C92202A12806B9E004A624F /* run_suite.rb */,
+				0C92202B12806B9E004A624F /* Ruby-Redis_test.rb */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
@@ -322,6 +355,22 @@
 			productReference = 0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		0C92201712806ADB004A624F /* Test_ObjCHiredis_MacRuby */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C92201C12806ADB004A624F /* Build configuration list for PBXNativeTarget "Test_ObjCHiredis_MacRuby" */;
+			buildPhases = (
+				0C92201612806ADB004A624F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0C92202412806AFC004A624F /* PBXTargetDependency */,
+			);
+			name = Test_ObjCHiredis_MacRuby;
+			productName = Test_ObjCHiredis_MacRuby;
+			productReference = 0C92201812806ADB004A624F /* Test_ObjCHiredis_MacRuby.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		8DC2EF4F0486A6940098B216 /* ObjCHiredis */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "ObjCHiredis" */;
@@ -358,6 +407,7 @@
 				0C920D0912696788004A624F /* Test_ObjCHiredis_OSX */,
 				0C921FA5128038D1004A624F /* ObjCHiredis_iOS */,
 				0C921FBD12803934004A624F /* Test_ObjCHiredis_iOS */,
+				0C92201712806ADB004A624F /* Test_ObjCHiredis_MacRuby */,
 			);
 		};
 /* End PBXProject section */
@@ -413,6 +463,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		0C92201612806ADB004A624F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/macruby Tests/run_suite.rb\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -479,6 +542,11 @@
 			isa = PBXTargetDependency;
 			target = 0C921FA5128038D1004A624F /* ObjCHiredis_iOS */;
 			targetProxy = 0C921FC41280393F004A624F /* PBXContainerItemProxy */;
+		};
+		0C92202412806AFC004A624F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
+			targetProxy = 0C92202312806AFC004A624F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -641,6 +709,60 @@
 			};
 			name = Release;
 		};
+		0C92201A12806ADB004A624F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Test_ObjCHiredis_MacRuby-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test_ObjCHiredis_MacRuby;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		0C92201B12806ADB004A624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Test_ObjCHiredis_MacRuby-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test_ObjCHiredis_MacRuby;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1DEB91AE08733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -736,6 +858,15 @@
 			buildConfigurations = (
 				0C921FC012803935004A624F /* Debug */,
 				0C921FC112803935004A624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C92201C12806ADB004A624F /* Build configuration list for PBXNativeTarget "Test_ObjCHiredis_MacRuby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C92201A12806ADB004A624F /* Debug */,
+				0C92201B12806ADB004A624F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
