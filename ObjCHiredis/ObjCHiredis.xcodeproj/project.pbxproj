@@ -17,7 +17,7 @@
 		0C920CF812696723004A624F /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
 		0C920CF912696723004A624F /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CF712696723004A624F /* ObjCHiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C920D11126967B0004A624F /* ObjCHiredis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */; };
-		0C920D16126967C6004A624F /* ObjCHiredis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */; };
+		0C920D16126967C6004A624F /* ObjCHiredis in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis */; };
 		0C920DE712696D70004A624F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		0C921391126F158A004A624F /* ObjCHiredis_02_String_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921390126F158A004A624F /* ObjCHiredis_02_String_TestCase.m */; };
 		0C921394126F1669004A624F /* ObjCHiredis_03_List_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921393126F1669004A624F /* ObjCHiredis_03_List_TestCase.m */; };
@@ -25,6 +25,23 @@
 		0C9215121271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9215111271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m */; };
 		0C9216891277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */; };
 		0C921A8C127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
+		0C921FAD128038EF004A624F /* anet.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEE1269670C004A624F /* anet.c */; };
+		0C921FAE128038F1004A624F /* anet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CED1269670C004A624F /* anet.h */; };
+		0C921FAF128038F4004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
+		0C921FB0128038F7004A624F /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
+		0C921FB1128038F8004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
+		0C921FB2128038FF004A624F /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CF712696723004A624F /* ObjCHiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C921FB312803901004A624F /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
+		0C921FB412803908004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
+		0C921FB512803909004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
+		0C921FC61280394A004A624F /* libObjCHiredis_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */; };
+		0C921FCF12803983004A624F /* ObjCHiredis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */; };
+		0C921FD012803985004A624F /* ObjCHiredis_02_String_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921390126F158A004A624F /* ObjCHiredis_02_String_TestCase.m */; };
+		0C921FD112803986004A624F /* ObjCHiredis_03_List_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921393126F1669004A624F /* ObjCHiredis_03_List_TestCase.m */; };
+		0C921FD212803987004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9215111271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m */; };
+		0C921FD312803988004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */; };
+		0C921FD412803989004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921396126F170E004A624F /* ObjCHiredis_06_Hash_TestCase.m */; };
+		0C921FD51280398D004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +52,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = ObjCHiredis;
+		};
+		0C921FC41280393F004A624F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C921FA5128038D1004A624F /* ObjCHiredis_iOS */;
+			remoteInfo = ObjCHiredis_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -60,10 +84,13 @@
 		0C9215111271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_04_Set_TestCase.m; sourceTree = "<group>"; };
 		0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_05_SortedSet_TestCase.m; sourceTree = "<group>"; };
 		0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_07_MultiExecCommand.m; sourceTree = "<group>"; };
+		0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjCHiredis_iOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_ObjCHiredis_iOS.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C921FBF12803934004A624F /* Test_ObjCHiredis_iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test_ObjCHiredis_iOS-Info.plist"; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* ObjCHiredis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCHiredis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC2EF5B0486A6940098B216 /* ObjCHiredis */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = ObjCHiredis; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +99,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C920D16126967C6004A624F /* ObjCHiredis.framework in Frameworks */,
+				0C920D16126967C6004A624F /* ObjCHiredis in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C921FA4128038D1004A624F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C921FBB12803934004A624F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C921FC61280394A004A624F /* libObjCHiredis_iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +132,10 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */,
+				8DC2EF5B0486A6940098B216 /* ObjCHiredis */,
 				0C920D0A12696788004A624F /* Test_ObjCHiredis_OSX.octest */,
+				0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */,
+				0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +151,7 @@
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				0C920D0B12696788004A624F /* Test_ObjCHiredis_OSX-Info.plist */,
+				0C921FBF12803934004A624F /* Test_ObjCHiredis_iOS-Info.plist */,
 			);
 			name = ObjCHiredis;
 			sourceTree = "<group>";
@@ -195,6 +240,18 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0C921FA2128038D1004A624F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C921FAE128038F1004A624F /* anet.h in Headers */,
+				0C921FAF128038F4004A624F /* fmacros.h in Headers */,
+				0C921FB1128038F8004A624F /* hiredis.h in Headers */,
+				0C921FB2128038FF004A624F /* ObjCHiredis.h in Headers */,
+				0C921FB512803909004A624F /* sds.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF500486A6940098B216 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +286,42 @@
 			productReference = 0C920D0A12696788004A624F /* Test_ObjCHiredis_OSX.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		0C921FA5128038D1004A624F /* ObjCHiredis_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C921FB812803930004A624F /* Build configuration list for PBXNativeTarget "ObjCHiredis_iOS" */;
+			buildPhases = (
+				0C921FA2128038D1004A624F /* Headers */,
+				0C921FA3128038D1004A624F /* Sources */,
+				0C921FA4128038D1004A624F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCHiredis_iOS;
+			productName = ObjCHiredis_iOS;
+			productReference = 0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		0C921FBD12803934004A624F /* Test_ObjCHiredis_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C921FC212803935004A624F /* Build configuration list for PBXNativeTarget "Test_ObjCHiredis_iOS" */;
+			buildPhases = (
+				0C921FB912803934004A624F /* Resources */,
+				0C921FBA12803934004A624F /* Sources */,
+				0C921FBB12803934004A624F /* Frameworks */,
+				0C921FBC12803934004A624F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0C921FC51280393F004A624F /* PBXTargetDependency */,
+			);
+			name = Test_ObjCHiredis_iOS;
+			productName = Test_ObjCHiredis_iOS;
+			productReference = 0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		8DC2EF4F0486A6940098B216 /* ObjCHiredis */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "ObjCHiredis" */;
@@ -245,7 +338,7 @@
 			name = ObjCHiredis;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = ObjCHiredis;
-			productReference = 8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */;
+			productReference = 8DC2EF5B0486A6940098B216 /* ObjCHiredis */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -263,12 +356,21 @@
 			targets = (
 				8DC2EF4F0486A6940098B216 /* ObjCHiredis */,
 				0C920D0912696788004A624F /* Test_ObjCHiredis_OSX */,
+				0C921FA5128038D1004A624F /* ObjCHiredis_iOS */,
+				0C921FBD12803934004A624F /* Test_ObjCHiredis_iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0C920D0512696788004A624F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C921FB912803934004A624F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -299,6 +401,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		0C921FBC12803934004A624F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -313,6 +428,31 @@
 				0C9215121271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */,
 				0C9216891277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */,
 				0C921A8C127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C921FA3128038D1004A624F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C921FAD128038EF004A624F /* anet.c in Sources */,
+				0C921FB0128038F7004A624F /* hiredis.c in Sources */,
+				0C921FB312803901004A624F /* ObjCHiredis.m in Sources */,
+				0C921FB412803908004A624F /* sds.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C921FBA12803934004A624F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C921FCF12803983004A624F /* ObjCHiredis_01_Basic_TestCase.m in Sources */,
+				0C921FD012803985004A624F /* ObjCHiredis_02_String_TestCase.m in Sources */,
+				0C921FD112803986004A624F /* ObjCHiredis_03_List_TestCase.m in Sources */,
+				0C921FD212803987004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */,
+				0C921FD312803988004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */,
+				0C921FD412803989004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */,
+				0C921FD51280398D004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +474,11 @@
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
 			targetProxy = 0C920D12126967BB004A624F /* PBXContainerItemProxy */;
+		};
+		0C921FC51280393F004A624F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0C921FA5128038D1004A624F /* ObjCHiredis_iOS */;
+			targetProxy = 0C921FC41280393F004A624F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -400,6 +545,97 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Test_ObjCHiredis_OSX;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		0C921FA7128038D2004A624F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = ObjCHiredis_iOS;
+				SDKROOT = iphonesimulator4.0;
+			};
+			name = Debug;
+		};
+		0C921FA8128038D2004A624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = ObjCHiredis_iOS;
+				SDKROOT = iphonesimulator4.0;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		0C921FC012803935004A624F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "Test_ObjCHiredis_iOS-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test_ObjCHiredis_iOS;
+				SDKROOT = iphonesimulator4.0;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		0C921FC112803935004A624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "Test_ObjCHiredis_iOS-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Test_ObjCHiredis_iOS;
+				SDKROOT = iphonesimulator4.0;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
@@ -482,6 +718,24 @@
 			buildConfigurations = (
 				0C920D0C12696788004A624F /* Debug */,
 				0C920D0D12696788004A624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C921FB812803930004A624F /* Build configuration list for PBXNativeTarget "ObjCHiredis_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C921FA7128038D2004A624F /* Debug */,
+				0C921FA8128038D2004A624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C921FC212803935004A624F /* Build configuration list for PBXNativeTarget "Test_ObjCHiredis_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C921FC012803935004A624F /* Debug */,
+				0C921FC112803935004A624F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
