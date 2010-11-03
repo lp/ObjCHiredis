@@ -106,4 +106,11 @@
 				  [retVal containsObject:@"MYHASH"]), @"KEYS didn't return the matching keys");
 }
 
+- (void)test_07_RANDOMKEY {
+	id retVal = [redis command:@"RANDOMKEY"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"RANDOMKEY didn't return an NSString, got: %@", [retVal class]);
+	NSArray * possibles = [NSArray arrayWithObjects:@"MYSTRING",@"MYLIST",@"MYSET",@"MYZSET",@"MYHASH",nil];
+	STAssertTrue([possibles containsObject:retVal], @"RANDOMKEY didn't return one of the contained keys, got: %@", retVal);
+}
+
 @end
