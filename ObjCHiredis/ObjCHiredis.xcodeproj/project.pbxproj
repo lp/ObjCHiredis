@@ -17,7 +17,6 @@
 		0C920CF812696723004A624F /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
 		0C920CF912696723004A624F /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CF712696723004A624F /* ObjCHiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C920D11126967B0004A624F /* ObjCHiredis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */; };
-		0C920D16126967C6004A624F /* ObjCHiredis in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis */; };
 		0C920DE712696D70004A624F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		0C921391126F158A004A624F /* ObjCHiredis_02_String_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921390126F158A004A624F /* ObjCHiredis_02_String_TestCase.m */; };
 		0C921394126F1669004A624F /* ObjCHiredis_03_List_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921393126F1669004A624F /* ObjCHiredis_03_List_TestCase.m */; };
@@ -34,7 +33,6 @@
 		0C921FB312803901004A624F /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
 		0C921FB412803908004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
 		0C921FB512803909004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
-		0C921FC61280394A004A624F /* libObjCHiredis_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */; };
 		0C921FCF12803983004A624F /* ObjCHiredis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */; };
 		0C921FD012803985004A624F /* ObjCHiredis_02_String_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921390126F158A004A624F /* ObjCHiredis_02_String_TestCase.m */; };
 		0C921FD112803986004A624F /* ObjCHiredis_03_List_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921393126F1669004A624F /* ObjCHiredis_03_List_TestCase.m */; };
@@ -42,30 +40,41 @@
 		0C921FD312803988004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */; };
 		0C921FD412803989004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921396126F170E004A624F /* ObjCHiredis_06_Hash_TestCase.m */; };
 		0C921FD51280398D004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
+		0C9220F71280E31C004A624F /* ObjCHiredis in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis */; };
+		0C9220FA1280E339004A624F /* libObjCHiredis_Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */; };
+		0C9221041280E372004A624F /* anet.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEE1269670C004A624F /* anet.c */; };
+		0C9221051280E373004A624F /* anet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CED1269670C004A624F /* anet.h */; };
+		0C9221061280E375004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
+		0C9221071280E378004A624F /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
+		0C9221081280E379004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
+		0C9221091280E37F004A624F /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CF712696723004A624F /* ObjCHiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C92210B1280E383004A624F /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
+		0C92210C1280E387004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
+		0C92210D1280E388004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0C920D12126967BB004A624F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = ObjCHiredis;
-		};
-		0C921FC41280393F004A624F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0C921FA5128038D1004A624F /* ObjCHiredis_iOS */;
-			remoteInfo = ObjCHiredis_iOS;
-		};
 		0C92202312806AFC004A624F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
 			remoteInfo = ObjCHiredis;
+		};
+		0C9220F51280E314004A624F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
+			remoteInfo = ObjCHiredis;
+		};
+		0C9220F81280E331004A624F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C9220EB1280E2A3004A624F /* ObjCHiredis_Simulator */;
+			remoteInfo = ObjCHiredis_Simulator;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -99,6 +108,7 @@
 		0C92201912806ADB004A624F /* Test_ObjCHiredis_MacRuby-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test_ObjCHiredis_MacRuby-Info.plist"; sourceTree = "<group>"; };
 		0C92202A12806B9E004A624F /* run_suite.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = run_suite.rb; sourceTree = "<group>"; };
 		0C92202B12806B9E004A624F /* Ruby-Redis_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_test.rb"; sourceTree = "<group>"; };
+		0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjCHiredis_Simulator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* ObjCHiredis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,7 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C920D16126967C6004A624F /* ObjCHiredis in Frameworks */,
+				0C9220F71280E31C004A624F /* ObjCHiredis in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +136,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C921FC61280394A004A624F /* libObjCHiredis_iOS.a in Frameworks */,
+				0C9220FA1280E339004A624F /* libObjCHiredis_Simulator.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C9220EA1280E2A3004A624F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +166,7 @@
 				0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */,
 				0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */,
 				0C92201812806ADB004A624F /* Test_ObjCHiredis_MacRuby.octest */,
+				0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -285,6 +303,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0C9220E81280E2A3004A624F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C9221051280E373004A624F /* anet.h in Headers */,
+				0C9221061280E375004A624F /* fmacros.h in Headers */,
+				0C9221081280E379004A624F /* hiredis.h in Headers */,
+				0C9221091280E37F004A624F /* ObjCHiredis.h in Headers */,
+				0C92210D1280E388004A624F /* sds.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF500486A6940098B216 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,7 +342,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				0C920D13126967BB004A624F /* PBXTargetDependency */,
+				0C9220F61280E314004A624F /* PBXTargetDependency */,
 			);
 			name = Test_ObjCHiredis_OSX;
 			productName = Test_ObjCHiredis_OSX;
@@ -348,7 +378,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				0C921FC51280393F004A624F /* PBXTargetDependency */,
+				0C9220F91280E331004A624F /* PBXTargetDependency */,
 			);
 			name = Test_ObjCHiredis_iOS;
 			productName = Test_ObjCHiredis_iOS;
@@ -370,6 +400,23 @@
 			productName = Test_ObjCHiredis_MacRuby;
 			productReference = 0C92201812806ADB004A624F /* Test_ObjCHiredis_MacRuby.octest */;
 			productType = "com.apple.product-type.bundle";
+		};
+		0C9220EB1280E2A3004A624F /* ObjCHiredis_Simulator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C9220F01280E2DD004A624F /* Build configuration list for PBXNativeTarget "ObjCHiredis_Simulator" */;
+			buildPhases = (
+				0C9220E81280E2A3004A624F /* Headers */,
+				0C9220E91280E2A3004A624F /* Sources */,
+				0C9220EA1280E2A3004A624F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCHiredis_Simulator;
+			productName = ObjCHiredis_Simulator;
+			productReference = 0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		8DC2EF4F0486A6940098B216 /* ObjCHiredis */ = {
 			isa = PBXNativeTarget;
@@ -408,6 +455,7 @@
 				0C921FA5128038D1004A624F /* ObjCHiredis_iOS */,
 				0C921FBD12803934004A624F /* Test_ObjCHiredis_iOS */,
 				0C92201712806ADB004A624F /* Test_ObjCHiredis_MacRuby */,
+				0C9220EB1280E2A3004A624F /* ObjCHiredis_Simulator */,
 			);
 		};
 /* End PBXProject section */
@@ -519,6 +567,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0C9220E91280E2A3004A624F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C9221041280E372004A624F /* anet.c in Sources */,
+				0C9221071280E378004A624F /* hiredis.c in Sources */,
+				0C92210B1280E383004A624F /* ObjCHiredis.m in Sources */,
+				0C92210C1280E387004A624F /* sds.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -533,20 +592,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0C920D13126967BB004A624F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
-			targetProxy = 0C920D12126967BB004A624F /* PBXContainerItemProxy */;
-		};
-		0C921FC51280393F004A624F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0C921FA5128038D1004A624F /* ObjCHiredis_iOS */;
-			targetProxy = 0C921FC41280393F004A624F /* PBXContainerItemProxy */;
-		};
 		0C92202412806AFC004A624F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
 			targetProxy = 0C92202312806AFC004A624F /* PBXContainerItemProxy */;
+		};
+		0C9220F61280E314004A624F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
+			targetProxy = 0C9220F51280E314004A624F /* PBXContainerItemProxy */;
+		};
+		0C9220F91280E331004A624F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0C9220EB1280E2A3004A624F /* ObjCHiredis_Simulator */;
+			targetProxy = 0C9220F81280E331004A624F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -764,6 +823,33 @@
 			};
 			name = Release;
 		};
+		0C9220EE1280E2A4004A624F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = ObjCHiredis_Simulator;
+				SDKROOT = iphonesimulator4.0;
+			};
+			name = Debug;
+		};
+		0C9220EF1280E2A4004A624F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = ObjCHiredis_Simulator;
+				SDKROOT = iphonesimulator4.0;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		1DEB91AE08733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -870,6 +956,15 @@
 			buildConfigurations = (
 				0C92201A12806ADB004A624F /* Debug */,
 				0C92201B12806ADB004A624F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C9220F01280E2DD004A624F /* Build configuration list for PBXNativeTarget "ObjCHiredis_Simulator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C9220EE1280E2A4004A624F /* Debug */,
+				0C9220EF1280E2A4004A624F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
