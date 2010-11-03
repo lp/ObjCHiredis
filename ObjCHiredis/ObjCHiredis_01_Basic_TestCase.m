@@ -119,9 +119,23 @@
 	STAssertTrue([retVal isEqualToString:@"OK"], @"RENAME didn't return OK, got: %@", retVal);
 	STAssertTrue([[redis command:@"EXISTS MYSTRING"] isEqualToNumber:[NSNumber numberWithInt:0]],
 				 @"RENAME didn't rename, old name still exists");
+	STAssertTrue([[redis command:@"EXISTS MYNEWSTRING"] isEqualToNumber:[NSNumber numberWithInt:1]],
+				 @"RENAME didn't rename, new key does not exists");
 	retVal = [redis command:@"RENAME MYDUMMY MYNEWDUMMY"];
 	STAssertTrue([retVal isKindOfClass:[NSString class]], @"RENAME didn't return an NSString when called on a null key, got: %@", [retVal class]);
 	STAssertTrue([retVal isEqualToString:@"ERR no such key"], @"RENAME didn't return 'ERR no such key' when called on a null key, got: %@", retVal);
+}
+
+- (void)test_09_RENAMENX {
+	id retVal = [redis command:@"RENAMENX MYSTRING MYLIST"];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"RENAMENX didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:0]], @"RENAMENX didn't return 0 on failure, got: %d", [retVal integerValue]);
+	retVal = [redis command:@"RENAMENX MYSTRING MYNEWSTRING"];
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"RENAMENX didn't return 1 on success, got: %d", [retVal integerValue]);
+	STAssertTrue([[redis command:@"EXISTS MYSTRING"] isEqualToNumber:[NSNumber numberWithInt:0]],
+				 @"RENAMENX didn't rename, old name still exists");
+	STAssertTrue([[redis command:@"EXISTS MYNEWSTRING"] isEqualToNumber:[NSNumber numberWithInt:1]],
+				 @"RENAMENX didn't rename, new key does not exists");
 }
 
 @end
