@@ -17,7 +17,7 @@ h3. Hiredis
 
 p. ObjCHiredis wouldn't have been possible without "Hiredis":http://github.com/antirez/hiredis:
 
-bc. Copyright (c) 2006-2009, Salvatore Sanfilippo
+bq.. Copyright (c) 2006-2009, Salvatore Sanfilippo
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -32,7 +32,7 @@ h3. ObjCHiredis
 
 p. ObjCHiredis is distributed under the MIT license:
 
-bc. Copyright (c) 2010, Louis-Philippe Perron.
+bq.. Copyright (c) 2010, Louis-Philippe Perron.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
