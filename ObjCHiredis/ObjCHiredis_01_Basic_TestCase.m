@@ -95,7 +95,17 @@
 	[redis command:@"SADD MYSET MYVALUE"];
 	[redis command:@"ZADD MYZSET 1 MYVALUE"];
 	[redis command:@"HSET MYHASH MYKEY MYVALUE"];
-
+	
+	id retVal = [redis command:@"KEYS NOTHING"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"KEYS didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 0, @"KEYS didn't return an empty array when called on a null key, got: %d", [retVal count]);
+	
+	retVal = [redis command:@"KEYS MY*"];
+	STAssertTrue([retVal isKindOfClass:[NSArray class]], @"KEYS didn't return an NSArray, got: %@", [retVal class]);
+	STAssertTrue([retVal count] == 5, @"KEYS didn't return all keys matching pattern, count should be 5, got: %d", [retVal count]);
+	STAssertTrue(([retVal containsObject:@"MYSTRING"] && [retVal containsObject:@"MYLIST"] &&
+				  [retVal containsObject:@"MYSET"] && [retVal containsObject:@"MYZSET"] &&
+				  [retVal containsObject:@"MYHASH"]), @"KEYS didn't return the matching keys");
 }
 
 @end
