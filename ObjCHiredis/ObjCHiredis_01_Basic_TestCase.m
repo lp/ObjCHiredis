@@ -113,4 +113,15 @@
 	STAssertTrue([possibles containsObject:retVal], @"RANDOMKEY didn't return one of the contained keys, got: %@", retVal);
 }
 
+- (void)test_08_RENAME {
+	id retVal = [redis command:@"RENAME MYSTRING MYNEWSTRING"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"RENAME didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"OK"], @"RENAME didn't return OK, got: %@", retVal);
+	STAssertTrue([[redis command:@"EXISTS MYSTRING"] isEqualToNumber:[NSNumber numberWithInt:0]],
+				 @"RENAME didn't rename, old name still exists");
+	retVal = [redis command:@"RENAME MYDUMMY MYNEWDUMMY"];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"RENAME didn't return an NSString when called on a null key, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:@"ERR no such key"], @"RENAME didn't return 'ERR no such key' when called on a null key, got: %@", retVal);
+}
+
 @end
