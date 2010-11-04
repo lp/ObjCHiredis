@@ -48,6 +48,8 @@
 
 - (void)test_02_Init {
 	STAssertNotNil(redis, @"Couldn't init... ");
+	STAssertTrue([[ObjCHiredis redis:@"localhost" on:[NSNumber numberWithInt:6379]] isKindOfClass:[ObjCHiredis class]],
+				 @"ObjCHiredis didn't init properly with specific options");
 }
 
 - (void)test_03_EXISTS {

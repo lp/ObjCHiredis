@@ -30,8 +30,8 @@
 	int fd;
 }
 
-+ (id)redis;
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber;
++ (id)redis;
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;
 - (id)command:(NSString*)command;
 

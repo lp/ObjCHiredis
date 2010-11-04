@@ -37,10 +37,6 @@
 
 @implementation ObjCHiredis
 
-+ (id)redis {
-	return [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379]];
-}
-
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber {
 	ObjCHiredis * redis = [[ObjCHiredis alloc] init];
 	[redis autorelease];
@@ -50,6 +46,10 @@
 	} else {
 		return nil;
 	}
+}
+
++ (id)redis {
+	return [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379]];
 }
 
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber {
