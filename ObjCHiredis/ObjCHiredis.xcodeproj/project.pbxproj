@@ -82,6 +82,7 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0C6098B81283445500871FD2 /* Ruby-Redis_01_base_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_01_base_test.rb"; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
 		0C920CEA1269670C004A624F /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hiredis.h; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		0C92201812806ADB004A624F /* Test_ObjCHiredis_MacRuby.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test_ObjCHiredis_MacRuby.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C92201912806ADB004A624F /* Test_ObjCHiredis_MacRuby-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test_ObjCHiredis_MacRuby-Info.plist"; sourceTree = "<group>"; };
 		0C92202A12806B9E004A624F /* run_suite.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = run_suite.rb; sourceTree = "<group>"; };
-		0C92202B12806B9E004A624F /* Ruby-Redis_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_test.rb"; sourceTree = "<group>"; };
 		0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjCHiredis_Simulator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* ObjCHiredis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis_Prefix.pch; sourceTree = "<group>"; };
@@ -256,8 +256,8 @@
 		0C92202912806B9E004A624F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0C6098B81283445500871FD2 /* Ruby-Redis_01_base_test.rb */,
 				0C92202A12806B9E004A624F /* run_suite.rb */,
-				0C92202B12806B9E004A624F /* Ruby-Redis_test.rb */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

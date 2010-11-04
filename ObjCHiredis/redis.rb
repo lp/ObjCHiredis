@@ -5,6 +5,7 @@
 # Copyright 2010 Modul. All rights reserved.
 
 # A wrapper for the ObjCHiredis framework mimicking the redis-rb gem
+
 framework "/Users/lpperron/Documents/lllaptop/git_repos/Redis/ObjCHiredis/ObjCHiredis/build/Debug/ObjCHiredis.framework"
 
 class Redis
@@ -21,5 +22,8 @@ class Redis
     end
   end
   
+  def method_missing(meth_symbol, *args)
+    @hiredis.command("#{meth_symbol.to_s.upcase} #{args.join(' ')}")
+  end
 
 end
