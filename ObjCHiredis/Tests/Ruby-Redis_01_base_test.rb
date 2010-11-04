@@ -7,6 +7,7 @@ class InitTest < Test::Unit::TestCase
   end
   
   def teardown
+    @redis.flushdb
     @redis.quit
   end
   
@@ -34,6 +35,15 @@ class InitTest < Test::Unit::TestCase
     assert_equal 0, @redis.del( "dummyKey")
     @redis.set("MYKEY", "MYVALUE")
     assert_equal 1, @redis.del( "MYKEY")
+  end
+  
+  def test_08_randomkey
+    assert_equal nil, @redis.randomkey
+    keys = ["key1", "key2", "key3"]
+    keys.each { |key| @redis.set(key, "anyValue") }
+    rankey = @redis.randomkey
+    assert_instance_of String, rankey
+    assert_equal true, keys.include?(rankey)
   end
   
 end

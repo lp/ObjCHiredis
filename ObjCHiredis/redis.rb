@@ -22,8 +22,19 @@ class Redis
     end
   end
   
+  # Most methods will fit in here
   def method_missing(meth_symbol, *args)
     @hiredis.command("#{meth_symbol.to_s.upcase} #{args.join(' ')}")
+  end
+  
+  # the one that don't
+  
+  def [](key)
+    @hiredis.command("GET #{key}")
+  end
+  
+  def []=(key, value)
+    @hiredis.command("SET #{key} #{value}")
   end
 
 end
