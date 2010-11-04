@@ -41,8 +41,7 @@
 {
 	self = [super init];
 	if (self != nil) {
-		port = nil;
-		server = nil;
+		
 	}	
 	return self;
 }
@@ -63,10 +62,14 @@
 }
 
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber {
-	server = ipaddress;
-	port = portnumber;
-	
-	return [self connect];
+	redisReply *reply;
+    reply = redisConnect(&fd, [ipaddress UTF8String], [portnumber intValue]);
+    if (reply != NULL) {
+        NSLog(@"Connection error: %s", reply->reply);
+        return NO;
+    } else {
+		return YES;
+	}
 }
 
 - (id)command:(NSString*)command
@@ -76,23 +79,6 @@
     freeReplyObject(reply);
 	return retVal;
 }
-
-- (BOOL)connect
-{
-	if ((server == nil && port == nil)) { return NO; }
-	
-	redisReply *reply;
-    reply = redisConnect(&fd, [server UTF8String], [port intValue]);
-    if (reply != NULL) {
-        NSLog(@"Connection error: %s", reply->reply);
-        return NO;
-    } else {
-		return YES;
-	}
-}
-
-@synthesize server;
-@synthesize port;
 
 // Private Methods
 - (id)parseReply:(redisReply*)reply {

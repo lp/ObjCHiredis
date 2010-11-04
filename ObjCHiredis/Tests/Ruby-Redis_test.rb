@@ -19,7 +19,7 @@ class InitTest < Test::Unit::TestCase
   end
   
   def test_03_init_with_options
-    assert_instance_of Redis, Redis.new(:host => "localhost", :port => 6379)
+    assert_instance_of Redis, Redis.new(:host => "127.0.0.1", :port => 6379)
   end
   
 end
