@@ -37,6 +37,16 @@
 
 @implementation ObjCHiredis
 
+- (id)init
+{
+	self = [super init];
+	if (self != nil) {
+		port = nil;
+		server = nil;
+	}	
+	return self;
+}
+
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber {
 	ObjCHiredis * redis = [[ObjCHiredis alloc] init];
 	[redis autorelease];
@@ -53,15 +63,10 @@
 }
 
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber {
-	redisReply *reply;
+	server = ipaddress;
+	port = portnumber;
 	
-    reply = redisConnect(&fd, [ipaddress UTF8String], [portnumber intValue]);
-    if (reply != NULL) {
-        NSLog(@"Connection error: %s", reply->reply);
-        return NO;
-    } else {
-		return YES;
-	}
+	return [self connect];
 }
 
 - (id)command:(NSString*)command
@@ -71,6 +76,23 @@
     freeReplyObject(reply);
 	return retVal;
 }
+
+- (BOOL)connect
+{
+	if ((server == nil && port == nil)) { return NO; }
+	
+	redisReply *reply;
+    reply = redisConnect(&fd, [server UTF8String], [port intValue]);
+    if (reply != NULL) {
+        NSLog(@"Connection error: %s", reply->reply);
+        return NO;
+    } else {
+		return YES;
+	}
+}
+
+- (void)server:(NSString*)ipaddress { server = ipaddress; }
+- (void)port:(NSNumber*)portnumber { port = portnumber; }
 
 // Private Methods
 - (id)parseReply:(redisReply*)reply {

@@ -28,11 +28,16 @@
 
 @interface ObjCHiredis : NSObject {
 	int fd;
+	NSString * server;
+	NSNumber * port;
 }
 
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber;
 + (id)redis;
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;
+- (BOOL)connect;
 - (id)command:(NSString*)command;
+- (void)server:(NSString*)ipaddress;
+- (void)port:(NSNumber*)portnumber;
 
 @end
