@@ -37,7 +37,8 @@
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;
 - (BOOL)connect;
 - (id)command:(NSString*)command;
-- (void)server:(NSString*)ipaddress;
-- (void)port:(NSNumber*)portnumber;
+
+@property(retain, readwrite) NSString * server;
+@property(retain, readwrite) NSNumber * port;
 
 @end

@@ -91,8 +91,8 @@
 	}
 }
 
-- (void)server:(NSString*)ipaddress { server = ipaddress; }
-- (void)port:(NSNumber*)portnumber { port = portnumber; }
+@synthesize server;
+@synthesize port;
 
 // Private Methods
 - (id)parseReply:(redisReply*)reply {
