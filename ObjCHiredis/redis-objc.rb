@@ -8,7 +8,7 @@
 
 framework "/Users/lpperron/Documents/lllaptop/git_repos/Redis/ObjCHiredis/ObjCHiredis/build/Debug/ObjCHiredis.framework"
 
-class Redis
+class RedisObjC
 
   # class methods
   

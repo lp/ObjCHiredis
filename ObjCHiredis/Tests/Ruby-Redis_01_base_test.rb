@@ -1,9 +1,9 @@
 require 'test/unit'
-require 'redis'
+require 'redis-objc'
 
 class InitTest < Test::Unit::TestCase
   def setup
-    @redis = Redis.new
+    @redis = RedisObjC.new
   end
   
   def teardown
@@ -16,12 +16,12 @@ class InitTest < Test::Unit::TestCase
   end
   
   def test_02_init
-    assert_instance_of Redis, @redis
+    assert_instance_of RedisObjC, @redis
   end
   
   def test_03_init_with_options
-    tempRedis = Redis.new(:host => "127.0.0.1", :port => 6379)
-    assert_instance_of Redis, tempRedis
+    tempRedis = RedisObjC.new(:host => "127.0.0.1", :port => 6379)
+    assert_instance_of RedisObjC, tempRedis
     tempRedis.quit
   end
   

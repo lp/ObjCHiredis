@@ -1,9 +1,9 @@
 require 'test/unit'
-require 'redis'
+require 'redis-objc'
 
 class StringTest < Test::Unit::TestCase
   def setup
-    @redis = Redis.new
+    @redis = RedisObjC.new
   end
   
   def teardown
