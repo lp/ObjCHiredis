@@ -10,22 +10,22 @@ class ObjCHiredis
 
   # class methods
   
-  def self.redis_rb(opts=nil)
-        if opts.nil?
-          ObjCHiredis.redis
-        else
-          # redis = Redis.new(:host => host, :port => port, :thread_safe => true, :db => db)
-          # db option?
-          ObjCHiredis.redis(opts[:host], on:opts[:port])
-        end
-      end
+  def self.redisRb(opts=nil)
+    if opts.nil?
+      ObjCHiredis.redis
+    else
+      # redis = Redis.new(:host => host, :port => port, :thread_safe => true, :db => db)
+      # db option?
+      ObjCHiredis.redis(opts[:host], on:opts[:port])
+    end
+  end
   
   # Most methods will fit in here
   def method_missing(meth_symbol, *args)
     self.command("#{meth_symbol.to_s.upcase} #{args.join(' ')}")
   end
   
-  # the ones that don't
+  # the one that don't
   
   def [](key)
     self.command("GET #{key}")

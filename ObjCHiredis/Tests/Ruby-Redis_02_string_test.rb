@@ -1,10 +1,10 @@
 framework 'ObjCHiredis'
-require ObjCHiredis.ruby
+require ObjCHiredis.rb
 require 'test/unit'
 
 class StringTest < Test::Unit::TestCase
   def setup
-    @redis = ObjCHiredis.redis_rb
+    @redis = ObjCHiredis.redisRb
   end
   
   def teardown

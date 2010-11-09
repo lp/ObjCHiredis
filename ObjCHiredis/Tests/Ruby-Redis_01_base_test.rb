@@ -1,10 +1,10 @@
 framework 'ObjCHiredis'
-require ObjCHiredis.ruby
+require ObjCHiredis.rb
 require 'test/unit'
 
 class InitTest < Test::Unit::TestCase
   def setup
-    @redis = ObjCHiredis.redis_rb
+    @redis = ObjCHiredis.redisRb
   end
   
   def teardown
@@ -21,7 +21,7 @@ class InitTest < Test::Unit::TestCase
   end
   
   def test_03_init_with_options
-    tempRedis = ObjCHiredis.redis_rb(:host => "127.0.0.1", :port => 6379)
+    tempRedis = ObjCHiredis.redisRb(:host => "127.0.0.1", :port => 6379)
     assert_instance_of ObjCHiredis, tempRedis
     tempRedis.quit
   end

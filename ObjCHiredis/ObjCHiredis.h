@@ -32,8 +32,9 @@
 
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber;
 + (id)redis;
-+ (NSString*)ruby;
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;
 - (id)command:(NSString*)command;
+
++ (NSString*)rb;
 
 @end
