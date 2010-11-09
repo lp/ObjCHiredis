@@ -56,11 +56,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0C92202312806AFC004A624F /* PBXContainerItemProxy */ = {
+		0C609B0F1289827500871FD2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
 			remoteInfo = ObjCHiredis;
 		};
 		0C9220F51280E314004A624F /* PBXContainerItemProxy */ = {
@@ -198,9 +198,6 @@
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
-				0C920D0B12696788004A624F /* Test_ObjCHiredis_OSX-Info.plist */,
-				0C921FBF12803934004A624F /* Test_ObjCHiredis_iOS-Info.plist */,
-				0C92201912806ADB004A624F /* Test_ObjCHiredis_MacRuby-Info.plist */,
 			);
 			name = ObjCHiredis;
 			sourceTree = "<group>";
@@ -217,6 +214,9 @@
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0C920D0B12696788004A624F /* Test_ObjCHiredis_OSX-Info.plist */,
+				0C921FBF12803934004A624F /* Test_ObjCHiredis_iOS-Info.plist */,
+				0C92201912806ADB004A624F /* Test_ObjCHiredis_MacRuby-Info.plist */,
 				8DC2EF5A0486A6940098B216 /* Info.plist */,
 				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
 			);
@@ -411,7 +411,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				0C92202412806AFC004A624F /* PBXTargetDependency */,
+				0C609B101289827500871FD2 /* PBXTargetDependency */,
 			);
 			name = Test_ObjCHiredis_MacRuby;
 			productName = Test_ObjCHiredis_MacRuby;
@@ -610,10 +610,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0C92202412806AFC004A624F /* PBXTargetDependency */ = {
+		0C609B101289827500871FD2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
-			targetProxy = 0C92202312806AFC004A624F /* PBXContainerItemProxy */;
+			targetProxy = 0C609B0F1289827500871FD2 /* PBXContainerItemProxy */;
 		};
 		0C9220F61280E314004A624F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -114,6 +114,13 @@
 }
 
 // ruby wrapper path, require ObjCHiredis.rb
-+ (NSString*)rb { return [[NSBundle bundleForClass:[ObjCHiredis class]] pathForResource:@"redis-objc" ofType:@"rb"]; }
++ (NSString*)rb {
+	NSString * rbPath = nil;
+	rbPath = [[NSBundle bundleForClass:[ObjCHiredis class]] pathForResource:@"redis-objc" ofType:nil];
+	if (rbPath == nil) {
+		rbPath = [[NSBundle bundleForClass:[ObjCHiredis class]] pathForResource:@"redis-objc" ofType:@"rb"];
+	}
+	return rbPath;
+}
 
 @end
