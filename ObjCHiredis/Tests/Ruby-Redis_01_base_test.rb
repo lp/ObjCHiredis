@@ -1,9 +1,10 @@
+framework 'ObjCHiredis'
+require ObjCHiredis.ruby
 require 'test/unit'
-require 'redis-objc'
 
 class InitTest < Test::Unit::TestCase
   def setup
-    @redis = RedisObjC.new
+    @redis = ObjCHiredis.redis_rb
   end
   
   def teardown
@@ -16,12 +17,12 @@ class InitTest < Test::Unit::TestCase
   end
   
   def test_02_init
-    assert_instance_of RedisObjC, @redis
+    assert_instance_of ObjCHiredis, @redis
   end
   
   def test_03_init_with_options
-    tempRedis = RedisObjC.new(:host => "127.0.0.1", :port => 6379)
-    assert_instance_of RedisObjC, tempRedis
+    tempRedis = ObjCHiredis.redis_rb(:host => "127.0.0.1", :port => 6379)
+    assert_instance_of ObjCHiredis, tempRedis
     tempRedis.quit
   end
   

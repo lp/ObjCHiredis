@@ -1,9 +1,10 @@
+framework 'ObjCHiredis'
+require ObjCHiredis.ruby
 require 'test/unit'
-require 'redis-objc'
 
 class StringTest < Test::Unit::TestCase
   def setup
-    @redis = RedisObjC.new
+    @redis = ObjCHiredis.redis_rb
   end
   
   def teardown

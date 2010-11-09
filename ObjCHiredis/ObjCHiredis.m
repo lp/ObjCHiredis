@@ -61,6 +61,8 @@
 	return [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379]];
 }
 
++ (NSString*)ruby { return [[NSBundle bundleForClass:[ObjCHiredis class]] pathForResource:@"redis-objc" ofType:@"rb"]; }
+
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber {
 	redisReply *reply;
     reply = redisConnect(&fd, [ipaddress UTF8String], [portnumber intValue]);
