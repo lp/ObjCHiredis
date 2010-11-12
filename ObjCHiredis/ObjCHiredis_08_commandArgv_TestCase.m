@@ -52,5 +52,20 @@
 				 
 }
 
+- (void)test_02_argv_loadup {
+	NSString * bigString = @"lambda {|params| puts 'Starting lambda'; params.each {|item| puts \"there is #{item}\"}}";
+	id retVal = [redis commandArgv:[NSArray arrayWithObjects:
+									@"HSET", @"lambdas", @"unused", bigString,
+									nil]];
+	STAssertTrue([retVal isKindOfClass:[NSNumber class]], @"commandArgv HSET didn't return an NSNumber, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToNumber:[NSNumber numberWithInt:1]], @"commandArgv HSET didn't return 1 on success, got: %d", [retVal integerValue]);
+	
+	retVal = [redis commandArgv:[NSArray arrayWithObjects:
+								 @"HGET", @"lambdas", @"unused",
+								 nil]];
+	STAssertTrue([retVal isKindOfClass:[NSString class]], @"commandArgv HGET didn't return an NSString, got: %@", [retVal class]);
+	STAssertTrue([retVal isEqualToString:bigString], @"commandArgv HGET didn't return the right value, should be: %@, got: %@", bigString, retVal);
+}
+
 
 @end
