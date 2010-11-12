@@ -60,7 +60,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* ObjCHiredis */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = ObjCHiredis;
 		};
 		0C9220F51280E314004A624F /* PBXContainerItemProxy */ = {
@@ -100,6 +100,7 @@
 		0C6098B81283445500871FD2 /* Ruby-Redis_01_base_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_01_base_test.rb"; sourceTree = "<group>"; };
 		0C6099101283754600871FD2 /* Ruby-Redis_02_string_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_02_string_test.rb"; sourceTree = "<group>"; };
 		0C609922128383A700871FD2 /* redis-objc.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "redis-objc.rb"; sourceTree = "<group>"; };
+		0C609EB2128C47D700871FD2 /* Ruby-Redis_06_hash_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_06_hash_test.rb"; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
 		0C920CEA1269670C004A624F /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hiredis.h; sourceTree = "<group>"; };
@@ -275,6 +276,7 @@
 				0C6098B81283445500871FD2 /* Ruby-Redis_01_base_test.rb */,
 				0C92202A12806B9E004A624F /* run_suite.rb */,
 				0C6099101283754600871FD2 /* Ruby-Redis_02_string_test.rb */,
+				0C609EB2128C47D700871FD2 /* Ruby-Redis_06_hash_test.rb */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
