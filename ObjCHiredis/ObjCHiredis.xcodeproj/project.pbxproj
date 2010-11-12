@@ -8,13 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0C6099761288378200871FD2 /* redis-objc.rb in copy ruby */ = {isa = PBXBuildFile; fileRef = 0C609922128383A700871FD2 /* redis-objc.rb */; };
+		0C8DE954128DBB1F00127FC3 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE94F128DBB1F00127FC3 /* util.h */; };
+		0C8DE955128DBB1F00127FC3 /* net.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE950128DBB1F00127FC3 /* net.h */; };
+		0C8DE956128DBB1F00127FC3 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE951128DBB1F00127FC3 /* net.c */; };
+		0C8DE957128DBB1F00127FC3 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE952128DBB1F00127FC3 /* async.h */; };
+		0C8DE958128DBB1F00127FC3 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE953128DBB1F00127FC3 /* async.c */; };
+		0C8DE959128DBB1F00127FC3 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE94F128DBB1F00127FC3 /* util.h */; };
+		0C8DE95A128DBB1F00127FC3 /* net.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE950128DBB1F00127FC3 /* net.h */; };
+		0C8DE95B128DBB1F00127FC3 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE951128DBB1F00127FC3 /* net.c */; };
+		0C8DE95C128DBB1F00127FC3 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE952128DBB1F00127FC3 /* async.h */; };
+		0C8DE95D128DBB1F00127FC3 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE953128DBB1F00127FC3 /* async.c */; };
 		0C920CEF1269670C004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
 		0C920CF01269670C004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
 		0C920CF11269670C004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
 		0C920CF21269670C004A624F /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
 		0C920CF31269670C004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
-		0C920CF41269670C004A624F /* anet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CED1269670C004A624F /* anet.h */; };
-		0C920CF51269670C004A624F /* anet.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEE1269670C004A624F /* anet.c */; };
 		0C920CF812696723004A624F /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
 		0C920CF912696723004A624F /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CF712696723004A624F /* ObjCHiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C920D11126967B0004A624F /* ObjCHiredis_01_Basic_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */; };
@@ -25,8 +33,6 @@
 		0C9215121271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9215111271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m */; };
 		0C9216891277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */; };
 		0C921A8C127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
-		0C921FAD128038EF004A624F /* anet.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEE1269670C004A624F /* anet.c */; };
-		0C921FAE128038F1004A624F /* anet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CED1269670C004A624F /* anet.h */; };
 		0C921FAF128038F4004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
 		0C921FB0128038F7004A624F /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
 		0C921FB1128038F8004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
@@ -43,8 +49,6 @@
 		0C921FD51280398D004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
 		0C9220F71280E31C004A624F /* ObjCHiredis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */; };
 		0C9220FA1280E339004A624F /* libObjCHiredis_Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */; };
-		0C9221041280E372004A624F /* anet.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEE1269670C004A624F /* anet.c */; };
-		0C9221051280E373004A624F /* anet.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CED1269670C004A624F /* anet.h */; };
 		0C9221061280E375004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
 		0C9221071280E378004A624F /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
 		0C9221081280E379004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
@@ -101,13 +105,16 @@
 		0C6099101283754600871FD2 /* Ruby-Redis_02_string_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_02_string_test.rb"; sourceTree = "<group>"; };
 		0C609922128383A700871FD2 /* redis-objc.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "redis-objc.rb"; sourceTree = "<group>"; };
 		0C609EB2128C47D700871FD2 /* Ruby-Redis_06_hash_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_06_hash_test.rb"; sourceTree = "<group>"; };
+		0C8DE94F128DBB1F00127FC3 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		0C8DE950128DBB1F00127FC3 /* net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = net.h; sourceTree = "<group>"; };
+		0C8DE951128DBB1F00127FC3 /* net.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = net.c; sourceTree = "<group>"; };
+		0C8DE952128DBB1F00127FC3 /* async.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = async.h; sourceTree = "<group>"; };
+		0C8DE953128DBB1F00127FC3 /* async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async.c; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
 		0C920CEA1269670C004A624F /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hiredis.h; sourceTree = "<group>"; };
 		0C920CEB1269670C004A624F /* hiredis.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hiredis.c; sourceTree = "<group>"; };
 		0C920CEC1269670C004A624F /* fmacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmacros.h; sourceTree = "<group>"; };
-		0C920CED1269670C004A624F /* anet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = anet.h; sourceTree = "<group>"; };
-		0C920CEE1269670C004A624F /* anet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = anet.c; sourceTree = "<group>"; };
 		0C920CF612696722004A624F /* ObjCHiredis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis.m; sourceTree = "<group>"; };
 		0C920CF712696723004A624F /* ObjCHiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis.h; sourceTree = "<group>"; };
 		0C920CFC12696735004A624F /* ObjCHiredis_01_Basic_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_01_Basic_TestCase.m; sourceTree = "<group>"; };
@@ -236,13 +243,16 @@
 		0C920CE6126966F1004A624F /* Hiredis */ = {
 			isa = PBXGroup;
 			children = (
+				0C8DE94F128DBB1F00127FC3 /* util.h */,
+				0C8DE950128DBB1F00127FC3 /* net.h */,
+				0C8DE951128DBB1F00127FC3 /* net.c */,
+				0C8DE952128DBB1F00127FC3 /* async.h */,
+				0C8DE953128DBB1F00127FC3 /* async.c */,
 				0C920CE81269670C004A624F /* sds.h */,
 				0C920CE91269670C004A624F /* sds.c */,
 				0C920CEA1269670C004A624F /* hiredis.h */,
 				0C920CEB1269670C004A624F /* hiredis.c */,
 				0C920CEC1269670C004A624F /* fmacros.h */,
-				0C920CED1269670C004A624F /* anet.h */,
-				0C920CEE1269670C004A624F /* anet.c */,
 			);
 			name = Hiredis;
 			sourceTree = "<group>";
@@ -314,11 +324,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C921FAE128038F1004A624F /* anet.h in Headers */,
 				0C921FAF128038F4004A624F /* fmacros.h in Headers */,
 				0C921FB1128038F8004A624F /* hiredis.h in Headers */,
 				0C921FB2128038FF004A624F /* ObjCHiredis.h in Headers */,
 				0C921FB512803909004A624F /* sds.h in Headers */,
+				0C8DE959128DBB1F00127FC3 /* util.h in Headers */,
+				0C8DE95A128DBB1F00127FC3 /* net.h in Headers */,
+				0C8DE95C128DBB1F00127FC3 /* async.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +338,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C9221051280E373004A624F /* anet.h in Headers */,
 				0C9221061280E375004A624F /* fmacros.h in Headers */,
 				0C9221081280E379004A624F /* hiredis.h in Headers */,
 				0C9221091280E37F004A624F /* ObjCHiredis.h in Headers */,
@@ -341,8 +352,10 @@
 				0C920CEF1269670C004A624F /* sds.h in Headers */,
 				0C920CF11269670C004A624F /* hiredis.h in Headers */,
 				0C920CF31269670C004A624F /* fmacros.h in Headers */,
-				0C920CF41269670C004A624F /* anet.h in Headers */,
 				0C920CF912696723004A624F /* ObjCHiredis.h in Headers */,
+				0C8DE954128DBB1F00127FC3 /* util.h in Headers */,
+				0C8DE955128DBB1F00127FC3 /* net.h in Headers */,
+				0C8DE957128DBB1F00127FC3 /* async.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,10 +579,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C921FAD128038EF004A624F /* anet.c in Sources */,
 				0C921FB0128038F7004A624F /* hiredis.c in Sources */,
 				0C921FB312803901004A624F /* ObjCHiredis.m in Sources */,
 				0C921FB412803908004A624F /* sds.c in Sources */,
+				0C8DE95B128DBB1F00127FC3 /* net.c in Sources */,
+				0C8DE95D128DBB1F00127FC3 /* async.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +605,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C9221041280E372004A624F /* anet.c in Sources */,
 				0C9221071280E378004A624F /* hiredis.c in Sources */,
 				0C92210B1280E383004A624F /* ObjCHiredis.m in Sources */,
 				0C92210C1280E387004A624F /* sds.c in Sources */,
@@ -604,8 +617,9 @@
 			files = (
 				0C920CF01269670C004A624F /* sds.c in Sources */,
 				0C920CF21269670C004A624F /* hiredis.c in Sources */,
-				0C920CF51269670C004A624F /* anet.c in Sources */,
 				0C920CF812696723004A624F /* ObjCHiredis.m in Sources */,
+				0C8DE956128DBB1F00127FC3 /* net.c in Sources */,
+				0C8DE958128DBB1F00127FC3 /* async.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

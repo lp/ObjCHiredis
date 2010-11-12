@@ -26,7 +26,6 @@
 
 
 #import "ObjCHiredis.h"
-#import "hiredis.h"
 
 @interface ObjCHiredis ()
 
@@ -62,10 +61,9 @@
 }
 
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber {
-	redisReply *reply;
-    reply = redisConnect(&fd, [ipaddress UTF8String], [portnumber intValue]);
-    if (reply != NULL) {
-        NSLog(@"Connection error: %s", reply->reply);
+    context = redisConnect([ipaddress UTF8String], [portnumber intValue]);
+    if (context->err != 0) {
+        NSLog(@"Connection error: %s", context->errstr);
         return NO;
     } else {
 		return YES;
@@ -74,7 +72,7 @@
 
 - (id)command:(NSString*)command
 {
-	redisReply *reply = redisCommand(fd,[command UTF8String]);
+	redisReply *reply = redisCommand(context,[command UTF8String]);
 	id retVal = [self parseReply:reply];
     freeReplyObject(reply);
 	return retVal;
@@ -84,9 +82,11 @@
 - (id)parseReply:(redisReply*)reply {
 	id retVal;
 	if (reply->type == REDIS_REPLY_ERROR) {
-		retVal = [NSString stringWithUTF8String:reply->reply];
+		retVal = [NSString stringWithUTF8String:reply->str];
+	} else if (reply->type == REDIS_REPLY_STATUS) {
+		retVal = [NSString stringWithUTF8String:reply->str];
 	} else if (reply->type == REDIS_REPLY_STRING) {
-		retVal = [NSString stringWithUTF8String:reply->reply];
+		retVal = [NSString stringWithUTF8String:reply->str];
 	} else if (reply->type == REDIS_REPLY_ARRAY) {
 		retVal = [self arrayFromVector:reply->element ofSize:reply->elements];
 	} else if (reply->type == REDIS_REPLY_INTEGER) {
@@ -95,7 +95,7 @@
 		retVal = nil;
 	}
 	else {
-		retVal = [NSString stringWithFormat:@"'%@'", [NSString stringWithUTF8String:reply->reply]];
+		retVal = [NSString stringWithFormat:@"unknown type for: %@", [NSString stringWithUTF8String:reply->str]];
 	}
 	return retVal;
 }
