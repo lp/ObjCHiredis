@@ -26,6 +26,7 @@
 
 
 #import "ObjCHiredis.h"
+#import "NSArray+cVector.h"
 
 @interface ObjCHiredis ()
 
@@ -78,6 +79,14 @@
 	return retVal;
 }
 
+- (id)commandArgv:(NSArray *)cargv
+{
+	redisReply *reply = redisCommandArgv(context, [cargv count], [cargv cVector], NULL);
+	id retVal = [self parseReply:reply];
+    freeReplyObject(reply);
+	return retVal;
+}
+
 // Private Methods
 - (id)parseReply:(redisReply*)reply {
 	id retVal;
@@ -112,6 +121,7 @@
 	}
 	return [NSArray arrayWithArray:buildArray];
 }
+
 
 // ruby wrapper path, require ObjCHiredis.rb
 + (NSString*)rb {

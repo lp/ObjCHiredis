@@ -18,6 +18,12 @@
 		0C8DE95B128DBB1F00127FC3 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE951128DBB1F00127FC3 /* net.c */; };
 		0C8DE95C128DBB1F00127FC3 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE952128DBB1F00127FC3 /* async.h */; };
 		0C8DE95D128DBB1F00127FC3 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE953128DBB1F00127FC3 /* async.c */; };
+		0C8DE9FD128DF7FF00127FC3 /* NSArray+cVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE9FB128DF7FF00127FC3 /* NSArray+cVector.h */; };
+		0C8DE9FE128DF7FF00127FC3 /* NSArray+cVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE9FC128DF7FF00127FC3 /* NSArray+cVector.m */; };
+		0C8DE9FF128DF7FF00127FC3 /* NSArray+cVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE9FB128DF7FF00127FC3 /* NSArray+cVector.h */; };
+		0C8DEA00128DF7FF00127FC3 /* NSArray+cVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE9FC128DF7FF00127FC3 /* NSArray+cVector.m */; };
+		0C8DEA1B128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */; };
+		0C8DEA1C128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */; };
 		0C920CEF1269670C004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
 		0C920CF01269670C004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
 		0C920CF11269670C004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
@@ -110,6 +116,9 @@
 		0C8DE951128DBB1F00127FC3 /* net.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = net.c; sourceTree = "<group>"; };
 		0C8DE952128DBB1F00127FC3 /* async.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = async.h; sourceTree = "<group>"; };
 		0C8DE953128DBB1F00127FC3 /* async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async.c; sourceTree = "<group>"; };
+		0C8DE9FB128DF7FF00127FC3 /* NSArray+cVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+cVector.h"; sourceTree = "<group>"; };
+		0C8DE9FC128DF7FF00127FC3 /* NSArray+cVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+cVector.m"; sourceTree = "<group>"; };
+		0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_08_commandArgv_TestCase.m; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
 		0C920CEA1269670C004A624F /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hiredis.h; sourceTree = "<group>"; };
@@ -236,6 +245,8 @@
 			children = (
 				0C920CF612696722004A624F /* ObjCHiredis.m */,
 				0C920CF712696723004A624F /* ObjCHiredis.h */,
+				0C8DE9FB128DF7FF00127FC3 /* NSArray+cVector.h */,
+				0C8DE9FC128DF7FF00127FC3 /* NSArray+cVector.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -267,6 +278,7 @@
 				0C9215111271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m */,
 				0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */,
 				0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */,
+				0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -331,6 +343,7 @@
 				0C8DE959128DBB1F00127FC3 /* util.h in Headers */,
 				0C8DE95A128DBB1F00127FC3 /* net.h in Headers */,
 				0C8DE95C128DBB1F00127FC3 /* async.h in Headers */,
+				0C8DE9FD128DF7FF00127FC3 /* NSArray+cVector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +369,7 @@
 				0C8DE954128DBB1F00127FC3 /* util.h in Headers */,
 				0C8DE955128DBB1F00127FC3 /* net.h in Headers */,
 				0C8DE957128DBB1F00127FC3 /* async.h in Headers */,
+				0C8DE9FF128DF7FF00127FC3 /* NSArray+cVector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,6 +586,7 @@
 				0C9215121271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */,
 				0C9216891277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */,
 				0C921A8C127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */,
+				0C8DEA1B128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +599,7 @@
 				0C921FB412803908004A624F /* sds.c in Sources */,
 				0C8DE95B128DBB1F00127FC3 /* net.c in Sources */,
 				0C8DE95D128DBB1F00127FC3 /* async.c in Sources */,
+				0C8DE9FE128DF7FF00127FC3 /* NSArray+cVector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +614,7 @@
 				0C921FD312803988004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */,
 				0C921FD412803989004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */,
 				0C921FD51280398D004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */,
+				0C8DEA1C128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +637,7 @@
 				0C920CF812696723004A624F /* ObjCHiredis.m in Sources */,
 				0C8DE956128DBB1F00127FC3 /* net.c in Sources */,
 				0C8DE958128DBB1F00127FC3 /* async.c in Sources */,
+				0C8DEA00128DF7FF00127FC3 /* NSArray+cVector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

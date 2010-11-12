@@ -40,6 +40,7 @@
 + (id)redis;
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;
 - (id)command:(NSString*)command;
+- (id)commandArgv:(NSArray*)cargv;
 
 + (NSString*)rb;
 
