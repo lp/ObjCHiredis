@@ -26,11 +26,6 @@
 
 #import <Foundation/Foundation.h>
 #import "hiredis.h"
-#import "util.h"
-#import "net.h"
-#import "async.h"
-#import "sds.h"
-#import "fmacros.h"
 
 @interface ObjCHiredis : NSObject {
 	redisContext * context;

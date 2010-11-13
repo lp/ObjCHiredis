@@ -27,7 +27,7 @@
 		0C8DEA91128E274C00127FC3 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE94F128DBB1F00127FC3 /* util.h */; };
 		0C920CEF1269670C004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
 		0C920CF01269670C004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
-		0C920CF11269670C004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
+		0C920CF11269670C004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C920CF21269670C004A624F /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
 		0C920CF31269670C004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
 		0C920CF812696723004A624F /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
