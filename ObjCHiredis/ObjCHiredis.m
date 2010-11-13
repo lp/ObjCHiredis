@@ -26,11 +26,12 @@
 
 
 #import "ObjCHiredis.h"
-#import "NSArray+cVector.h"
+//#import "NSArray+cVector.h"
 
 @interface ObjCHiredis ()
 
 - (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(NSUInteger)size;
+- (const char**)cVectorFromArray:(NSArray*)array;
 - (id)parseReply:(redisReply*)reply;
 
 @end
@@ -81,7 +82,7 @@
 
 - (id)commandArgv:(NSArray *)cargv
 {
-	redisReply *reply = redisCommandArgv(context, [cargv count], [cargv cVector], NULL);
+	redisReply *reply = redisCommandArgv(context, [cargv count], [self cVectorFromArray:cargv], NULL);
 	id retVal = [self parseReply:reply];
     freeReplyObject(reply);
 	return retVal;
@@ -120,6 +121,18 @@
 		
 	}
 	return [NSArray arrayWithArray:buildArray];
+}
+
+- (const char**)cVectorFromArray:(NSArray*)array
+{
+	char ** vector = malloc(sizeof(char*) * (int)[array count]);
+	NSEnumerator * e = [array objectEnumerator];
+	id o;
+	while (o = [e nextObject]) {
+		int i = (int)[array indexOfObject:o];
+		vector[i] = (char*)[o UTF8String];
+	}
+	return (const char**)vector;
 }
 
 

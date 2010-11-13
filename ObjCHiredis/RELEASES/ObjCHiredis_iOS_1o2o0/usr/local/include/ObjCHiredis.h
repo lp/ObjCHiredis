@@ -1,5 +1,5 @@
 //
-//  NSArray+cVector.m
+//  ObjCHiredis.h
 //  ObjCHiredis
 //
 //  Created by Louis-Philippe on 10-10-15.
@@ -24,22 +24,24 @@
 //  THE SOFTWARE.
 // 
 
+#import <Foundation/Foundation.h>
+#import "hiredis.h"
+#import "util.h"
+#import "net.h"
+#import "async.h"
+#import "sds.h"
+#import "fmacros.h"
 
-#import "NSArray+cVector.h"
-
-@implementation NSArray (NSArray_cVector)
-
-
-- (const char**)cVector
-{
-	char ** vector = malloc(sizeof(char*) * [self count]);
-	NSEnumerator * e = [self objectEnumerator];
-	id o;
-	while (o = [e nextObject]) {
-		NSUInteger i = [self indexOfObject:o];
-		vector[i] = (char*)[o UTF8String];
-	}
-	return (const char**)vector;
+@interface ObjCHiredis : NSObject {
+	redisContext * context;
 }
+
++ (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber;
++ (id)redis;
+- (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;
+- (id)command:(NSString*)command;
+- (id)commandArgv:(NSArray*)cargv;
+
++ (NSString*)rb;
 
 @end

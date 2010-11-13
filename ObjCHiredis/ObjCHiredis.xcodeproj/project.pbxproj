@@ -18,12 +18,13 @@
 		0C8DE95B128DBB1F00127FC3 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE951128DBB1F00127FC3 /* net.c */; };
 		0C8DE95C128DBB1F00127FC3 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE952128DBB1F00127FC3 /* async.h */; };
 		0C8DE95D128DBB1F00127FC3 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE953128DBB1F00127FC3 /* async.c */; };
-		0C8DE9FD128DF7FF00127FC3 /* NSArray+cVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE9FB128DF7FF00127FC3 /* NSArray+cVector.h */; };
-		0C8DE9FE128DF7FF00127FC3 /* NSArray+cVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE9FC128DF7FF00127FC3 /* NSArray+cVector.m */; };
-		0C8DE9FF128DF7FF00127FC3 /* NSArray+cVector.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE9FB128DF7FF00127FC3 /* NSArray+cVector.h */; };
-		0C8DEA00128DF7FF00127FC3 /* NSArray+cVector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE9FC128DF7FF00127FC3 /* NSArray+cVector.m */; };
 		0C8DEA1B128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */; };
 		0C8DEA1C128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */; };
+		0C8DEA8B128E272A00127FC3 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE953128DBB1F00127FC3 /* async.c */; };
+		0C8DEA8C128E272B00127FC3 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE952128DBB1F00127FC3 /* async.h */; };
+		0C8DEA8D128E273900127FC3 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE951128DBB1F00127FC3 /* net.c */; };
+		0C8DEA8E128E273A00127FC3 /* net.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE950128DBB1F00127FC3 /* net.h */; };
+		0C8DEA91128E274C00127FC3 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE94F128DBB1F00127FC3 /* util.h */; };
 		0C920CEF1269670C004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
 		0C920CF01269670C004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
 		0C920CF11269670C004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
@@ -116,8 +117,6 @@
 		0C8DE951128DBB1F00127FC3 /* net.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = net.c; sourceTree = "<group>"; };
 		0C8DE952128DBB1F00127FC3 /* async.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = async.h; sourceTree = "<group>"; };
 		0C8DE953128DBB1F00127FC3 /* async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async.c; sourceTree = "<group>"; };
-		0C8DE9FB128DF7FF00127FC3 /* NSArray+cVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+cVector.h"; sourceTree = "<group>"; };
-		0C8DE9FC128DF7FF00127FC3 /* NSArray+cVector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+cVector.m"; sourceTree = "<group>"; };
 		0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_08_commandArgv_TestCase.m; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
@@ -245,8 +244,6 @@
 			children = (
 				0C920CF612696722004A624F /* ObjCHiredis.m */,
 				0C920CF712696723004A624F /* ObjCHiredis.h */,
-				0C8DE9FB128DF7FF00127FC3 /* NSArray+cVector.h */,
-				0C8DE9FC128DF7FF00127FC3 /* NSArray+cVector.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -343,7 +340,6 @@
 				0C8DE959128DBB1F00127FC3 /* util.h in Headers */,
 				0C8DE95A128DBB1F00127FC3 /* net.h in Headers */,
 				0C8DE95C128DBB1F00127FC3 /* async.h in Headers */,
-				0C8DE9FD128DF7FF00127FC3 /* NSArray+cVector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +351,9 @@
 				0C9221081280E379004A624F /* hiredis.h in Headers */,
 				0C9221091280E37F004A624F /* ObjCHiredis.h in Headers */,
 				0C92210D1280E388004A624F /* sds.h in Headers */,
+				0C8DEA8C128E272B00127FC3 /* async.h in Headers */,
+				0C8DEA8E128E273A00127FC3 /* net.h in Headers */,
+				0C8DEA91128E274C00127FC3 /* util.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +368,6 @@
 				0C8DE954128DBB1F00127FC3 /* util.h in Headers */,
 				0C8DE955128DBB1F00127FC3 /* net.h in Headers */,
 				0C8DE957128DBB1F00127FC3 /* async.h in Headers */,
-				0C8DE9FF128DF7FF00127FC3 /* NSArray+cVector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,7 +597,6 @@
 				0C921FB412803908004A624F /* sds.c in Sources */,
 				0C8DE95B128DBB1F00127FC3 /* net.c in Sources */,
 				0C8DE95D128DBB1F00127FC3 /* async.c in Sources */,
-				0C8DE9FE128DF7FF00127FC3 /* NSArray+cVector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +622,8 @@
 				0C9221071280E378004A624F /* hiredis.c in Sources */,
 				0C92210B1280E383004A624F /* ObjCHiredis.m in Sources */,
 				0C92210C1280E387004A624F /* sds.c in Sources */,
+				0C8DEA8B128E272A00127FC3 /* async.c in Sources */,
+				0C8DEA8D128E273900127FC3 /* net.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,7 +636,6 @@
 				0C920CF812696723004A624F /* ObjCHiredis.m in Sources */,
 				0C8DE956128DBB1F00127FC3 /* net.c in Sources */,
 				0C8DE958128DBB1F00127FC3 /* async.c in Sources */,
-				0C8DEA00128DF7FF00127FC3 /* NSArray+cVector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,7 +772,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Test_ObjCHiredis_iOS-Info.plist";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -804,7 +802,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				INFOPLIST_FILE = "Test_ObjCHiredis_iOS-Info.plist";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
