@@ -22,7 +22,7 @@ class ObjCHiredis
   
   # Most methods will fit in here
   def method_missing(meth_symbol, *args)
-    self.command("#{meth_symbol.to_s.upcase} #{args.join(' ')}")
+    self.commandArgv([meth_symbol.to_s.upcase, *args])
   end
   
   # the one that don't
