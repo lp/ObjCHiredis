@@ -12,6 +12,11 @@ p. For now it does same as Hiredis, only with an Objective-C Interface:
 bc. ObjCHiredis * redis = [ObjCHiredis redis];
 id retVal = [redis command:@"SET MYKEY MYVALUE"];
 
+p. Or with commandArgv:
+
+bc. id retVal = [redis commandArgv:[NSArray arrayWithObjects:
+                    @"SET", @"MYKEY", @"MYVALUE", nil]];
+
 p. Or inside MacRuby:
 
 bc. framework "ObjCHiredis"
