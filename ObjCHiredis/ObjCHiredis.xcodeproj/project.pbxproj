@@ -27,18 +27,6 @@
 		0C8DEA91128E274C00127FC3 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE94F128DBB1F00127FC3 /* util.h */; };
 		0C8DEC8E128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */; };
 		0C8DEC8F128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */; };
-		0C8DEDDE128FB21900127FC3 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE953128DBB1F00127FC3 /* async.c */; };
-		0C8DEDDF128FB21A00127FC3 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE952128DBB1F00127FC3 /* async.h */; };
-		0C8DEDE0128FB21E00127FC3 /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
-		0C8DEDE1128FB22000127FC3 /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
-		0C8DEDE2128FB22100127FC3 /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; };
-		0C8DEDE3128FB22900127FC3 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE951128DBB1F00127FC3 /* net.c */; };
-		0C8DEDE4128FB22A00127FC3 /* net.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE950128DBB1F00127FC3 /* net.h */; };
-		0C8DEDE5128FB22D00127FC3 /* ObjCHiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CF712696723004A624F /* ObjCHiredis.h */; };
-		0C8DEDE6128FB22F00127FC3 /* ObjCHiredis.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CF612696722004A624F /* ObjCHiredis.m */; };
-		0C8DEDE7128FB23C00127FC3 /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
-		0C8DEDE8128FB23D00127FC3 /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
-		0C8DEDE9128FB24700127FC3 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE94F128DBB1F00127FC3 /* util.h */; };
 		0C920CEF1269670C004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
 		0C920CF01269670C004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
 		0C920CF11269670C004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -133,7 +121,6 @@
 		0C8DE953128DBB1F00127FC3 /* async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async.c; sourceTree = "<group>"; };
 		0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_08_commandArgv_TestCase.m; sourceTree = "<group>"; };
 		0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_09_Publish_Subscribe.m; sourceTree = "<group>"; };
-		0C8DEDD2128FB20000127FC3 /* ObjCHiredis_Macruby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCHiredis_Macruby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C8DEDD3128FB20000127FC3 /* ObjCHiredis_Macruby-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCHiredis_Macruby-Info.plist"; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
@@ -166,13 +153,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0C8DEDD0128FB20000127FC3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0C920D0712696788004A624F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,7 +203,6 @@
 				0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */,
 				0C92201812806ADB004A624F /* Test_ObjCHiredis_MacRuby.octest */,
 				0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */,
-				0C8DEDD2128FB20000127FC3 /* ObjCHiredis_Macruby.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -356,20 +335,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0C8DEDCD128FB20000127FC3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0C8DEDDF128FB21A00127FC3 /* async.h in Headers */,
-				0C8DEDE0128FB21E00127FC3 /* fmacros.h in Headers */,
-				0C8DEDE2128FB22100127FC3 /* hiredis.h in Headers */,
-				0C8DEDE4128FB22A00127FC3 /* net.h in Headers */,
-				0C8DEDE5128FB22D00127FC3 /* ObjCHiredis.h in Headers */,
-				0C8DEDE8128FB23D00127FC3 /* sds.h in Headers */,
-				0C8DEDE9128FB24700127FC3 /* util.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0C921FA2128038D1004A624F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,24 +380,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0C8DEDD1128FB20000127FC3 /* ObjCHiredis_Macruby */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0C8DEDD6128FB20000127FC3 /* Build configuration list for PBXNativeTarget "ObjCHiredis_Macruby" */;
-			buildPhases = (
-				0C8DEDCD128FB20000127FC3 /* Headers */,
-				0C8DEDCE128FB20000127FC3 /* Resources */,
-				0C8DEDCF128FB20000127FC3 /* Sources */,
-				0C8DEDD0128FB20000127FC3 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ObjCHiredis_Macruby;
-			productName = ObjCHiredis_Macruby;
-			productReference = 0C8DEDD2128FB20000127FC3 /* ObjCHiredis_Macruby.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		0C920D0912696788004A624F /* Test_ObjCHiredis_OSX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C920D0E12696788004A624F /* Build configuration list for PBXNativeTarget "Test_ObjCHiredis_OSX" */;
@@ -560,19 +507,11 @@
 				0C921FBD12803934004A624F /* Test_ObjCHiredis_iOS */,
 				0C92201712806ADB004A624F /* Test_ObjCHiredis_MacRuby */,
 				0C9220EB1280E2A3004A624F /* ObjCHiredis_Simulator */,
-				0C8DEDD1128FB20000127FC3 /* ObjCHiredis_Macruby */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0C8DEDCE128FB20000127FC3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0C920D0512696788004A624F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -640,18 +579,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0C8DEDCF128FB20000127FC3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0C8DEDDE128FB21900127FC3 /* async.c in Sources */,
-				0C8DEDE1128FB22000127FC3 /* hiredis.c in Sources */,
-				0C8DEDE3128FB22900127FC3 /* net.c in Sources */,
-				0C8DEDE6128FB22F00127FC3 /* ObjCHiredis.m in Sources */,
-				0C8DEDE7128FB23C00127FC3 /* sds.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0C920D0612696788004A624F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -752,60 +679,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		0C8DEDD4128FB20000127FC3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "ObjCHiredis_Macruby-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = ObjCHiredis_Macruby;
-			};
-			name = Debug;
-		};
-		0C8DEDD5128FB20000127FC3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_VERSION = A;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "ObjCHiredis_Macruby-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = ObjCHiredis_Macruby;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		0C920D0C12696788004A624F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1109,15 +982,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C8DEDD6128FB20000127FC3 /* Build configuration list for PBXNativeTarget "ObjCHiredis_Macruby" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0C8DEDD4128FB20000127FC3 /* Debug */,
-				0C8DEDD5128FB20000127FC3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		0C920D0E12696788004A624F /* Build configuration list for PBXNativeTarget "Test_ObjCHiredis_OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
