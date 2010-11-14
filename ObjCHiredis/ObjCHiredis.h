@@ -37,6 +37,7 @@
 - (id)command:(NSString*)command;
 - (id)commandArgv:(NSArray*)cargv;
 
+
 + (NSString*)rb;
 
 @end
