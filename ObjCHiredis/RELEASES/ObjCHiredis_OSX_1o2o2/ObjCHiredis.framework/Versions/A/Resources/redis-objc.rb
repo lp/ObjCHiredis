@@ -22,10 +22,7 @@ class ObjCHiredis
   
   # Most methods will fit in here
   def method_missing(meth_symbol, *args)
-	puts "calling #{meth_symbol.to_s} with #{args.inspect}"
-    ret = self.commandArgv([meth_symbol.to_s.upcase, *args.map { |a| a.to_s }])
-	puts "returns: #{ret.inspect}"
-	ret
+    return self.commandArgv([meth_symbol.to_s.upcase, *args.map { |a| a.to_s }])
   end
   
   # the one that don't

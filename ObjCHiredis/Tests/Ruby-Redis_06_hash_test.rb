@@ -16,14 +16,14 @@ class InitTest < Test::Unit::TestCase
   
   def teardown
     @redis.flushdb
-	@redis.quit
+    @redis.quit
   end
   
   def test_01_hset
-	retVal = @redis.hset("myhash","myfield","myvalue")
-	assert_instance_of Fixnum, retVal
-	assert_equal 1, retVal
-	end
-	
+    retVal = @redis.hset("myhash","myfield","myvalue")
+    assert_instance_of Fixnum, retVal
+    assert_equal 1, retVal
+  end
+  
   
 end
