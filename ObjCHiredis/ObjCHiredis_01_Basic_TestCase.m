@@ -50,8 +50,8 @@
 	STAssertNotNil(redis, @"Couldn't init... ");
 	STAssertTrue([[ObjCHiredis redis:@"localhost" on:[NSNumber numberWithInt:6379]] isKindOfClass:[ObjCHiredis class]],
 				 @"ObjCHiredis didn't init properly with specific options");
-	ObjCHiredis * tempRedis = [[ObjCHiredis alloc] init];
-	STAssertTrue([tempRedis connect:@"127.0.0.1" on:[NSNumber numberWithInt:6379]], @"");
+	//ObjCHiredis * tempRedis = [[ObjCHiredis alloc] init];
+	//STAssertTrue([tempRedis connect:@"127.0.0.1" on:[NSNumber numberWithInt:6379]], @"");
 }
 
 - (void)test_03_EXISTS {

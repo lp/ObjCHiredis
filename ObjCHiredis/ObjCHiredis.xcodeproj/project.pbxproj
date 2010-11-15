@@ -27,6 +27,8 @@
 		0C8DEA91128E274C00127FC3 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE94F128DBB1F00127FC3 /* util.h */; };
 		0C8DEC8E128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */; };
 		0C8DEC8F128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */; };
+		0C910C161291945A002353C3 /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
+		0C910C1A1291947B002353C3 /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
 		0C920CEF1269670C004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
 		0C920CF01269670C004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
 		0C920CF11269670C004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,7 +43,6 @@
 		0C921397126F170E004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921396126F170E004A624F /* ObjCHiredis_06_Hash_TestCase.m */; };
 		0C9215121271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9215111271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m */; };
 		0C9216891277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */; };
-		0C921A8C127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
 		0C921FAF128038F4004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
 		0C921FB0128038F7004A624F /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
 		0C921FB1128038F8004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,7 +56,6 @@
 		0C921FD212803987004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9215111271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m */; };
 		0C921FD312803988004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */; };
 		0C921FD412803989004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921396126F170E004A624F /* ObjCHiredis_06_Hash_TestCase.m */; };
-		0C921FD51280398D004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
 		0C9220F71280E31C004A624F /* ObjCHiredis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */; };
 		0C9220FA1280E339004A624F /* libObjCHiredis_Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */; };
 		0C9221061280E375004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
@@ -121,7 +121,6 @@
 		0C8DE953128DBB1F00127FC3 /* async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async.c; sourceTree = "<group>"; };
 		0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_08_commandArgv_TestCase.m; sourceTree = "<group>"; };
 		0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_09_Publish_Subscribe.m; sourceTree = "<group>"; };
-		0C8DEDD3128FB20000127FC3 /* ObjCHiredis_Macruby-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCHiredis_Macruby-Info.plist"; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
 		0C920CEA1269670C004A624F /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hiredis.h; sourceTree = "<group>"; };
@@ -218,7 +217,6 @@
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
-				0C8DEDD3128FB20000127FC3 /* ObjCHiredis_Macruby-Info.plist */,
 			);
 			name = ObjCHiredis;
 			sourceTree = "<group>";
@@ -589,9 +587,9 @@
 				0C921397126F170E004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */,
 				0C9215121271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */,
 				0C9216891277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */,
-				0C921A8C127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */,
 				0C8DEA1B128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m in Sources */,
 				0C8DEC8E128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m in Sources */,
+				0C910C161291945A002353C3 /* ObjCHiredis_07_MultiExecCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,9 +615,9 @@
 				0C921FD212803987004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */,
 				0C921FD312803988004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */,
 				0C921FD412803989004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */,
-				0C921FD51280398D004A624F /* ObjCHiredis_07_MultiExecCommand.m in Sources */,
 				0C8DEA1C128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m in Sources */,
 				0C8DEC8F128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m in Sources */,
+				0C910C1A1291947B002353C3 /* ObjCHiredis_07_MultiExecCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +686,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -716,6 +715,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";

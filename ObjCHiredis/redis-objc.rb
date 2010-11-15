@@ -22,17 +22,17 @@ class ObjCHiredis
   
   # Most methods will fit in here
   def method_missing(meth_symbol, *args)
-    self.commandArgv([meth_symbol.to_s.upcase, *args])
+    self.commandArgv([meth_symbol.to_s.upcase, *args.map { |a| a.to_s }])
   end
   
   # the one that don't
   
   def [](key)
-    self.command("GET #{key}")
+    self.commandArgv(["GET", key])
   end
   
   def []=(key, value)
-    self.command("SET #{key} #{value}")
+    self.commandArgv(["SET", key, value])
   end
 
 end

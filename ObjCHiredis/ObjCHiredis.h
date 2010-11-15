@@ -29,15 +29,16 @@
 
 @interface ObjCHiredis : NSObject {
 	redisContext * context;
+	NSString * hostIP;
+	NSNumber * hostPort;
 }
+
++ (NSString*)rb;
 
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber;
 + (id)redis;
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;
 - (id)command:(NSString*)command;
 - (id)commandArgv:(NSArray*)cargv;
-
-
-+ (NSString*)rb;
 
 @end

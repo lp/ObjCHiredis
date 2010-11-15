@@ -26,13 +26,16 @@
 
 
 #import "ObjCHiredis.h"
-//#import "NSArray+cVector.h"
+
 
 @interface ObjCHiredis ()
 
 - (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(NSUInteger)size;
 - (const char**)cVectorFromArray:(NSArray*)array;
 - (id)parseReply:(redisReply*)reply;
+
+- (BOOL)connect;
+- (BOOL)connected;
 
 @end
 
@@ -45,6 +48,14 @@
 		
 	}	
 	return self;
+}
+
+- (void)dealloc {
+    if (context != NULL) {
+		redisFree(context);
+		context = NULL;
+	}
+    [super dealloc];
 }
 
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber {
@@ -63,17 +74,38 @@
 }
 
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber {
-    context = redisConnect([ipaddress UTF8String], [portnumber intValue]);
+	hostIP = ipaddress;
+	[hostIP retain];
+	hostPort = portnumber;
+	[hostPort retain];
+	return [self connect];
+}
+
+- (BOOL)connect
+{
+	context = redisConnect([hostIP UTF8String], [hostPort intValue]);
     if (context->err != 0) {
-        NSLog(@"Connection error: %s", context->errstr);
         return NO;
     } else {
 		return YES;
 	}
 }
 
+- (BOOL)connected
+{
+	if (context == NULL) {
+		return [self connect];
+	} else if (!(context->flags & REDIS_CONNECTED)) {
+		redisFree(context);
+		return [self connect];
+	}
+	return YES;
+}
+
 - (id)command:(NSString*)command
 {
+	if (! [self connected]) { return nil; }
+	
 	redisReply *reply = redisCommand(context,[command UTF8String]);
 	id retVal = [self parseReply:reply];
     freeReplyObject(reply);
@@ -82,6 +114,8 @@
 
 - (id)commandArgv:(NSArray *)cargv
 {
+	if (! [self connected]) { return nil; }
+	
 	redisReply *reply = redisCommandArgv(context, [cargv count], [self cVectorFromArray:cargv], NULL);
 	id retVal = [self parseReply:reply];
     freeReplyObject(reply);
@@ -111,7 +145,7 @@
 }
 
 - (NSArray*)arrayFromVector:(redisReply**)vec ofSize:(NSUInteger)size {
-	NSMutableArray * buildArray = [NSMutableArray array];
+	NSMutableArray * buildArray = [NSMutableArray arrayWithCapacity:size];
 	for (NSUInteger i = 0; i < size; i++) {
 		if (vec[i] != NULL) {
 			[buildArray addObject:[self parseReply:vec[i]]];
@@ -130,7 +164,11 @@
 	id o;
 	while (o = [e nextObject]) {
 		int i = (int)[array indexOfObject:o];
-		vector[i] = (char*)[o UTF8String];
+		if ([o isKindOfClass:[NSString class]]) {
+			vector[i] = (char*)[o UTF8String];
+		} else if ([o isKindOfClass:[NSNumber class]]) {
+			vector[i] = (char*)[[o stringValue] UTF8String];
+		}
 	}
 	return (const char**)vector;
 }

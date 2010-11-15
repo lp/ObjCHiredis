@@ -16,7 +16,7 @@ class InitTest < Test::Unit::TestCase
   
   def teardown
     @redis.flushdb
-    @redis.quit
+    @redis.close
   end
   
   def test_01_hset
