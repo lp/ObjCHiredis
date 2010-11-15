@@ -122,6 +122,12 @@
 	return retVal;
 }
 
+- (void)close
+{
+	redisFree(context);
+	context = NULL;
+}
+
 // Private Methods
 - (id)parseReply:(redisReply*)reply {
 	id retVal;

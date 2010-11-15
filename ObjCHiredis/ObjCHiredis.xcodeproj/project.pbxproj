@@ -56,7 +56,7 @@
 		0C921FD212803987004A624F /* ObjCHiredis_04_Set_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9215111271BE4A004A624F /* ObjCHiredis_04_Set_TestCase.m */; };
 		0C921FD312803988004A624F /* ObjCHiredis_05_SortedSet_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9216881277023E004A624F /* ObjCHiredis_05_SortedSet_TestCase.m */; };
 		0C921FD412803989004A624F /* ObjCHiredis_06_Hash_TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921396126F170E004A624F /* ObjCHiredis_06_Hash_TestCase.m */; };
-		0C9220F71280E31C004A624F /* ObjCHiredis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */; };
+		0C9220F71280E31C004A624F /* ObjCHiredis in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjCHiredis */; };
 		0C9220FA1280E339004A624F /* libObjCHiredis_Simulator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C9220EC1280E2A3004A624F /* libObjCHiredis_Simulator.a */; };
 		0C9221061280E375004A624F /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEC1269670C004A624F /* fmacros.h */; };
 		0C9221071280E378004A624F /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CEB1269670C004A624F /* hiredis.c */; };
@@ -147,7 +147,7 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* ObjCHiredis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCHiredis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC2EF5B0486A6940098B216 /* ObjCHiredis */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = ObjCHiredis; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -156,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C9220F71280E31C004A624F /* ObjCHiredis.framework in Frameworks */,
+				0C9220F71280E31C004A624F /* ObjCHiredis in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,7 +196,7 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */,
+				8DC2EF5B0486A6940098B216 /* ObjCHiredis */,
 				0C920D0A12696788004A624F /* Test_ObjCHiredis_OSX.octest */,
 				0C921FA6128038D1004A624F /* libObjCHiredis_iOS.a */,
 				0C921FBE12803934004A624F /* Test_ObjCHiredis_iOS.octest */,
@@ -483,7 +483,7 @@
 			name = ObjCHiredis;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = ObjCHiredis;
-			productReference = 8DC2EF5B0486A6940098B216 /* ObjCHiredis.framework */;
+			productReference = 8DC2EF5B0486A6940098B216 /* ObjCHiredis */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */

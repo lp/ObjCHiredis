@@ -9,7 +9,7 @@ class InitTest < Test::Unit::TestCase
   
   def teardown
     @redis.flushdb
-    @redis.close
+	@redis.quit
   end
   
   def test_01_reality
@@ -23,7 +23,7 @@ class InitTest < Test::Unit::TestCase
   def test_03_init_with_options
     tempRedis = ObjCHiredis.redisRb(:host => "127.0.0.1", :port => 6379)
     assert_instance_of ObjCHiredis, tempRedis
-    tempRedis.quit
+    # tempRedis.quit
   end
   
   def test_04_exists

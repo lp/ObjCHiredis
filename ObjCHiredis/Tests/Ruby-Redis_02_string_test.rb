@@ -9,7 +9,7 @@ class StringTest < Test::Unit::TestCase
   
   def teardown
     @redis.flushdb
-    @redis.close
+	@redis.quit
   end
   
   def test_01_rubyHash

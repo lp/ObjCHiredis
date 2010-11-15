@@ -32,6 +32,7 @@
 
 - (void)tearDown {
 	[redis command:@"FLUSHALL"];
+	[redis close];
 	[redis release];
 }
 
