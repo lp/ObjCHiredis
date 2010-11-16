@@ -122,6 +122,37 @@
 	return retVal;
 }
 
+- (id)getReply
+{
+	if (! [self connected]) { return nil; }
+	
+    int wdone = 0;
+    void *aux = NULL;
+	
+    /* Try to read pending replies */
+    if (redisGetReplyFromReader(context,&aux) == REDIS_ERR)
+        return nil;
+	
+    if (aux == NULL) {
+        do { /* Write until done */
+            if (redisBufferWrite(context,&wdone) == REDIS_ERR)
+                return nil;
+        } while (!wdone);
+        do { /* Read until there is a reply */
+            //rb_thread_wait_fd(context->fd);
+            if (redisBufferRead(context) == REDIS_ERR)
+                return nil;
+            if (redisGetReplyFromReader(context,&aux) == REDIS_ERR)
+                return nil;
+        } while (aux == NULL);
+    }
+	
+    redisReply * reply = (redisReply*)aux;
+	id retVal =  [self parseReply:reply];
+	freeReplyObject(reply);
+	return retVal;
+}
+
 - (void)close
 {
 	redisFree(context);

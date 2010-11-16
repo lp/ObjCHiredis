@@ -122,6 +122,7 @@
 		0C8DEA1A128DFB4600127FC3 /* ObjCHiredis_08_commandArgv_TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_08_commandArgv_TestCase.m; sourceTree = "<group>"; };
 		0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_09_Publish_Subscribe.m; sourceTree = "<group>"; };
 		0C910DC71291E12B002353C3 /* Ruby-Redis_03_list_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_03_list_test.rb"; sourceTree = "<group>"; };
+		0C910E751292F161002353C3 /* Ruby-Redis_07_pubsub_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_07_pubsub_test.rb"; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
 		0C920CEA1269670C004A624F /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hiredis.h; sourceTree = "<group>"; };
@@ -302,6 +303,7 @@
 				0C6099101283754600871FD2 /* Ruby-Redis_02_string_test.rb */,
 				0C609EB2128C47D700871FD2 /* Ruby-Redis_06_hash_test.rb */,
 				0C910DC71291E12B002353C3 /* Ruby-Redis_03_list_test.rb */,
+				0C910E751292F161002353C3 /* Ruby-Redis_07_pubsub_test.rb */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

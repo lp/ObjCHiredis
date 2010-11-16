@@ -41,6 +41,8 @@
 - (id)command:(NSString*)command;
 - (id)commandArgv:(NSArray*)cargv;
 
+- (NSArray*)getReply;
+
 - (void)close;
 
 @end
