@@ -3,11 +3,11 @@ h1. ObjCHiredis
 h3. Objective-C Wrapper around "Hiredis":http://github.com/antirez/hiredis
 
 p. Same, Same, Same... but different! Comes in many flavour:
-* "A universal _Framework_ for MacOS 10.5 and later, compatible with _MacRuby_ and _Nu_.":https://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_OSX_1o2o2.zip
-* "A _Static Library_ for the iOS (armv6 and armv7).":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_iOS_1o2o2.zip
-* "A _Static Library_ for the iPhone/iPad Simulator":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_Simulator_1o2o2.zip
+* "A universal _Framework_ for MacOS 10.5 and later, compatible with _MacRuby_ and _Nu_.":https://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_OSX_1o3o0.zip
+* "A _Static Library_ for the iOS (armv6 and armv7).":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_iOS_1o3o0.zip
+* "A _Static Library_ for the iPhone/iPad Simulator":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_Simulator_1o3o0.zip
 
-p. For now it does same as Hiredis, only with an Objective-C Interface:
+p. For now, it behaves in similar manners to Hiredis, in blocking mode, only with an Objective-C Interface:
 
 bc. ObjCHiredis * redis = [ObjCHiredis redis];
 id retVal = [redis command:@"SET MYKEY MYVALUE"];
@@ -16,13 +16,20 @@ p. Or with commandArgv:
 
 bc. id retVal = [redis commandArgv:[NSArray arrayWithObjects:
                     @"SET", @"MYKEY", @"MYVALUE", nil]];
+                    
+p. Pub/Sub implementation
 
-p. Or inside MacRuby:
+bc. [redis command:@"SUBSCRIBE CHANNELZ"];
+retVal = [redis getReply];
+// Will block until it receives data from a a PUBLISH CHANNELZ.
+
+p. Also inside MacRuby:
 
 bc. framework "ObjCHiredis"
 require ObjCHiredis.rb
 redis = ObjCHiredis.redisRb
 retval = redis.set :mykey, "myvalue"
+
 
 h2. Licenses
 

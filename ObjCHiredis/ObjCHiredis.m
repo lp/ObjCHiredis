@@ -122,6 +122,7 @@
 	return retVal;
 }
 
+// used with SUBSCRIBE to receive data back when ready
 - (id)getReply
 {
 	if (! [self connected]) { return nil; }
