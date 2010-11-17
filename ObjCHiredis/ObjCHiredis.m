@@ -98,6 +98,9 @@
 	} else if (!(context->flags & REDIS_CONNECTED)) {
 		redisFree(context);
 		return [self connect];
+	} else if (context->err != 0) {
+		redisFree(context);
+		return [self connect];
 	}
 	return YES;
 }
