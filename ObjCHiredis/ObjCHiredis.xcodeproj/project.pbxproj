@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C6099761288378200871FD2 /* redis-objc.rb in copy ruby */ = {isa = PBXBuildFile; fileRef = 0C609922128383A700871FD2 /* redis-objc.rb */; };
+		0C6099761288378200871FD2 /* redis-objc.rb in copy ruby and nu */ = {isa = PBXBuildFile; fileRef = 0C609922128383A700871FD2 /* redis-objc.rb */; };
 		0C8DE954128DBB1F00127FC3 /* util.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE94F128DBB1F00127FC3 /* util.h */; };
 		0C8DE955128DBB1F00127FC3 /* net.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C8DE950128DBB1F00127FC3 /* net.h */; };
 		0C8DE956128DBB1F00127FC3 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DE951128DBB1F00127FC3 /* net.c */; };
@@ -29,6 +29,7 @@
 		0C8DEC8F128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */; };
 		0C910C161291945A002353C3 /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
 		0C910C1A1291947B002353C3 /* ObjCHiredis_07_MultiExecCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C921A8B127A20E2004A624F /* ObjCHiredis_07_MultiExecCommand.m */; };
+		0C9111001296ADED002353C3 /* redis-objc.nu in copy ruby and nu */ = {isa = PBXBuildFile; fileRef = 0C9110FF1296ADD2002353C3 /* redis-objc.nu */; };
 		0C920CEF1269670C004A624F /* sds.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CE81269670C004A624F /* sds.h */; };
 		0C920CF01269670C004A624F /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C920CE91269670C004A624F /* sds.c */; };
 		0C920CF11269670C004A624F /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C920CEA1269670C004A624F /* hiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,15 +94,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0C6099751288377F00871FD2 /* copy ruby */ = {
+		0C6099751288377F00871FD2 /* copy ruby and nu */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				0C6099761288378200871FD2 /* redis-objc.rb in copy ruby */,
+				0C9111001296ADED002353C3 /* redis-objc.nu in copy ruby and nu */,
+				0C6099761288378200871FD2 /* redis-objc.rb in copy ruby and nu */,
 			);
-			name = "copy ruby";
+			name = "copy ruby and nu";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -123,6 +125,7 @@
 		0C8DEC8D128F418100127FC3 /* ObjCHiredis_09_Publish_Subscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHiredis_09_Publish_Subscribe.m; sourceTree = "<group>"; };
 		0C910DC71291E12B002353C3 /* Ruby-Redis_03_list_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_03_list_test.rb"; sourceTree = "<group>"; };
 		0C910E751292F161002353C3 /* Ruby-Redis_07_pubsub_test.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = "Ruby-Redis_07_pubsub_test.rb"; sourceTree = "<group>"; };
+		0C9110FF1296ADD2002353C3 /* redis-objc.nu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.nu; path = "redis-objc.nu"; sourceTree = "<group>"; };
 		0C920CE81269670C004A624F /* sds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sds.h; sourceTree = "<group>"; };
 		0C920CE91269670C004A624F /* sds.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sds.c; sourceTree = "<group>"; };
 		0C920CEA1269670C004A624F /* hiredis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hiredis.h; sourceTree = "<group>"; };
@@ -211,6 +214,7 @@
 		0867D691FE84028FC02AAC07 /* ObjCHiredis */ = {
 			isa = PBXGroup;
 			children = (
+				0C9110FE1296ADBB002353C3 /* Nu-Redis */,
 				0C92200E128069E7004A624F /* Ruby-Redis */,
 				0C920CFB12696729004A624F /* Tests */,
 				0C920CE6126966F1004A624F /* Hiredis */,
@@ -251,6 +255,14 @@
 				0C920CF712696723004A624F /* ObjCHiredis.h */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		0C9110FE1296ADBB002353C3 /* Nu-Redis */ = {
+			isa = PBXGroup;
+			children = (
+				0C9110FF1296ADD2002353C3 /* redis-objc.nu */,
+			);
+			name = "Nu-Redis";
 			sourceTree = "<group>";
 		};
 		0C920CE6126966F1004A624F /* Hiredis */ = {
@@ -478,7 +490,7 @@
 				8DC2EF520486A6940098B216 /* Resources */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
-				0C6099751288377F00871FD2 /* copy ruby */,
+				0C6099751288377F00871FD2 /* copy ruby and nu */,
 			);
 			buildRules = (
 			);

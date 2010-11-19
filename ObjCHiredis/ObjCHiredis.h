@@ -34,6 +34,7 @@
 }
 
 + (NSString*)rb;
++ (NSString*)nu;
 
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber;
 + (id)redis;

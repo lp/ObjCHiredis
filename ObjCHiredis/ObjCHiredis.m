@@ -95,7 +95,8 @@
 {
 	if (context == NULL) {
 		return [self connect];
-	} else if (!(context->flags & REDIS_CONNECTED)) {
+	} 
+	else if (!(context->flags & REDIS_CONNECTED)) {
 		redisFree(context);
 		return [self connect];
 	} else if (context->err != 0) {
@@ -107,7 +108,7 @@
 
 - (id)command:(NSString*)command
 {
-	if (! [self connected]) { return nil; }
+	//if (! [self connected]) { return nil; }
 	
 	redisReply *reply = redisCommand(context,[command UTF8String]);
 	id retVal = [self parseReply:reply];
@@ -217,12 +218,12 @@
 
 // ruby wrapper path, require ObjCHiredis.rb
 + (NSString*)rb {
-	NSString * rbPath = nil;
-	rbPath = [[NSBundle bundleForClass:[ObjCHiredis class]] pathForResource:@"redis-objc" ofType:nil];
-	if (rbPath == nil) {
-		rbPath = [[NSBundle bundleForClass:[ObjCHiredis class]] pathForResource:@"redis-objc" ofType:@"rb"];
-	}
-	return rbPath;
+	return [[NSBundle bundleForClass:[ObjCHiredis class]] pathForResource:@"redis-objc" ofType:@"rb"];
+}
+
+// nu wrapper path, (load (ObjCHiredis nu))
++ (NSString*)nu {
+	return [[NSBundle bundleForClass:[ObjCHiredis class]] pathForResource:@"redis-objc" ofType:@"nu"];
 }
 
 @end
