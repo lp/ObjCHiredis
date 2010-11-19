@@ -31,6 +31,7 @@ redis = ObjCHiredis.redisRb
 retval = redis.set :mykey, "myvalue"
 
 p. With Nu:
+
 bc. (load "ObjCHiredis")
 (load (ObjCHiredis nu))
 (set redis (redisNu))
