@@ -22,11 +22,9 @@ class ObjCHiredis
   
   # Most methods will fit in here
   def method_missing(meth_symbol, *args)
-    puts self.inspect
     begin
       return self.commandArgv([meth_symbol.to_s.upcase, *args.map { |a| a.to_s }])
     rescue Exception => e
-      puts "rescued: #{e.inspect}"
       return nil
     end
   end

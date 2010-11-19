@@ -31,6 +31,8 @@
 	redisContext * context;
 	NSString * hostIP;
 	NSNumber * hostPort;
+	
+	NSDate * lastCommandDate;
 }
 
 + (NSString*)rb;
@@ -43,6 +45,7 @@
 - (id)commandArgv:(NSArray*)cargv;
 
 - (NSArray*)getReply;
+- (BOOL)timesOut;
 
 - (void)close;
 

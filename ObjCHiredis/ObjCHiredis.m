@@ -45,7 +45,8 @@
 {
 	self = [super init];
 	if (self != nil) {
-		
+		lastCommandDate = [NSDate date];
+		[lastCommandDate retain];
 	}	
 	return self;
 }
@@ -55,6 +56,7 @@
 		redisFree(context);
 		context = NULL;
 	}
+	[lastCommandDate release];
     [super dealloc];
 }
 
@@ -95,20 +97,24 @@
 {
 	if (context == NULL) {
 		return [self connect];
-	} 
-	else if (!(context->flags & REDIS_CONNECTED)) {
+	} else if (!(context->flags & REDIS_CONNECTED)) {
 		redisFree(context);
 		return [self connect];
 	} else if (context->err != 0) {
 		redisFree(context);
 		return [self connect];
 	}
+	else if ([self timesOut]) {
+		redisFree(context);
+		return [self connect];
+	}
+	
 	return YES;
 }
 
 - (id)command:(NSString*)command
 {
-	//if (! [self connected]) { return nil; }
+	if (! [self connected]) { return nil; }
 	
 	redisReply *reply = redisCommand(context,[command UTF8String]);
 	id retVal = [self parseReply:reply];
@@ -129,8 +135,7 @@
 // used with SUBSCRIBE to receive data back when ready
 - (id)getReply
 {
-	if (! [self connected]) { return nil; }
-	
+	[self timesOut];
     int wdone = 0;
     void *aux = NULL;
 	
@@ -144,7 +149,6 @@
                 return nil;
         } while (!wdone);
         do { /* Read until there is a reply */
-            //rb_thread_wait_fd(context->fd);
             if (redisBufferRead(context) == REDIS_ERR)
                 return nil;
             if (redisGetReplyFromReader(context,&aux) == REDIS_ERR)
@@ -156,6 +160,20 @@
 	id retVal =  [self parseReply:reply];
 	freeReplyObject(reply);
 	return retVal;
+}
+
+- (BOOL)timesOut
+{
+	NSDate * now = [NSDate date];
+	NSTimeInterval elapsed = [now timeIntervalSinceDate:lastCommandDate];
+	[lastCommandDate release];
+	lastCommandDate = now;
+	[lastCommandDate retain];
+	
+	if (elapsed > (NSTimeInterval)300.0) {
+		return YES;
+	}
+	return NO;
 }
 
 - (void)close
