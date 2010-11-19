@@ -3,9 +3,9 @@ h1. ObjCHiredis
 h3. Objective-C Wrapper around "Hiredis":http://github.com/antirez/hiredis
 
 p. Same, Same, Same... but different! Comes in many flavour:
-* "A universal _Framework_ for MacOS 10.5 and later, compatible with _MacRuby_ and _Nu_.":https://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_OSX_1o3o0.zip
-* "A _Static Library_ for the iOS (armv6 and armv7).":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_iOS_1o3o0.zip
-* "A _Static Library_ for the iPhone/iPad Simulator":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_Simulator_1o3o0.zip
+* "A universal _Framework_ for MacOS 10.5 and later, compatible with _MacRuby_ and _Nu_.":https://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_OSX_1o3o2.zip
+* "A _Static Library_ for the iOS (armv6 and armv7).":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_iOS_1o3o2.zip
+* "A _Static Library_ for the iPhone/iPad Simulator":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_Simulator_1o3o2.zip
 
 p. For now, it behaves in similar manners to Hiredis, in blocking mode, only with an Objective-C Interface:
 
@@ -29,6 +29,12 @@ bc. framework "ObjCHiredis"
 require ObjCHiredis.rb
 redis = ObjCHiredis.redisRb
 retval = redis.set :mykey, "myvalue"
+
+p. With Nu:
+bc. (load "ObjCHiredis")
+(load (ObjCHiredis nu))
+(set redis (redisNu))
+(set retVal (redis "SET" "MYKEY" "MYVALUE"))
 
 
 h2. Licenses
