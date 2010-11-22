@@ -26,12 +26,12 @@
 @implementation ObjCHiredis_09_Publish_Subscribe
 
 - (void)setUp {
-	redis = [ObjCHiredis redis];
+	redis = [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379] db:[NSNumber numberWithInt:101]];
 	[redis retain];
 }
 
 - (void)tearDown {
-	[redis command:@"FLUSHALL"];
+	[redis command:@"FLUSHDB"];
 	[redis close];
 	[redis release];
 }

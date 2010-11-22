@@ -26,7 +26,7 @@
 @implementation ObjCHiredis_04_Set_TestCase
 
 - (void)setUp {
-	redis = [ObjCHiredis redis];
+	redis = [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379] db:[NSNumber numberWithInt:101]];
 	[redis command:@"SADD BASKET PRUNE"];
 	[redis command:@"SADD BASKET TOMATO"];
 	[redis command:@"SADD BASKET ZUCHINI"];
@@ -37,7 +37,7 @@
 }
 
 - (void)tearDown {
-	[redis command:@"FLUSHALL"];
+	[redis command:@"FLUSHDB"];
 	[redis close];
 	[redis release];
 }

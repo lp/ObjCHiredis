@@ -38,6 +38,7 @@
 + (NSString*)rb;
 + (NSString*)nu;
 
++ (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber db:(NSNumber*)db;
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber;
 + (id)redis;
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber;

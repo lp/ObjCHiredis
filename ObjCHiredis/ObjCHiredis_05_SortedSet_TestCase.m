@@ -27,7 +27,7 @@
 @implementation ObjCHiredis_05_SortedSet_TestCase
 
 - (void)setUp {
-	redis = [ObjCHiredis redis];
+	redis = [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379] db:[NSNumber numberWithInt:101]];
 	[redis command:@"ZADD BASKET 2 PRUNE"];
 	[redis command:@"ZADD BASKET 4 TOMATO"];
 	[redis command:@"ZADD BASKET 6 ZUCHINI"];
@@ -40,7 +40,7 @@
 }
 
 - (void)tearDown {
-	[redis command:@"FLUSHALL"];
+	[redis command:@"FLUSHDB"];
 	[redis close];
 	[redis release];
 }

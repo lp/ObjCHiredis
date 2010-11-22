@@ -60,6 +60,16 @@
     [super dealloc];
 }
 
++ (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber db:(NSNumber*)db {
+	ObjCHiredis * redis = [ObjCHiredis redis:ipaddress on:portnumber];
+	if ([redis isKindOfClass:[ObjCHiredis class]]) {
+		[redis commandArgv:[NSArray arrayWithObjects:
+							@"SELECT", [db stringValue], nil]];
+		return redis;
+	}
+	return nil;
+}
+
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber {
 	ObjCHiredis * redis = [[ObjCHiredis alloc] init];
 	[redis autorelease];

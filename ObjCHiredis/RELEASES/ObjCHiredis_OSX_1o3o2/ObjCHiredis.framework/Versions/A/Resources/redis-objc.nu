@@ -11,9 +11,13 @@
   )
   
   (do (*command)
-    (objcRedis commandArgv:
-      (NSArray arrayWithList:
-        *command))
-  )
+    (if (eq "getReply" (*command 0))
+      (then
+        (objcRedis getReply))
+      (else
+        (objcRedis commandArgv:
+          (NSArray arrayWithList:
+            *command)))
+    ))
 )
 

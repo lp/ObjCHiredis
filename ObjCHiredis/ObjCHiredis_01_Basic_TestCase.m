@@ -27,7 +27,7 @@
 @implementation ObjCHiredis_01_Basic_TestCase
 
 - (void)setUp {
-	redis = [ObjCHiredis redis];
+	redis = [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379] db:[NSNumber numberWithInt:101]];
 	[redis retain];
 	
 	[redis command:@"SET MYSTRING MYVALUE"];
@@ -38,7 +38,7 @@
 }
 
 - (void)tearDown {
-	[redis command:@"FLUSHALL"];
+	[redis command:@"FLUSHDB"];
 	[redis close];
 	[redis release];
 }
@@ -51,8 +51,12 @@
 	STAssertNotNil(redis, @"Couldn't init... ");
 	STAssertTrue([[ObjCHiredis redis:@"localhost" on:[NSNumber numberWithInt:6379]] isKindOfClass:[ObjCHiredis class]],
 				 @"ObjCHiredis didn't init properly with specific options");
-	//ObjCHiredis * tempRedis = [[ObjCHiredis alloc] init];
-	//STAssertTrue([tempRedis connect:@"127.0.0.1" on:[NSNumber numberWithInt:6379]], @"");
+	ObjCHiredis * tempRedis = [[ObjCHiredis alloc] init];
+	STAssertTrue([tempRedis connect:@"127.0.0.1" on:[NSNumber numberWithInt:6379]], @"");
+	
+	id retVal = [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379] db:[NSNumber numberWithInt:2]];
+	STAssertTrue([retVal isKindOfClass:[ObjCHiredis class]],
+				 @"redis:on:db: didn't return an initiated ObjCHiredis, got: %@", [retVal class]);
 }
 
 - (void)test_03_EXISTS {
