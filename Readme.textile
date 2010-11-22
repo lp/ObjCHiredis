@@ -3,14 +3,19 @@ h1. ObjCHiredis
 h3. Objective-C Wrapper around "Hiredis":http://github.com/antirez/hiredis
 
 p. Same, Same, Same... but different! Comes in many flavour:
-* "A universal _Framework_ for MacOS 10.5 and later, compatible with _MacRuby_ and _Nu_.":https://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_OSX_1o3o2.zip
-* "A _Static Library_ for the iOS (armv6 and armv7).":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_iOS_1o3o2.zip
-* "A _Static Library_ for the iPhone/iPad Simulator":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_Simulator_1o3o2.zip
+* "A universal _Framework_ for MacOS 10.5 and later, compatible with _MacRuby_ and _Nu_.":https://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_OSX_1o3o3.zip
+* "A _Static Library_ for the iOS (armv6 and armv7).":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_iOS_1o3o3.zip
+* "A _Static Library_ for the iPhone/iPad Simulator":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_Simulator_1o3o3.zip
+
+p. Creation of an autoreleased object is easy and comes in 3 flavours:
+
+bc. ObjCHiredis * redis = [ObjCHiredis redis];
+ObjCHiredis * redis = [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379]];
+ObjCHiredis * redis = [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379] db:[NSNumber numberWithInt:69]];
 
 p. For now, it behaves in similar manners to Hiredis, in blocking mode, only with an Objective-C Interface:
 
-bc. ObjCHiredis * redis = [ObjCHiredis redis];
-id retVal = [redis command:@"SET MYKEY MYVALUE"];
+bc. id retVal = [redis command:@"SET MYKEY MYVALUE"];
 
 p. Or with commandArgv:
 
