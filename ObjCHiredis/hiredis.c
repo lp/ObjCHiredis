@@ -48,6 +48,7 @@ typedef struct redisReader {
 
     redisReadTask rstack[3]; /* stack of read tasks */
     int ridx; /* index of stack */
+    void *privdata; /* user-settable arbitrary field */
 } redisReader;
 
 static redisReply *createReplyObject(int type);
@@ -235,9 +236,8 @@ static int processLineItem(redisReader *r) {
             obj = (void*)(size_t)(cur->type);
         }
 
-        /* If there is no root yet, register this object as root. */
-        if (r->reply == NULL)
-            r->reply = obj;
+        /* Set reply if this is the root object. */
+        if (r->ridx == 0) r->reply = obj;
         moveToNextTask(r);
         return 0;
     }
@@ -250,6 +250,7 @@ static int processBulkItem(redisReader *r) {
     char *p, *s;
     long len;
     unsigned long bytelen;
+    int success = 0;
 
     p = r->buf+r->pos;
     s = seekNewline(p);
@@ -262,20 +263,23 @@ static int processBulkItem(redisReader *r) {
             /* The nil object can always be created. */
             obj = r->fn ? r->fn->createNil(cur) :
                 (void*)REDIS_REPLY_NIL;
+            success = 1;
         } else {
             /* Only continue when the buffer contains the entire bulk item. */
             bytelen += len+2; /* include \r\n */
             if (r->pos+bytelen <= sdslen(r->buf)) {
                 obj = r->fn ? r->fn->createString(cur,s+2,len) :
                     (void*)REDIS_REPLY_STRING;
+                success = 1;
             }
         }
 
         /* Proceed when obj was created. */
-        if (obj != NULL) {
+        if (success) {
             r->pos += bytelen;
-            if (r->reply == NULL)
-                r->reply = obj;
+
+            /* Set reply if this is the root object. */
+            if (r->ridx == 0) r->reply = obj;
             moveToNextTask(r);
             return 0;
         }
@@ -288,9 +292,19 @@ static int processMultiBulkItem(redisReader *r) {
     void *obj;
     char *p;
     long elements;
+    int root = 0;
+
+    /* Set error for nested multi bulks with depth > 1 */
+    if (r->ridx == 2) {
+        redisSetReplyReaderError(r,sdscatprintf(sdsempty(),
+            "No support for nested multi bulk replies with depth > 1"));
+        return -1;
+    }
 
     if ((p = readLine(r,NULL)) != NULL) {
         elements = strtol(p,NULL,10);
+        root = (r->ridx == 0);
+
         if (elements == -1) {
             obj = r->fn ? r->fn->createNil(cur) :
                 (void*)REDIS_REPLY_NIL;
@@ -306,15 +320,16 @@ static int processMultiBulkItem(redisReader *r) {
                 r->rstack[r->ridx].type = -1;
                 r->rstack[r->ridx].elements = -1;
                 r->rstack[r->ridx].parent = obj;
+                r->rstack[r->ridx].parentTask = cur;
                 r->rstack[r->ridx].idx = 0;
+                r->rstack[r->ridx].privdata = r->privdata;
             } else {
                 moveToNextTask(r);
             }
         }
 
-        /* Object was created, so we can always continue. */
-        if (r->reply == NULL)
-            r->reply = obj;
+        /* Set reply if this is the root object. */
+        if (root) r->reply = obj;
         return 0;
     }
     return -1;
@@ -347,7 +362,7 @@ static int processItem(redisReader *r) {
             default:
                 byte = sdscatrepr(sdsempty(),p,1);
                 redisSetReplyReaderError(r,sdscatprintf(sdsempty(),
-                    "protocol error, got %s as reply type byte", byte));
+                    "Protocol error, got %s as reply type byte", byte));
                 sdsfree(byte);
                 return -1;
             }
@@ -368,8 +383,7 @@ static int processItem(redisReader *r) {
     case REDIS_REPLY_ARRAY:
         return processMultiBulkItem(r);
     default:
-        redisSetReplyReaderError(r,sdscatprintf(sdsempty(),
-            "unknown item type '%d'", cur->type));
+        assert(NULL);
         return -1;
     }
 }
@@ -389,6 +403,17 @@ int redisReplyReaderSetReplyObjectFunctions(void *reader, redisReplyObjectFuncti
     redisReader *r = reader;
     if (r->reply == NULL) {
         r->fn = fn;
+        return REDIS_OK;
+    }
+    return REDIS_ERR;
+}
+
+/* Set the private data field that is used in the read tasks. This argument can
+ * be used to curry arbitrary data to the custom reply object functions. */
+int redisReplyReaderSetPrivdata(void *reader, void *privdata) {
+    redisReader *r = reader;
+    if (r->reply == NULL) {
+        r->privdata = privdata;
         return REDIS_OK;
     }
     return REDIS_ERR;
@@ -453,8 +478,9 @@ int redisReplyReaderGetReply(void *reader, void **reply) {
     if (r->ridx == -1) {
         r->rstack[0].type = -1;
         r->rstack[0].elements = -1;
-        r->rstack[0].parent = NULL;
+        r->rstack[0].parent = r->rstack[0].parentTask = NULL;
         r->rstack[0].idx = -1;
+        r->rstack[0].privdata = r->privdata;
         r->ridx = 0;
     }
 
@@ -525,6 +551,7 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
     char *cmd = NULL; /* final command */
     int pos; /* position in final command */
     sds current; /* current argument */
+    int interpolated = 0; /* did we do interpolation on an argument? */
     char **argv = NULL;
     int argc = 0, j;
     int totlen = 0;
@@ -541,6 +568,7 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
                 if (sdslen(current) != 0) {
                     addArgument(current, &argv, &argc, &totlen);
                     current = sdsempty();
+                    interpolated = 0;
                 }
             } else {
                 current = sdscatlen(current,c,1);
@@ -549,15 +577,20 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
             switch(c[1]) {
             case 's':
                 arg = va_arg(ap,char*);
-                current = sdscat(current,arg);
+                size = strlen(arg);
+                if (size > 0)
+                    current = sdscatlen(current,arg,size);
+                interpolated = 1;
                 break;
             case 'b':
                 arg = va_arg(ap,char*);
                 size = va_arg(ap,size_t);
-                current = sdscatlen(current,arg,size);
+                if (size > 0)
+                    current = sdscatlen(current,arg,size);
+                interpolated = 1;
                 break;
             case '%':
-                cmd = sdscat(cmd,"%");
+                current = sdscat(current,"%");
                 break;
             }
             c++;
@@ -566,7 +599,7 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
     }
 
     /* Add the last argument if needed */
-    if (sdslen(current) != 0) {
+    if (interpolated || sdslen(current) != 0) {
         addArgument(current, &argv, &argc, &totlen);
     } else {
         sdsfree(current);
