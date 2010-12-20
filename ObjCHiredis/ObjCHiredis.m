@@ -146,30 +146,36 @@
 - (id)getReply
 {
 	[self timesOut];
-    int wdone = 0;
-    void *aux = NULL;
+	void * aux = NULL;
+	NSMutableArray * replies = [NSMutableArray array];
 	
-    /* Try to read pending replies */
-    if (redisGetReplyFromReader(context,&aux) == REDIS_ERR)
-        return nil;
+	if (redisGetReply(context, &aux) == REDIS_ERR) { return nil; }
+	if (aux == NULL) {
+		int wdone = 0;
+		while (!wdone) { /* Write until done */
+			if (redisBufferWrite(context,&wdone) == REDIS_ERR) {
+				return nil;
+			}
+		}
+			
+		while(redisGetReply(context,&aux) == REDIS_OK) { // get reply
+			redisReply * reply = (redisReply*)aux;
+			[replies addObject:[self parseReply:reply]];
+			freeReplyObject(reply);
+		}
+	} else {
+		redisReply * reply = (redisReply*)aux;
+		[replies addObject:[self parseReply:reply]];
+		freeReplyObject(reply);
+	}
 	
-    if (aux == NULL) {
-        do { /* Write until done */
-            if (redisBufferWrite(context,&wdone) == REDIS_ERR)
-                return nil;
-        } while (!wdone);
-        do { /* Read until there is a reply */
-            if (redisBufferRead(context) == REDIS_ERR)
-                return nil;
-            if (redisGetReplyFromReader(context,&aux) == REDIS_ERR)
-                return nil;
-        } while (aux == NULL);
-    }
-	
-    redisReply * reply = (redisReply*)aux;
-	id retVal =  [self parseReply:reply];
-	freeReplyObject(reply);
-	return retVal;
+	if ([replies count] > 1) {
+		return [NSArray arrayWithArray:replies];
+	} else if ([replies count] == 1) {
+		return [replies objectAtIndex:0];
+	} else {
+		return nil;
+	}
 }
 
 - (BOOL)timesOut
