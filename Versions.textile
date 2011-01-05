@@ -1,0 +1,4 @@
+h2. Version Notes:
+
+* 1.3.6 Update hiredis source to Latest Version
+* 1.3.5 Better getReply implementation

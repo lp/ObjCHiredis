@@ -41,7 +41,7 @@
 		0C93237912BFC2A200DC1777 /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93236F12BFC2A200DC1777 /* sds.c */; };
 		0C93237A12BFC2A200DC1777 /* net.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237012BFC2A200DC1777 /* net.h */; };
 		0C93237B12BFC2A200DC1777 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93237112BFC2A200DC1777 /* net.c */; };
-		0C93237C12BFC2A200DC1777 /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237212BFC2A200DC1777 /* hiredis.h */; };
+		0C93237C12BFC2A200DC1777 /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237212BFC2A200DC1777 /* hiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C93237D12BFC2A200DC1777 /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93237312BFC2A200DC1777 /* hiredis.c */; };
 		0C93237E12BFC2A200DC1777 /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237412BFC2A200DC1777 /* fmacros.h */; };
 		0C93237F12BFC2A200DC1777 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237512BFC2A200DC1777 /* async.h */; };
@@ -51,7 +51,7 @@
 		0C93238312BFC2A200DC1777 /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93236F12BFC2A200DC1777 /* sds.c */; };
 		0C93238412BFC2A200DC1777 /* net.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237012BFC2A200DC1777 /* net.h */; };
 		0C93238512BFC2A200DC1777 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93237112BFC2A200DC1777 /* net.c */; };
-		0C93238612BFC2A200DC1777 /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237212BFC2A200DC1777 /* hiredis.h */; };
+		0C93238612BFC2A200DC1777 /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237212BFC2A200DC1777 /* hiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C93238712BFC2A200DC1777 /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93237312BFC2A200DC1777 /* hiredis.c */; };
 		0C93238812BFC2A200DC1777 /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237412BFC2A200DC1777 /* fmacros.h */; };
 		0C93238912BFC2A200DC1777 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237512BFC2A200DC1777 /* async.h */; };
@@ -61,11 +61,17 @@
 		0C93238D12BFC2A200DC1777 /* sds.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93236F12BFC2A200DC1777 /* sds.c */; };
 		0C93238E12BFC2A200DC1777 /* net.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237012BFC2A200DC1777 /* net.h */; };
 		0C93238F12BFC2A200DC1777 /* net.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93237112BFC2A200DC1777 /* net.c */; };
-		0C93239012BFC2A200DC1777 /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237212BFC2A200DC1777 /* hiredis.h */; };
+		0C93239012BFC2A200DC1777 /* hiredis.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237212BFC2A200DC1777 /* hiredis.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C93239112BFC2A200DC1777 /* hiredis.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93237312BFC2A200DC1777 /* hiredis.c */; };
 		0C93239212BFC2A200DC1777 /* fmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237412BFC2A200DC1777 /* fmacros.h */; };
 		0C93239312BFC2A200DC1777 /* async.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C93237512BFC2A200DC1777 /* async.h */; };
 		0C93239412BFC2A200DC1777 /* async.c in Sources */ = {isa = PBXBuildFile; fileRef = 0C93237612BFC2A200DC1777 /* async.c */; };
+		0CD74D8012D4F14500EB3B24 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD74D7E12D4F14500EB3B24 /* dict.h */; };
+		0CD74D8112D4F14500EB3B24 /* dict.c in Sources */ = {isa = PBXBuildFile; fileRef = 0CD74D7F12D4F14500EB3B24 /* dict.c */; };
+		0CD74D8212D4F14500EB3B24 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD74D7E12D4F14500EB3B24 /* dict.h */; };
+		0CD74D8312D4F14500EB3B24 /* dict.c in Sources */ = {isa = PBXBuildFile; fileRef = 0CD74D7F12D4F14500EB3B24 /* dict.c */; };
+		0CD74D8412D4F14500EB3B24 /* dict.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD74D7E12D4F14500EB3B24 /* dict.h */; };
+		0CD74D8512D4F14500EB3B24 /* dict.c in Sources */ = {isa = PBXBuildFile; fileRef = 0CD74D7F12D4F14500EB3B24 /* dict.c */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +155,8 @@
 		0C93237412BFC2A200DC1777 /* fmacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmacros.h; sourceTree = "<group>"; };
 		0C93237512BFC2A200DC1777 /* async.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = async.h; sourceTree = "<group>"; };
 		0C93237612BFC2A200DC1777 /* async.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = async.c; sourceTree = "<group>"; };
+		0CD74D7E12D4F14500EB3B24 /* dict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dict.h; sourceTree = "<group>"; };
+		0CD74D7F12D4F14500EB3B24 /* dict.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dict.c; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF5E0370ADEE00C91783 /* ObjCHiredis_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHiredis_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -268,6 +276,8 @@
 		0C920CE6126966F1004A624F /* Hiredis */ = {
 			isa = PBXGroup;
 			children = (
+				0CD74D7E12D4F14500EB3B24 /* dict.h */,
+				0CD74D7F12D4F14500EB3B24 /* dict.c */,
 				0C93236D12BFC2A200DC1777 /* util.h */,
 				0C93236E12BFC2A200DC1777 /* sds.h */,
 				0C93236F12BFC2A200DC1777 /* sds.c */,
@@ -360,6 +370,7 @@
 				0C93238612BFC2A200DC1777 /* hiredis.h in Headers */,
 				0C93238812BFC2A200DC1777 /* fmacros.h in Headers */,
 				0C93238912BFC2A200DC1777 /* async.h in Headers */,
+				0CD74D8212D4F14500EB3B24 /* dict.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +385,7 @@
 				0C93239012BFC2A200DC1777 /* hiredis.h in Headers */,
 				0C93239212BFC2A200DC1777 /* fmacros.h in Headers */,
 				0C93239312BFC2A200DC1777 /* async.h in Headers */,
+				0CD74D8412D4F14500EB3B24 /* dict.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +400,7 @@
 				0C93237C12BFC2A200DC1777 /* hiredis.h in Headers */,
 				0C93237E12BFC2A200DC1777 /* fmacros.h in Headers */,
 				0C93237F12BFC2A200DC1777 /* async.h in Headers */,
+				0CD74D8012D4F14500EB3B24 /* dict.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +631,7 @@
 				0C93238512BFC2A200DC1777 /* net.c in Sources */,
 				0C93238712BFC2A200DC1777 /* hiredis.c in Sources */,
 				0C93238A12BFC2A200DC1777 /* async.c in Sources */,
+				0CD74D8312D4F14500EB3B24 /* dict.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +660,7 @@
 				0C93238F12BFC2A200DC1777 /* net.c in Sources */,
 				0C93239112BFC2A200DC1777 /* hiredis.c in Sources */,
 				0C93239412BFC2A200DC1777 /* async.c in Sources */,
+				0CD74D8512D4F14500EB3B24 /* dict.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +673,7 @@
 				0C93237B12BFC2A200DC1777 /* net.c in Sources */,
 				0C93237D12BFC2A200DC1777 /* hiredis.c in Sources */,
 				0C93238012BFC2A200DC1777 /* async.c in Sources */,
+				0CD74D8112D4F14500EB3B24 /* dict.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

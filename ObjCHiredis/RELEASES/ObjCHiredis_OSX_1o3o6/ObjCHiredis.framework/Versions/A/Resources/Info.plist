@@ -5,15 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string></string>
+	<string>ObjCHiredis</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.untilnil.${PRODUCT_NAME:rfc1034Identifier}</string>
+	<string>com.untilnil.ObjCHiredis</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>ObjCHiredis</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
@@ -22,8 +20,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>NSPrincipalClass</key>
-	<string></string>
 	<key>NSHumanReadableCopyright</key>
 	<string>© 2010, untilnil, Louis-Philippe Perron</string>
 </dict>
