@@ -434,7 +434,7 @@ static int processItem(redisReader *r) {
     }
 }
 
-void *redisReplyReaderCreate() {
+void *redisReplyReaderCreate(void) {
     redisReader *r = calloc(sizeof(redisReader),1);
     r->error = NULL;
     r->fn = &defaultFunctions;
@@ -493,7 +493,7 @@ static void redisSetReplyReaderError(redisReader *r, sds err) {
     if (r->buf != NULL) {
         sdsfree(r->buf);
         r->buf = sdsempty();
-        r->pos = 0;
+        r->pos = r->len = 0;
     }
     r->ridx = -1;
     r->error = err;
@@ -504,7 +504,7 @@ char *redisReplyReaderGetError(void *reader) {
     return r->error;
 }
 
-void redisReplyReaderFeed(void *reader, char *buf, size_t len) {
+void redisReplyReaderFeed(void *reader, const char *buf, size_t len) {
     redisReader *r = reader;
 
     /* Copy the provided buffer. */
@@ -538,15 +538,10 @@ int redisReplyReaderGetReply(void *reader, void **reply) {
         if (processItem(r) < 0)
             break;
 
-    /* Discard the consumed part of the buffer. */
-    if (r->pos > 0) {
-        if (r->pos == r->len) {
-            /* sdsrange has a quirck on this edge case. */
-            sdsfree(r->buf);
-            r->buf = sdsempty();
-        } else {
-            r->buf = sdsrange(r->buf,r->pos,r->len);
-        }
+    /* Discard part of the buffer when we've consumed at least 1k, to avoid
+     * doing unnecessary calls to memmove() in sds.c. */
+    if (r->pos >= 1024) {
+        r->buf = sdsrange(r->buf,r->pos,-1);
         r->pos = 0;
         r->len = sdslen(r->buf);
     }
@@ -798,7 +793,7 @@ void __redisSetError(redisContext *c, int type, const sds errstr) {
     }
 }
 
-static redisContext *redisContextInit() {
+static redisContext *redisContextInit(void) {
     redisContext *c = calloc(sizeof(redisContext),1);
     c->err = 0;
     c->errstr = NULL;
@@ -826,28 +821,42 @@ void redisFree(redisContext *c) {
 redisContext *redisConnect(const char *ip, int port) {
     redisContext *c = redisContextInit();
     c->flags |= REDIS_BLOCK;
-    redisContextConnectTcp(c,ip,port);
+    redisContextConnectTcp(c,ip,port,NULL);
+    return c;
+}
+
+redisContext *redisConnectWithTimeout(const char *ip, int port, struct timeval tv) {
+    redisContext *c = redisContextInit();
+    c->flags |= REDIS_BLOCK;
+    redisContextConnectTcp(c,ip,port,&tv);
     return c;
 }
 
 redisContext *redisConnectNonBlock(const char *ip, int port) {
     redisContext *c = redisContextInit();
     c->flags &= ~REDIS_BLOCK;
-    redisContextConnectTcp(c,ip,port);
+    redisContextConnectTcp(c,ip,port,NULL);
     return c;
 }
 
 redisContext *redisConnectUnix(const char *path) {
     redisContext *c = redisContextInit();
     c->flags |= REDIS_BLOCK;
-    redisContextConnectUnix(c,path);
+    redisContextConnectUnix(c,path,NULL);
+    return c;
+}
+
+redisContext *redisConnectUnixWithTimeout(const char *path, struct timeval tv) {
+    redisContext *c = redisContextInit();
+    c->flags |= REDIS_BLOCK;
+    redisContextConnectUnix(c,path,&tv);
     return c;
 }
 
 redisContext *redisConnectUnixNonBlock(const char *path) {
     redisContext *c = redisContextInit();
     c->flags &= ~REDIS_BLOCK;
-    redisContextConnectUnix(c,path);
+    redisContextConnectUnix(c,path,NULL);
     return c;
 }
 

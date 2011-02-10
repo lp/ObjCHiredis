@@ -330,9 +330,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>71</integer>
+				<integer>155</integer>
 				<key>line</key>
-				<integer>6</integer>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>Versions.textile</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>47</integer>
+				<key>line</key>
+				<integer>2</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -343,6 +357,7 @@
 	<key>openDocuments</key>
 	<array>
 		<string>Readme.textile</string>
+		<string>Versions.textile</string>
 		<string>ObjCHiredis/redis-objc.nu</string>
 		<string>ObjCHiredis/ObjCHiredis_07_MultiExecCommand.m</string>
 		<string>ObjCHiredis/ObjCHiredis_09_Publish_Subscribe.m</string>
