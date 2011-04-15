@@ -271,14 +271,17 @@ static int processLineItem(redisReader *r) {
     int len;
 
     if ((p = readLine(r,&len)) != NULL) {
-        if (r->fn) {
-            if (cur->type == REDIS_REPLY_INTEGER) {
+        if (cur->type == REDIS_REPLY_INTEGER) {
+            if (r->fn && r->fn->createInteger)
                 obj = r->fn->createInteger(cur,readLongLong(p));
-            } else {
-                obj = r->fn->createString(cur,p,len);
-            }
+            else
+                obj = (void*)REDIS_REPLY_INTEGER;
         } else {
-            obj = (void*)(size_t)(cur->type);
+            /* Type will be error or status. */
+            if (r->fn && r->fn->createString)
+                obj = r->fn->createString(cur,p,len);
+            else
+                obj = (void*)(size_t)(cur->type);
         }
 
         /* Set reply if this is the root object. */
@@ -306,15 +309,19 @@ static int processBulkItem(redisReader *r) {
 
         if (len < 0) {
             /* The nil object can always be created. */
-            obj = r->fn ? r->fn->createNil(cur) :
-                (void*)REDIS_REPLY_NIL;
+            if (r->fn && r->fn->createNil)
+                obj = r->fn->createNil(cur);
+            else
+                obj = (void*)REDIS_REPLY_NIL;
             success = 1;
         } else {
             /* Only continue when the buffer contains the entire bulk item. */
             bytelen += len+2; /* include \r\n */
             if (r->pos+bytelen <= r->len) {
-                obj = r->fn ? r->fn->createString(cur,s+2,len) :
-                    (void*)REDIS_REPLY_STRING;
+                if (r->fn && r->fn->createString)
+                    obj = r->fn->createString(cur,s+2,len);
+                else
+                    obj = (void*)REDIS_REPLY_STRING;
                 success = 1;
             }
         }
@@ -351,12 +358,16 @@ static int processMultiBulkItem(redisReader *r) {
         root = (r->ridx == 0);
 
         if (elements == -1) {
-            obj = r->fn ? r->fn->createNil(cur) :
-                (void*)REDIS_REPLY_NIL;
+            if (r->fn && r->fn->createNil)
+                obj = r->fn->createNil(cur);
+            else
+                obj = (void*)REDIS_REPLY_NIL;
             moveToNextTask(r);
         } else {
-            obj = r->fn ? r->fn->createArray(cur,elements) :
-                (void*)REDIS_REPLY_ARRAY;
+            if (r->fn && r->fn->createArray)
+                obj = r->fn->createArray(cur,elements);
+            else
+                obj = (void*)REDIS_REPLY_ARRAY;
 
             /* Modify task stack when there are more than 0 elements. */
             if (elements > 0) {
@@ -509,6 +520,13 @@ void redisReplyReaderFeed(void *reader, const char *buf, size_t len) {
 
     /* Copy the provided buffer. */
     if (buf != NULL && len >= 1) {
+        /* Destroy internal buffer when it is empty and is quite large. */
+        if (r->len == 0 && sdsavail(r->buf) > 16*1024) {
+            sdsfree(r->buf);
+            r->buf = sdsempty();
+            r->pos = 0;
+        }
+
         r->buf = sdscatlen(r->buf,buf,len);
         r->len = sdslen(r->buf);
     }
@@ -551,13 +569,6 @@ int redisReplyReaderGetReply(void *reader, void **reply) {
         void *aux = r->reply;
         r->reply = NULL;
 
-        /* Destroy the buffer when it is empty and is quite large. */
-        if (r->len == 0 && sdsavail(r->buf) > 16*1024) {
-            sdsfree(r->buf);
-            r->buf = sdsempty();
-            r->pos = 0;
-        }
-
         /* Check if there actually *is* a reply. */
         if (r->error != NULL) {
             return REDIS_ERR;
@@ -596,7 +607,7 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
     char *cmd = NULL; /* final command */
     int pos; /* position in final command */
     sds current; /* current argument */
-    int interpolated = 0; /* did we do interpolation on an argument? */
+    int touched = 0; /* was the current argument touched? */
     char **argv = NULL;
     int argc = 0, j;
     int totlen = 0;
@@ -610,13 +621,14 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
     while(*c != '\0') {
         if (*c != '%' || c[1] == '\0') {
             if (*c == ' ') {
-                if (sdslen(current) != 0) {
+                if (touched) {
                     addArgument(current, &argv, &argc, &totlen);
                     current = sdsempty();
-                    interpolated = 0;
+                    touched = 0;
                 }
             } else {
                 current = sdscatlen(current,c,1);
+                touched = 1;
             }
         } else {
             switch(c[1]) {
@@ -625,14 +637,12 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
                 size = strlen(arg);
                 if (size > 0)
                     current = sdscatlen(current,arg,size);
-                interpolated = 1;
                 break;
             case 'b':
                 arg = va_arg(ap,char*);
                 size = va_arg(ap,size_t);
                 if (size > 0)
                     current = sdscatlen(current,arg,size);
-                interpolated = 1;
                 break;
             case '%':
                 current = sdscat(current,"%");
@@ -678,7 +688,6 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
                             _format[_l] = '\0';
                             va_copy(_cpy,ap);
                             current = sdscatvprintf(current,_format,_cpy);
-                            interpolated = 1;
                             va_end(_cpy);
 
                             /* Update current position (note: outer blocks
@@ -691,13 +700,14 @@ int redisvFormatCommand(char **target, const char *format, va_list ap) {
                     va_arg(ap,void);
                 }
             }
+            touched = 1;
             c++;
         }
         c++;
     }
 
     /* Add the last argument if needed */
-    if (interpolated || sdslen(current) != 0) {
+    if (touched) {
         addArgument(current, &argv, &argc, &totlen);
     } else {
         sdsfree(current);
