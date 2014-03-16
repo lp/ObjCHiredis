@@ -3,9 +3,9 @@ h1. ObjCHiredis
 h3. Objective-C Wrapper around "Hiredis":http://github.com/antirez/hiredis
 
 p. Same, Same, Same... but different! Comes in many flavour:
-* "A universal _Framework_ for MacOS 10.5 and later, compatible with _MacRuby_ and _Nu_.":https://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_OSX_1o3o9.zip
-* "A _Static Library_ for the iOS (armv6 and armv7).":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_iOS_1o3o9.zip
-* "A _Static Library_ for the iPhone/iPad Simulator":http://github.com/downloads/lp/ObjCHiredis/ObjCHiredis_Simulator_1o3o9.zip
+* "A universal _Framework_ for MacOS 10.5 and later, compatible with _MacRuby_ and _Nu_.":https://github.com/genadyo/ObjCHiredis/blob/master/ObjCHiredis/RELEASES/ObjCHiredis_OSX_1o4o0.zip
+* "A _Static Library_ for the iOS (armv6 and armv7).":https://github.com/genadyo/ObjCHiredis/blob/master/ObjCHiredis/RELEASES/ObjCHiredis_iOS_1o4o0.zip
+* "A _Static Library_ for the iPhone/iPad Simulator":https://github.com/genadyo/ObjCHiredis/blob/master/ObjCHiredis/RELEASES/ObjCHiredis_Simulator_1o4o0.zip
 
 p. Creation of an autoreleased object is easy and comes in 3 flavours:
 
