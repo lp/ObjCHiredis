@@ -28,7 +28,6 @@
 
 - (void)setUp {
 	redis = [ObjCHiredis redis:@"127.0.0.1" on:[NSNumber numberWithInt:6379] db:[NSNumber numberWithInt:101]];
-	[redis retain];
 	
 	[redis command:@"SET MYSTRING MYVALUE"];
 	[redis command:@"RPUSH MYLIST MYVALUE"];
@@ -40,7 +39,6 @@
 - (void)tearDown {
 	[redis command:@"FLUSHDB"];
 	[redis close];
-	[redis release];
 }
 
 - (void) test_01_Math {

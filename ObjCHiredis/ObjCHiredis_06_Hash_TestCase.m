@@ -31,13 +31,11 @@
 	[redis command:@"HSET BASKET PRUNE 10"];
 	[redis command:@"HSET BASKET ZUCHINI 3"];
 	[redis command:@"HSET BAG TOMATO ITALIAN"];
-	[redis retain];
 }
 
 - (void)tearDown {
 	[redis command:@"FLUSHDB"];
 	[redis close];
-	[redis release];
 }
 
 - (void)test_01_HSET {

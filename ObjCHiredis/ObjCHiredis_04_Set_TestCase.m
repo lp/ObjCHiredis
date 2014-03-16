@@ -33,13 +33,11 @@
 	[redis command:@"SADD BAG TOMATO"];
 	[redis command:@"SADD BAG POTATO"];
 	[redis command:@"SADD BAG ONION"];
-	[redis retain];
 }
 
 - (void)tearDown {
 	[redis command:@"FLUSHDB"];
 	[redis close];
-	[redis release];
 }
 
 - (void)test_01_SADD {
