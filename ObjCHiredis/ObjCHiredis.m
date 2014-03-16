@@ -46,7 +46,6 @@
 	self = [super init];
 	if (self != nil) {
 		lastCommandDate = [NSDate date];
-		[lastCommandDate retain];
 	}	
 	return self;
 }
@@ -56,8 +55,6 @@
 		redisFree(context);
 		context = NULL;
 	}
-	[lastCommandDate release];
-    [super dealloc];
 }
 
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber db:(NSNumber*)db {
@@ -72,7 +69,6 @@
 
 + (id)redis:(NSString*)ipaddress on:(NSNumber*)portnumber {
 	ObjCHiredis * redis = [[ObjCHiredis alloc] init];
-	[redis autorelease];
 	
 	if ([redis connect:ipaddress on:portnumber]) {
 		return redis;
@@ -87,9 +83,7 @@
 
 - (BOOL)connect:(NSString*)ipaddress on:(NSNumber*)portnumber {
 	hostIP = ipaddress;
-	[hostIP retain];
 	hostPort = portnumber;
-	[hostPort retain];
 	return [self connect];
 }
 
@@ -182,9 +176,7 @@
 {
 	NSDate * now = [NSDate date];
 	NSTimeInterval elapsed = [now timeIntervalSinceDate:lastCommandDate];
-	[lastCommandDate release];
 	lastCommandDate = now;
-	[lastCommandDate retain];
 	
 	if (elapsed > (NSTimeInterval)300.0) {
 		return YES;
