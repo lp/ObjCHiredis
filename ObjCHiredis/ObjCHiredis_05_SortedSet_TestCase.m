@@ -36,13 +36,11 @@
 	[redis command:@"ZADD BAG 3 ONION"];
 	[redis command:@"ZADD BAG 3.6 KNIFE"];
 	[redis command:@"ZADD BAG 3.3 SAUSAGE"];
-	[redis retain];
 }
 
 - (void)tearDown {
 	[redis command:@"FLUSHDB"];
 	[redis close];
-	[redis release];
 }
 
 - (void)test_01_ZADD {
