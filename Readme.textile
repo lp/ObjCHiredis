@@ -1,4 +1,8 @@
 h1. ObjCHiredis
+#Details of the maintainer
+ like 
+ Email:vojo@gmail.com
+ Contact:985*******
 
 h3. Objective-C Wrapper around "Hiredis":http://github.com/antirez/hiredis
 
